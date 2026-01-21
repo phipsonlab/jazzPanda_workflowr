@@ -1,0 +1,3844 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Melody" />
+
+<meta name="date" content="2025-09-29" />
+
+<title>Cosmx human liver cancer sample</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">jazzPanda_workflowr</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Analyses
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="xenium-human-breast-cancer-analysis.html">Xenium breast cancer data</a>
+    </li>
+    <li>
+      <a href="xenium-human-lung-cancer-analysis.html">Xenium human lung data</a>
+    </li>
+    <li>
+      <a href="xenium-mouse-brain-analysis.html">Xenium mouse brain data</a>
+    </li>
+    <li>
+      <a href="cosmx-human-healthy-liver.html">Cosmx healthy liver data</a>
+    </li>
+    <li>
+      <a href="cosmx-human-liver-cancer.html">Cosmx liver cancer data</a>
+    </li>
+    <li>
+      <a href="merscope-human-breast-cancer.html">Merscope breast cancer data</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Cosmx human liver cancer sample</h1>
+<h4 class="author">Melody</h4>
+<h4 class="date">2025-09-29</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2026-01-21
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong>
+<code>jazzPanda_workflowr/analysis/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.1). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguncommittedchanges"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed12345code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(12345)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed12345code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(12345)</code> was run prior to running the
+code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsghpersonalmelodyphipsonlabjazzPandaworkflowrtree3dea452c78d5948194281937875b5fd327947949targetblank3dea452a">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/tree/3dea452c78d5948194281937875b5fd327947949" target="_blank">3dea452</a>
+</a>
+</p>
+</div>
+<div
+id="strongRepositoryversionstrongahrefhttpsghpersonalmelodyphipsonlabjazzPandaworkflowrtree3dea452c78d5948194281937875b5fd327947949targetblank3dea452a"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/tree/3dea452c78d5948194281937875b5fd327947949" target="_blank">3dea452</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+    Ignored:    .env
+    Ignored:    .ipynb_checkpoints/
+
+Untracked files:
+    Untracked:  .env.example
+
+Unstaged changes:
+    Modified:   .gitignore
+    Modified:   analysis/cosmx-human-healthy-liver.Rmd
+    Modified:   analysis/cosmx-human-liver-cancer.Rmd
+    Modified:   analysis/index.Rmd
+    Modified:   analysis/merscope-human-breast-cancer.Rmd
+    Modified:   analysis/run_workflow_cosmx_healthy_liver.sh
+    Modified:   analysis/run_workflow_cosmx_liver_cancer.sh
+    Modified:   analysis/run_workflow_merscope_human_breast_cancer.sh
+    Modified:   analysis/run_workflow_xenium_human_breast_cancer.sh
+    Modified:   analysis/run_workflow_xenium_human_lung_cancer.sh
+    Modified:   analysis/run_workflow_xenium_mouse_brain.sh
+    Modified:   analysis/slurm_out/workflowr_cosmx_healthy_liver.err
+    Modified:   analysis/slurm_out/workflowr_cosmx_healthy_liver.out
+    Modified:   analysis/slurm_out/workflowr_cosmx_liver_cancer.err
+    Modified:   analysis/slurm_out/workflowr_cosmx_liver_cancer.out
+    Modified:   analysis/slurm_out/workflowr_merscope_human_breast_cancer.err
+    Modified:   analysis/slurm_out/workflowr_merscope_human_breast_cancer.out
+    Modified:   analysis/slurm_out/workflowr_xenium_human_breast_cancer.err
+    Modified:   analysis/slurm_out/workflowr_xenium_human_breast_cancer.out
+    Modified:   analysis/slurm_out/workflowr_xenium_human_lung_cancer.err
+    Modified:   analysis/slurm_out/workflowr_xenium_human_lung_cancer.out
+    Modified:   analysis/slurm_out/workflowr_xenium_mouse_brain.err
+    Modified:   analysis/slurm_out/workflowr_xenium_mouse_brain.out
+    Modified:   analysis/xenium-human-breast-cancer-analysis.Rmd
+    Modified:   analysis/xenium-human-lung-cancer-analysis.Rmd
+    Modified:   analysis/xenium-mouse-brain-analysis.Rmd
+    Modified:   code/utils.R
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown
+(<code>analysis/cosmx-human-liver-cancer.Rmd</code>) and HTML
+(<code>docs/cosmx-human-liver-cancer.html</code>) files. If you’ve
+configured a remote Git repository (see <code>?wflow_git_remote</code>),
+click on the hyperlinks in the table below to view the files as they
+were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/analysis/cosmx-human-liver-cancer.Rmd" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+<td>
+Add script
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/cosmx-human-liver-cancer.html" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+<td>
+Add script
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<pre class="r"><code>library(jazzPanda)
+library(SpatialExperiment)
+library(Seurat)
+library(ggplot2)
+library(data.table)
+library(dplyr)
+library(tidyr)
+library(glmnet)
+library(caret)
+library(ComplexUpset)
+library(ggrepel)
+library(gridExtra)
+library(patchwork)
+library(RColorBrewer)
+library(limma)
+library(here)
+library(data.table)
+library(xtable)
+library(corrplot)
+source(here(&quot;code/utils.R&quot;))</code></pre>
+<div id="load-data" class="section level1">
+<h1>Load data</h1>
+<p>This section loads the provided Seurat object and extracts per-cell
+metadata and transcript coordinates. We remove low-quality cells using
+QC flags, convert imaging pixel coordinates to millimetres
+per-field-of-view (FOV), and build a transcript-level table restricted
+to the liver cancer sample (slide_ID_numeric = 2). The coordinates are
+scaled to micrometres for plotting.</p>
+<div id="load-cell-and-transcript" class="section level2">
+<h2>Load cell and transcript</h2>
+<pre class="r"><code>data_nm  &lt;- &quot;cosmx_hlc&quot;
+seu &lt;- readRDS(file.path(rdata$cosmx_data, &quot;LiverDataReleaseSeurat_newUMAP.RDS&quot;))
+
+
+# local cell metadata   
+metadata &lt;- as.data.frame(seu@meta.data)
+
+## remove low quality cells
+qc_cols &lt;- c(&quot;qcFlagsRNACounts&quot;, &quot;qcFlagsCellCounts&quot;, &quot;qcFlagsCellPropNeg&quot;,
+             &quot;qcFlagsCellComplex&quot;, &quot;qcFlagsCellArea&quot;,&quot;qcFlagsFOV&quot;)
+metadata &lt;- metadata[!apply(metadata[, qc_cols], 1, function(x) any(x == &quot;Fail&quot;)), ]
+
+cell_info_cols = c(&quot;x_FOV_px&quot;, &quot;y_FOV_px&quot;, &quot;x_slide_mm&quot;, &quot;y_slide_mm&quot;,
+                   &quot;nCount_negprobes&quot;,&quot;nFeature_negprobes&quot;,&quot;nCount_falsecode&quot;,
+                   &quot;nFeature_falsecode&quot;,&quot;slide_ID_numeric&quot;, &quot;Run_Tissue_name&quot;,
+                   &quot;fov&quot;,&quot;cellType&quot;,&quot;niche&quot;,&quot;cell_id&quot;)
+cellCoords &lt;- metadata[, cell_info_cols]
+
+# keep cancer tissue only 
+liver_cancer = cellCoords[cellCoords$slide_ID_numeric==2 ,]
+
+# load count matrix 
+counts &lt;-seu[[&quot;RNA&quot;]]@counts
+cancer_cells = row.names(liver_cancer)
+
+counts_cancer_sample = counts[, cancer_cells]
+
+rm(counts)
+
+dim(counts_cancer_sample)</code></pre>
+<pre><code>[1]   1000 460169</code></pre>
+<pre class="r"><code>px_to_mm &lt;- function(data){
+    all_fv = unique(data$fov)
+    parm_df = as.data.frame(matrix(0, ncol=5, nrow=length(all_fv)))
+    colnames(parm_df) = c(&quot;fov&quot;,&quot;y_slope&quot;,&quot;y_intcp&quot;,&quot;x_slope&quot;,&quot;x_intcp&quot;)
+    parm_df$fov = all_fv
+    for (fv in all_fv){
+        curr_fov = data[data$fov == fv, ] 
+        curr_fov = curr_fov[order(curr_fov$x_FOV_px), ]
+        curr_fov = curr_fov[c(1, nrow(curr_fov)), ]
+        curr_fov = curr_fov[c(1,2),c(&quot;y_slide_mm&quot;,&quot;x_slide_mm&quot;,&quot;y_FOV_px&quot;,&quot;x_FOV_px&quot;) ]
+        # mm to px for y
+        y_slope = (curr_fov[2,&quot;y_slide_mm&quot;] - curr_fov[1,&quot;y_slide_mm&quot;]) / (curr_fov[2,&quot;y_FOV_px&quot;] - curr_fov[1,&quot;y_FOV_px&quot;])
+        y_intcp = curr_fov[2,&quot;y_slide_mm&quot;]- (y_slope*curr_fov[2,&quot;y_FOV_px&quot;])
+        # mm to px for x
+        x_slope = (curr_fov[2,&quot;x_slide_mm&quot;] - curr_fov[1,&quot;x_slide_mm&quot;]) / (curr_fov[2,&quot;x_FOV_px&quot;] - curr_fov[1,&quot;x_FOV_px&quot;])
+        x_intcp = curr_fov[2,&quot;x_slide_mm&quot;]- (x_slope*curr_fov[2,&quot;x_FOV_px&quot;])
+        parm_df[parm_df$fov==fv,&quot;y_slope&quot;] = y_slope
+        parm_df[parm_df$fov==fv,&quot;y_intcp&quot;] = y_intcp
+        parm_df[parm_df$fov==fv,&quot;x_slope&quot;] = x_slope
+        parm_df[parm_df$fov==fv,&quot;x_intcp&quot;] = x_intcp
+    }
+    return (parm_df)
+    
+}
+
+# number of cells per fov
+# all fovs contain at least 2 cells
+fov_summary = as.data.frame(table(cellCoords[cellCoords$slide_ID_numeric==2,&quot;fov&quot;]))
+
+
+# caculate the slope and intercept parameters for each fov 
+parm_df = px_to_mm(liver_cancer)
+
+# convert px to mm for each cell based on the calculated params 
+liver_cancer &lt;- liver_cancer %&gt;%
+    left_join(parm_df, by = &#39;fov&#39;) %&gt;%
+    mutate(
+        x_mm = x_FOV_px * x_slope + x_intcp,
+        y_mm = y_FOV_px * y_slope + y_intcp
+    ) %&gt;%
+    select(-x_slope, -y_slope, -x_intcp, -y_intcp) 
+
+
+
+transcriptCoords &lt;-seu@misc$transcriptCoords
+
+all_transcripts_cancer &lt;- transcriptCoords[transcriptCoords$slideID == 2,]
+# remove transctipt detections for low quality cells
+all_transcripts_cancer &lt;- all_transcripts_cancer[all_transcripts_cancer$cell_id %in% liver_cancer$cell_id, ]
+
+ncells_tr = length(unique(all_transcripts_cancer$cell_id))
+
+rm(transcriptCoords)
+
+all_transcripts_cancer &lt;- all_transcripts_cancer %&gt;%
+    left_join(parm_df, by = &#39;fov&#39;) %&gt;%
+    mutate(
+        x_mm = x_FOV_px * x_slope + x_intcp,
+        y_mm = y_FOV_px * y_slope + y_intcp
+    ) %&gt;%
+    select(-x_slope, -y_slope, -x_intcp, -y_intcp) 
+
+all_transcripts_cancer$x = all_transcripts_cancer$x_mm
+all_transcripts_cancer$y = all_transcripts_cancer$y_mm
+all_transcripts_cancer$feature_name = all_transcripts_cancer$target
+
+hl_cancer = all_transcripts_cancer[,c(&quot;x&quot;,&quot;y&quot;,&quot;feature_name&quot;)]
+all_genes = row.names(seu[[&quot;RNA&quot;]]@counts)
+
+rm(all_transcripts_cancer, seu)
+hl_cancer$x = hl_cancer$x * 1000
+hl_cancer$y = hl_cancer$y * 1000</code></pre>
+</div>
+<div id="quality-assessment-of-negative-controls"
+class="section level2">
+<h2>Quality assessment of negative controls</h2>
+<div id="negative-probe" class="section level3">
+<h3>Negative probe</h3>
+<p>To evaluate nonspecific hybridization and potential technical
+artefacts, we examined the distribution of negative control probes
+(NegPrb*) across the dataset. These probes are not expected to hybridize
+with endogenous transcripts. Uniform low-level detection indicates
+well-controlled chemistry and minimal background noise.</p>
+<p>The figure shows that NegPrb detections are relatively more abundant
+but uniformly distributed across the tissue, with no evidence of
+localized enrichment or clustering.</p>
+<pre class="r"><code>negprobes_coords &lt;- hl_cancer[grepl(&quot;^NegPrb&quot;, hl_cancer$feature_name), ]
+
+nc_tb = as.data.frame(sort(table(negprobes_coords$feature_name), 
+                           decreasing = TRUE))
+colnames(nc_tb) = c(&quot;name&quot;,&quot;value_count&quot;)
+negprobes_coords$feature_name =factor(negprobes_coords$feature_name,
+                                      levels = nc_tb$name)
+
+ggplot(nc_tb, aes(x = name, y = value_count)) +
+    geom_bar(stat = &quot;identity&quot;, color=&quot;white&quot;) + 
+    geom_text(aes(label = value_count),  vjust = -0.5, size = 3) + 
+    scale_y_continuous(expand = c(0,1), limits = c(0, 78000))+
+    labs(title = &quot; &quot;, x = &quot; &quot;, y = &quot;Number of total detections&quot;) +
+    theme_bw()+
+    theme(legend.position = &quot;none&quot;,strip.background = element_rect(fill=&quot;white&quot;),
+          strip.text = element_text(size=8),
+          axis.text.x= element_text(size=8, angle=90,vjust=0.5,hjust = 1),
+          axis.title.y =element_text(size=8),
+          axis.ticks=element_blank(),
+          axis.title.x=element_blank(),
+          panel.background=element_blank(),
+          panel.grid.minor=element_blank(),
+          plot.background=element_blank())</code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/negprobes-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-negprobes-1">
+Past versions of negprobes-1.png
+</button>
+</p>
+<div id="fig-negprobes-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/negprobes-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code>ggplot(negprobes_coords, aes(x=x, y=y))+
+    geom_hex(bins=auto_hex_bin(nrow(negprobes_coords)))+
+    theme_bw()+
+    scale_fill_gradient(low=&quot;white&quot;, high=&quot;maroon4&quot;) + 
+    #facet_wrap(~feature_name, ncol=5)+
+    ggtitle(&quot;Negprobes detections&quot;)+
+    defined_theme+
+    theme(legend.position = &quot;top&quot;,aspect.ratio = 1/1,
+          plot.title = element_text(size=rel(1.3)))</code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/negprobes_coords-vishex-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-negprobes_coords-vishex-1">
+Past versions of negprobes_coords-vishex-1.png
+</button>
+</p>
+<div id="fig-negprobes_coords-vishex-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/negprobes_coords-vishex-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="falsecode-probes" class="section level3">
+<h3>Falsecode probes</h3>
+<p>False-code probes are barcode sequences that do not match any real
+probes in the assay, serving as an estimate of background fluorescence
+and nonspecific binding. We visualized both the total detection counts
+per probe and their spatial distribution.</p>
+<p>FalseCode features are detected at very low frequencies with no
+apparent spatial enrichment, indicating minimal false-positive
+signal.</p>
+<pre class="r"><code>falsecode_coords &lt;- hl_cancer[grepl(&quot;^FalseCode&quot;, hl_cancer$feature_name), ]
+
+fc_tb = as.data.frame(sort(table(falsecode_coords$feature_name), decreasing = TRUE))
+colnames(fc_tb) = c(&quot;name&quot;,&quot;value_count&quot;)
+fc_tb$cate = &quot;total detection&lt;1426&quot;
+fc_tb[fc_tb$value_count&gt; 1426,&quot;cate&quot;] = &quot;total detection&gt;=1426&quot;
+fc_tb$cate=factor(fc_tb$cate, 
+                  levels=c(&quot;total detection&lt;1426&quot;, &quot;total detection&gt;=1426&quot;))
+falsecode_coords$feature_name =factor(falsecode_coords$feature_name,
+                                      levels = fc_tb$name)
+
+ggplot(fc_tb, aes(x = name, y = value_count)) +
+    geom_bar(stat = &quot;identity&quot;,position = position_dodge(width = 0.9), color=&quot;white&quot;) + 
+    facet_wrap(~cate, ncol=1, scales = &quot;free&quot;)+
+    scale_y_continuous(expand = c(0,2))+
+    labs(title = &quot; &quot;, x = &quot; &quot;, y = &quot;Number of total detections&quot;) +
+    theme_bw()+
+    theme(legend.position = &quot;none&quot;,strip.background = element_rect(fill=&quot;white&quot;),
+          strip.text = element_text(size=10),
+          axis.text.x= element_text(size=10, angle=90,vjust=0.5,hjust = 1),
+          axis.title.y =element_text(size=10),
+          axis.ticks=element_blank(),
+          axis.title.x=element_blank(),
+          panel.background=element_blank(),
+          panel.grid.minor=element_blank(),
+          plot.background=element_blank())</code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/falsecode-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-falsecode-1">
+Past versions of falsecode-1.png
+</button>
+</p>
+<div id="fig-falsecode-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/falsecode-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code>ggplot(falsecode_coords,aes(x=x, y=y))+
+    geom_hex(bins=auto_hex_bin(nrow(falsecode_coords)))+
+    scale_fill_gradient(low=&quot;white&quot;, high=&quot;maroon4&quot;) + 
+    theme_bw()+
+    defined_theme+
+    ggtitle(&quot;Falsecode detections&quot;)+
+    theme(legend.position = &quot;top&quot;,aspect.ratio = 1/1,
+          plot.title = element_text(size=rel(1.3)))</code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/falsecode-xy-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-falsecode-xy-1">
+Past versions of falsecode-xy-1.png
+</button>
+</p>
+<div id="fig-falsecode-xy-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/falsecode-xy-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="single-cell-summary" class="section level1">
+<h1>Single cell summary</h1>
+<p>These summary plots characterise per-cell detection counts and
+sparsity. We can calculate per-cell and per-gene summary statistics from
+the CosMx counts matrix:</p>
+<ul>
+<li><p>Total detections per cell: sums all transcript counts in each
+cell.</p></li>
+<li><p>Proportion of zeroes per cell: fraction of genes not detected in
+each cell.</p></li>
+<li><p>Detected genes per cell: number of non-zero genes per
+cell.</p></li>
+<li><p>Average expression per gene: mean expression across cells,
+ignoring zeros.</p></li>
+</ul>
+<p>Each distribution is visualised with histograms and density curves to
+assess data quality and sparsity.</p>
+<pre class="r"><code>td_r1 &lt;- colSums(counts_cancer_sample)
+summary(td_r1)</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+     20     245     561    1036    1373   27422 </code></pre>
+<pre class="r"><code>pz_r1 &lt;-colMeans(counts_cancer_sample==0)
+summary(pz_r1)</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.053   0.698   0.811   0.781   0.879   0.995 </code></pre>
+<pre class="r"><code>numgene_r1 &lt;- colSums(counts_cancer_sample!=0)
+summary(numgene_r1)</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      5     121     189     219     302     947 </code></pre>
+<pre class="r"><code>td_df = as.data.frame(cbind(as.vector(td_r1),
+                              rep(&quot;hliver_cancer&quot;, length(td_r1))))
+colnames(td_df) = c(&quot;td&quot;,&quot;sample&quot;)
+td_df$td= as.numeric(td_df$td)
+
+
+# Build the entire summary as one string
+output &lt;- paste0(
+  &quot;\n================= Summary Statistics =================\n\n&quot;,
+  &quot;--- CosMx human liver cancer sample---\n&quot;,
+  make_sc_summary(td_r1, &quot;Total detections per cell:&quot;),
+  make_sc_summary(pz_r1, &quot;Proportion of zeroes per cell:&quot;),
+  make_sc_summary(numgene_r1, &quot;Detected genes per cell:&quot;),
+  &quot;\n========================================================\n&quot;
+)
+
+cat(output)</code></pre>
+<pre><code>
+================= Summary Statistics =================
+
+--- CosMx human liver cancer sample---
+Total detections per cell:
+  Min: 20.0000 |  1Q: 245.0000 |  Median: 561.0000 |  Mean: 1035.8867 |  3Q: 1373.0000 |  Max: 27422.0000
+Proportion of zeroes per cell:
+  Min: 0.0530 |  1Q: 0.6980 |  Median: 0.8110 |  Mean: 0.7809 |  3Q: 0.8790 |  Max: 0.9950
+Detected genes per cell:
+  Min: 5.0000 |  1Q: 121.0000 |  Median: 189.0000 |  Mean: 219.1153 |  3Q: 302.0000 |  Max: 947.0000
+
+========================================================</code></pre>
+<pre class="r"><code>p1&lt;-ggplot(data = td_df, aes(x = td, color=sample)) +
+  geom_histogram(aes(y = after_stat(density)), 
+                 binwidth = 300, fill = &quot;gray&quot;, color = &quot;black&quot;) +
+  geom_density(color = &quot;steelblue&quot;, size = 2) +
+  labs(title = &quot;Distribution of total detections per cell&quot;,
+       x = &quot; &quot;, y = &quot;Density&quot;) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5), 
+        strip.text = element_text(size=12)) 
+
+pz = as.data.frame(cbind(as.vector(pz_r1),rep(&quot;hliver_cancer&quot;, length(pz_r1))))
+colnames(pz) = c(&quot;prop_ze&quot;,&quot;sample&quot;)
+pz$prop_ze= as.numeric(pz$prop_ze)
+
+p2&lt;-ggplot(data = pz, aes(x = prop_ze)) +
+  geom_histogram(aes(y = after_stat(density)), 
+                 binwidth = 0.05, fill = &quot;gray&quot;, color = &quot;black&quot;) +
+  geom_density(color = &quot;steelblue&quot;, size = 2) +
+  labs(title = &quot;Distribution of proportion of zeroes per cell&quot;,
+       x = &quot; &quot;, y = &quot;Density&quot;) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5),
+        strip.text = element_text(size=12))
+
+
+numgens = as.data.frame(cbind(as.vector(numgene_r1),rep(&quot;hliver_cancer&quot;, length(numgene_r1))))
+colnames(numgens) = c(&quot;numgen&quot;,&quot;sample&quot;)
+numgens$numgen= as.numeric(numgens$numgen)
+
+p3&lt;-ggplot(data = numgens, aes(x = numgen)) +
+  geom_histogram(aes(y = after_stat(density)), 
+                 binwidth = 20, fill = &quot;gray&quot;, color = &quot;black&quot;) +
+  geom_density(color = &quot;steelblue&quot;, size = 2) +
+  labs(title = &quot;Distribution of detected genes per cell&quot;,
+       x = &quot; &quot;, y = &quot;Density&quot;) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5),
+        strip.text = element_text(size=12))</code></pre>
+<pre class="r"><code>cm_new1=counts_cancer_sample
+cm_new1[cm_new1==0] = NA
+cm_new1 = as.data.frame(cm_new1)
+cm_new1$avg2 = rowMeans(cm_new1,na.rm = TRUE)
+summary(cm_new1$avg2)</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1.05    1.13    1.22    2.22    1.62   94.55 </code></pre>
+<pre class="r"><code>avg_exp = as.data.frame(cbind(&quot;avg&quot;=cm_new1$avg2,
+                             &quot;sample&quot;=rep(&quot;hliver_heathy&quot;, nrow(cm_new1))))
+
+avg_exp$avg=as.numeric(avg_exp$avg)
+
+
+p4&lt;-ggplot(data = avg_exp, aes(x = avg, color=sample)) +
+  geom_histogram(aes(y = after_stat(density)), 
+                 binwidth = 0.5, fill = &quot;gray&quot;, color = &quot;black&quot;) +
+    geom_density(color = &quot;orange&quot;, linewidth = 1) +
+  labs(title = &quot;Distribution of average gene expression per cell&quot;,
+       x = &quot; &quot;, y = &quot;Density&quot;) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5),
+        strip.text = element_text(size=12))
+
+
+layout_design &lt;- (p1|p2)/(p3|p4)
+print(layout_design)</code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/ave-expression-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-ave-expression-1">
+Past versions of ave-expression-1.png
+</button>
+</p>
+<div id="fig-ave-expression-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/ave-expression-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The total detection and mean expression distributions are
+right-skewed, indicating a majority of cells with modest transcript
+counts and a minority with high expression, as expected for spatial
+transcriptomics data. The high fraction of zero values per cell (peaking
+around 80–90%) reflects sparsity in subcellular-resolution assays.The
+median number of detected genes is around 561 for this cancer liver
+sample.</p>
+</div>
+<div id="refine-clustering" class="section level1">
+<h1>Refine clustering</h1>
+<p>The following code subsets to the liver cancer tissue section and
+harmonizes related cell subtypes into broader annotations (e.g.,
+multiple macrophage and T-cell subtypes merged into “Macrophages” and
+“T”). The resulting coordinates are scaled and plotted using hexbin
+density maps, showing the spatial distribution of each annotated cell
+type across the tissue.</p>
+<pre class="r"><code>selected_cols = c(&quot;x_FOV_px&quot;, &quot;y_FOV_px&quot;,&quot;x_slide_mm&quot;, &quot;y_slide_mm&quot;, &quot;slide_ID_numeric&quot;, &quot;Run_Tissue_name&quot;, &quot;fov&quot;,&quot;cellType&quot;,&quot;niche&quot;,&quot;cell_id&quot; )
+cluster_info = cellCoords[cellCoords$slide_ID_numeric==&quot;2&quot; &amp; (row.names(cellCoords) %in% row.names(metadata)),selected_cols ]
+
+colnames(cluster_info) =c(&quot;x_FOV_px&quot;,&quot;y_FOV_px&quot; , &quot;x&quot;, &quot;y&quot;, &quot;slide_ID_numeric&quot;, &quot;Run_Tissue_name&quot;, &quot;fov&quot;,&quot;cellTypes&quot;,&quot;niche&quot;,&quot;cell_id&quot;)
+cluster_info$anno = as.character(cluster_info$cellTypes)
+cluster_info[cluster_info$cellTypes %in% c(&quot;Antibody.secreting.B.cells&quot;, &quot;Mature.B.cells&quot;),&quot;anno&quot;] = &quot;B&quot;
+cluster_info[cluster_info$cellTypes %in% c(&quot;CD3+.alpha.beta.T.cells&quot;, &quot;gamma.delta.T.cells.1&quot;),&quot;anno&quot;] = &quot;T&quot;
+cluster_info[cluster_info$cellTypes %in% c(&quot;Non.inflammatory.macrophages&quot;, &quot;Inflammatory.macrophages&quot;),&quot;anno&quot;] = &quot;Macrophages&quot;
+
+ig_clusters = c(&quot;NotDet&quot;)
+
+cluster_info = cluster_info[cluster_info$anno != &quot;NotDet&quot;,]
+
+cluster_info$anno = factor(cluster_info$anno,
+                            levels=c(&quot;tumor_1&quot;,&quot;tumor_2&quot;,&quot;Macrophages&quot;,&quot;T&quot;,
+                                     &quot;Periportal.LSECs&quot;,&quot;Stellate.cells&quot;,&quot;B&quot;,
+                                     &quot;Central.venous.LSECs&quot;,&quot;Cholangiocytes&quot;,&quot;Hep&quot;,
+                                     &quot;Portal.endothelial.cells&quot;,
+                                     &quot;NK.like.cells&quot;,&quot;Erthyroid.cells&quot;))
+cluster_info$cluster = cluster_info$anno  
+cluster_info$sample = &quot;cancer&quot;
+
+cluster_info = cluster_info[!duplicated(cluster_info[,c(&quot;x&quot;,&quot;y&quot;)]),]
+cluster_info$x = cluster_info$x * 1000
+cluster_info$y = cluster_info$y * 1000
+
+
+cluster_names = c(&quot;tumor_1&quot;,&quot;tumor_2&quot;,&quot;Macrophages&quot;,
+                  &quot;T&quot;, &quot;Periportal.LSECs&quot;,&quot;Stellate.cells&quot;,
+                  &quot;B&quot;,&quot;Central.venous.LSECs&quot;,&quot;Cholangiocytes&quot;,
+                  &quot;Hep&quot;,&quot;Portal.endothelial.cells&quot;,&quot;NK.like.cells&quot;,
+                  &quot;Erthyroid.cells&quot;)
+
+saveRDS(cluster_info, here(gdata,paste0(data_nm, &quot;_clusters.Rds&quot;)))</code></pre>
+<pre class="r"><code># load generated data  (see code above for how they were created)
+cluster_info = readRDS(here(gdata,paste0(data_nm, &quot;_clusters.Rds&quot;)))
+cluster_info$anno_name = cluster_info$cluster
+
+
+cluster_names = c(&quot;tumor_1&quot;,&quot;tumor_2&quot;,&quot;Macrophages&quot;,
+                  &quot;T&quot;, &quot;Periportal.LSECs&quot;,&quot;Stellate.cells&quot;,
+                  &quot;B&quot;,&quot;Central.venous.LSECs&quot;,&quot;Cholangiocytes&quot;,
+                  &quot;Hep&quot;,&quot;Portal.endothelial.cells&quot;,&quot;NK.like.cells&quot;,
+                  &quot;Erthyroid.cells&quot;)
+
+cluster_info$cluster = factor(cluster_info$cluster,
+                              levels=cluster_names)
+
+cluster_info$anno_name = factor(cluster_info$anno_name,
+                              levels=cluster_names)
+cluster_info = cluster_info[order(cluster_info$anno_name), ]
+
+
+fig_ratio = cluster_info %&gt;%
+  group_by(sample) %&gt;%
+  summarise(
+    x_range = diff(range(x, na.rm = TRUE)),
+    y_range = diff(range(y, na.rm = TRUE)),
+    ratio   = y_range / x_range,
+    .groups = &quot;drop&quot;
+  ) %&gt;% summarise(max_ratio = max(ratio)) %&gt;%  pull(max_ratio)</code></pre>
+<p>We visualized the spatial distribution of annotated cell types to
+examine tissue structure and cell localization patterns in the CosMx
+liver cancer sample. The following plot displays all cells colored by
+their assigned cell type, highlighting the overall organization of the
+tissue.</p>
+<pre class="r"><code>ggplot(data = cluster_info,
+        aes(x = x, y = y, color=cluster))+
+        geom_point(size=0.0001)+
+        facet_wrap(~sample)+
+        theme_classic()+
+        guides(color=guide_legend(title=&quot;&quot;, nrow = 4,
+        override.aes=list(alpha=1, size=4)))+
+        defined_theme+
+        theme(aspect.ratio = fig_ratio,
+              legend.position = &quot;bottom&quot;,
+              strip.text = element_blank())</code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/cluster-xy-whole-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cluster-xy-whole-1">
+Past versions of cluster-xy-whole-1.png
+</button>
+</p>
+<div id="fig-cluster-xy-whole-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/cluster-xy-whole-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The faceted hexbin plots reveal that major cell types occupy distinct
+and spatially coherent regions within the section. Tumor regions
+(tumor_1, tumor_2) form dense contiguous areas, while immune and stromal
+populations such as macrophages, T cells, and periportal LSECs localize
+to the tissue periphery or vascular interfaces. Hepatocytes and
+cholangiocytes appear in spatially restricted niches consistent with
+expected hepatic zonation.</p>
+<pre class="r"><code>ggplot(data = cluster_info,
+        aes(x = x, y = y))+
+        geom_hex(bins = 200)+
+        facet_wrap(~cluster, nrow=3)+
+        scale_fill_gradient(low=&quot;white&quot;, high=&quot;maroon4&quot;) + 
+        theme_classic()+
+        guides(color=guide_legend(title=&quot;&quot;,
+                                  override.aes=list(alpha=1, size=8)))+
+        defined_theme+
+        theme(legend.position = &quot;right&quot;, 
+              aspect.ratio = fig_ratio,
+              strip.text = element_text(size=12))</code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/cluster-xy-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cluster-xy-1">
+Past versions of cluster-xy-1.png
+</button>
+</p>
+<div id="fig-cluster-xy-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/cluster-xy-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>We quantified the number of cells assigned to each annotated cell
+type to assess the overall cellular composition of the CosMx liver
+cancer sample. The bar plot shows that tumor-associated cells (tumor_1
+and tumor_2) overwhelmingly dominate the dataset, reflecting the high
+tumor cell density captured in this section. Among non-tumor
+populations, macrophages and T cells are the most prevalent, indicating
+notable immune infiltration within the tumor microenvironment. Stromal
+and endothelial subsets such as stellate cells, LSECs, and B cells are
+less abundant, while hepatocytes and cholangiocytes are relatively
+rare.</p>
+<pre class="r"><code>sum_df &lt;- as.data.frame(table(cluster_info$anno_name))
+colnames(sum_df) = c(&quot;cellType&quot;,&quot;n&quot;)
+ggplot(sum_df, aes(x = cellType, y = n, fill=n)) +
+    geom_bar(stat = &quot;identity&quot;, position=&quot;stack&quot;, fill=&quot;black&quot;) +
+    geom_text(aes(label = n),size=3, 
+              position = position_dodge(width = 0.9), vjust = -0.5) + 
+   scale_y_continuous(expand = c(0,1), limits=c(0,400000))+
+    labs(title = &quot; &quot;, x = &quot; &quot;, y = &quot;number of cells&quot;, fill=&quot;cell type&quot;) +
+    theme_bw()+
+    theme(legend.position = &quot;none&quot;,
+          axis.text= element_text(size=12, angle=90,vjust=0.5,hjust = 1),
+          strip.text = element_text(size = rel(1.1)),
+          axis.line=element_blank(),
+          axis.text.y=element_blank(),axis.ticks=element_blank(),
+          axis.title=element_text(size=12),
+          panel.background=element_blank(),
+          panel.grid.major=element_blank(),
+          panel.grid.minor=element_blank(),
+          plot.background=element_blank())</code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/ct-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-ct-prop-1">
+Past versions of ct-prop-1.png
+</button>
+</p>
+<div id="fig-ct-prop-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/ct-prop-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="detect-marker-genes" class="section level1">
+<h1>Detect marker genes</h1>
+<div id="jazzpanda" class="section level2">
+<h2>jazzPanda</h2>
+<p>We applied jazzPanda to this dataset using both the linear modelling
+and correlation-based approaches to detect spatially enriched marker
+genes across clusters.</p>
+<div id="linear-modelling-approach" class="section level3">
+<h3>Linear modelling approach</h3>
+<p>We first used the linear modelling approach to identify spatially
+enriched marker genes. The dataset was converted into spatial gene and
+cluster vectors using a 40 × 40 square binning strategy. False-code and
+negative-probe transcripts were included as background controls. For
+each gene, a linear model was fitted to estimate its spatial association
+with relevant cell type patterns.</p>
+<pre class="r"><code>grid_length = 40
+seed_number=589
+set.seed(seed_number)
+
+hliver_vector_lst = get_vectors(x= list(&quot;cancer&quot; = hl_cancer),
+                                sample_names = &quot;cancer&quot;,
+                                cluster_info = cluster_info,
+                                bin_type=&quot;square&quot;,
+                                bin_param=c(grid_length, grid_length), 
+                                test_genes = all_genes,
+                                n_cores =5)
+
+falsecode_coords$sample = &quot;cancer&quot;
+negprobes_coords$sample = &quot;cancer&quot;
+kpt_cols = c(&quot;x&quot;,&quot;y&quot;,&quot;feature_name&quot;,&quot;sample&quot;)
+
+nc_coords = rbind(falsecode_coords[,kpt_cols],negprobes_coords[,kpt_cols])
+
+falsecode_names = unique(falsecode_coords$feature_name)
+negprobe_names = unique(negprobes_coords$feature_name)
+nc_vectors = create_genesets(x=list(&quot;cancer&quot; = nc_coords), 
+                             sample_names=c(&quot;cancer&quot;),
+                             name_lst=list(falsecode=falsecode_names,
+                                           negprobe=negprobe_names),
+                             bin_type=&quot;square&quot;,
+                             bin_param=c(grid_length, grid_length),
+                             cluster_info=NULL)
+set.seed(589)
+
+jazzPanda_res_lst = lasso_markers(gene_mt=hliver_vector_lst$gene_mt,
+                                  cluster_mt = hliver_vector_lst$cluster_mt,
+                                  sample_names=c(&quot;cancer&quot;),
+                                  keep_positive=TRUE, 
+                                  background=nc_vectors,
+                                  n_fold = 10)
+
+
+saveRDS(hliver_vector_lst, here(gdata,paste0(data_nm, &quot;_sq40_vector_lst.Rds&quot;)))
+saveRDS(jazzPanda_res_lst, here(gdata,paste0(data_nm, &quot;_jazzPanda_res_lst.Rds&quot;)))</code></pre>
+<p>We then used <code>get_top_mg</code> to extract unique marker genes
+for each cluster based on a coefficient cutoff of 0.1. This function
+returns the top spatially enriched genes that are most specific to each
+cluster. In contrast, if shared marker genes across clusters are of
+interest, all significant genes can be retrieved using
+<code>get_full_mg</code>.</p>
+<pre class="r"><code># load from saved objects
+jazzPanda_res_lst = readRDS(here(gdata,paste0(data_nm, &quot;_jazzPanda_res_lst.Rds&quot;)))
+sv_lst = readRDS(here(gdata,paste0(data_nm, &quot;_sq40_vector_lst.Rds&quot;)))
+nbins = 1600
+jazzPanda_res = get_top_mg(jazzPanda_res_lst, coef_cutoff=0.1) 
+
+
+seu = readRDS(here(gdata,paste0(data_nm, &quot;_seu.Rds&quot;)))
+seu &lt;- subset(seu, cells = cluster_info$cell_id)
+Idents(seu)=cluster_info$anno_name[match(colnames(seu), cluster_info$cell_id)]
+seu$sample = cluster_info$sample[match(colnames(seu), cluster_info$cell_id)]
+Idents(seu) = factor(Idents(seu), levels = cluster_names)</code></pre>
+<div id="cluster-to-cluster-correlation" class="section level4">
+<h4>Cluster to cluster correlation</h4>
+<p>To examine the relationship between spatial expression patterns of
+different cell types, we computed pairwise Pearson correlations between
+the cluster-level vectors generated by jazzPanda. The resulting
+correlation matrix (visualized above) reflects how similar the spatial
+gene expression signatures are across annotated clusters.</p>
+<p>The figure shows strong positive correlations among stromal and
+immune populations, particularly between macrophages, T cells, and
+periportal LSECs, suggesting coordinated spatial localization or shared
+microenvironmental influence. Tumor clusters (tumor_1, tumor_2) display
+moderate correlations with macrophages and LSECs, consistent with
+tumor–stroma and tumor–immune interactions. In contrast, hepatocytes and
+cholangiocytes exhibit weak or negative correlations with most other
+clusters, reflecting their distinct transcriptional and spatial
+niches.</p>
+<pre class="r"><code>cluster_mtt = sv_lst$cluster_mt
+cluster_mtt = cluster_mtt[,cluster_names]
+cor_M_cluster = cor(cluster_mtt,cluster_mtt,method = &quot;pearson&quot;)
+col &lt;- colorRampPalette(c(&quot;#4477AA&quot;, &quot;#77AADD&quot;, &quot;#FFFFFF&quot;,&quot;#EE9988&quot;, &quot;#BB4444&quot;))
+corrplot(
+  cor_M_cluster,
+  method      = &quot;color&quot;,
+  col         = col(200),
+  diag        = TRUE,
+  addCoef.col = &quot;black&quot;,
+  type        = &quot;upper&quot;,
+  tl.col      = &quot;black&quot;,
+  tl.cex      = 0.7,
+  number.cex  = 0.8,
+  tl.srt      = 45,
+  mar         = c(0, 0, 3, 0),   
+  sig.level   = 0.05,
+  insig       = &quot;blank&quot;,
+  title       = &quot;cluster–cluster correlation&quot;, 
+  cex.main    = 1.2
+)</code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/cc-corr-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cc-corr-1">
+Past versions of cc-corr-1.png
+</button>
+</p>
+<div id="fig-cc-corr-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/cc-corr-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The dot plot displays the top 10 marker genes identified by the
+jazzPanda linear modelling approach across annotated cell types. Dot
+size represents the proportion of cells expressing each gene, and color
+indicates average expression level. The figure shows cell-type-specific
+expression patterns—tumor clusters enriched for metabolic and
+stress-response genes, macrophages for immune and phagocytic genes,
+stellate cells for extracellular matrix components, and hepatocytes for
+classic liver-function markers.</p>
+<pre class="r"><code>glm_mg = jazzPanda_res[jazzPanda_res$top_cluster != &quot;NoSig&quot;, ]
+glm_mg$top_cluster = factor(glm_mg$top_cluster, levels = cluster_names)
+top_mg_glm &lt;- glm_mg %&gt;%
+  group_by(top_cluster) %&gt;%
+  arrange(desc(glm_coef), .by_group = TRUE) %&gt;% 
+  slice_max(order_by = glm_coef, n = 10) %&gt;%
+  select(top_cluster, gene, glm_coef)
+
+p1&lt;-DotPlot(seu, features = top_mg_glm$gene) +
+     scale_colour_gradient(low = &quot;white&quot;, high = &quot;red&quot;) +
+    coord_flip()+
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))+
+    labs(title = &quot;Top 10 marker genes (jazzPanda-glm)&quot;, x=&quot;&quot;, y=&quot;&quot;)
+
+p1</code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top10_glm-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top10_glm-1">
+Past versions of top10_glm-1.png
+</button>
+</p>
+<div id="fig-top10_glm-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top10_glm-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="top3-marker-genes-by-jazzpanda_glm" class="section level4">
+<h4>Top3 marker genes by jazzPanda_glm</h4>
+<p>We visualized the top three marker genes identified by the linear
+modelling approach for each cluster. For each selected gene, its spatial
+transcript locations were plotted alongside the corresponding cluster
+map. Across clusters, the spatial expression patterns of marker genes
+closely match the distribution of their associated cell types</p>
+<pre class="r"><code>for (cl in cluster_names){
+    inters=jazzPanda_res[jazzPanda_res$top_cluster==cl,&quot;gene&quot;]
+    rounded_val=signif(as.numeric(jazzPanda_res[inters,&quot;glm_coef&quot;]),
+                          digits = 3)
+    inters_df = as.data.frame(cbind(gene=inters, value=rounded_val))
+    inters_df$value = as.numeric(inters_df$value)
+    inters_df=inters_df[order(inters_df$value, decreasing = TRUE),]
+    inters_df$text= paste(inters_df$gene,inters_df$value,sep=&quot;: &quot;)
+    
+    if (length(inters &gt; 0)){
+        inters_df = inters_df[1:min(3, nrow(inters_df)),]
+        inters = inters_df$gene
+        iters_sp1= hl_cancer$feature_name %in% inters
+        vis_r1 =hl_cancer[iters_sp1,
+                        c(&quot;x&quot;,&quot;y&quot;,&quot;feature_name&quot;)]
+        vis_r1$value = inters_df[match(vis_r1$feature_name,inters_df$gene),
+                        &quot;value&quot;]
+        vis_r1=vis_r1[order(vis_r1$value,decreasing = TRUE),]
+        vis_r1$text_label= paste(vis_r1$feature_name,
+                            vis_r1$value,sep=&quot;: &quot;)
+        vis_r1$text_label=factor(vis_r1$text_label, levels=inters_df$text)
+    
+        vis_r1 = vis_r1[order(vis_r1$text_label),]
+
+        genes_plt &lt;- plot_top3_genes(vis_df=vis_r1, fig_ratio=fig_ratio)
+        
+        cluster_data =  cluster_info[cluster_info$cluster==cl, ]
+        cl_pt&lt;- ggplot(data =cluster_data,
+                    aes(x = x, y = y, color=sample))+ 
+                    geom_point(size=0.001, alpha=0.3)+
+                    facet_wrap(~anno_name, nrow=1,strip.position = &quot;left&quot;)+
+                    scale_color_manual(values = c(&quot;black&quot;))+
+                    defined_theme + 
+                theme(legend.position = &quot;none&quot;, 
+                        aspect.ratio = fig_ratio,
+                        strip.background = element_blank(), 
+                        plot.margin = margin(0, 0, 0, 0),
+                        legend.key.width = unit(15, &quot;cm&quot;),
+                        strip.text = element_text(size = rel(1.3)))
+
+        layout_design &lt;- (wrap_plots(cl_pt, ncol = 1) | genes_plt) +
+            plot_layout(widths = c(1, 3), heights = c(1))
+        
+        print(layout_design)
+
+    }
+  }</code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-glm-1">
+Past versions of top3-gene-vis-xy-glm-1.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-glm-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-2.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-glm-2">
+Past versions of top3-gene-vis-xy-glm-2.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-glm-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-2.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-3.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-glm-3">
+Past versions of top3-gene-vis-xy-glm-3.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-glm-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-3.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-4.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-glm-4">
+Past versions of top3-gene-vis-xy-glm-4.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-glm-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-4.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-5.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-glm-5">
+Past versions of top3-gene-vis-xy-glm-5.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-glm-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-5.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-6.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-glm-6">
+Past versions of top3-gene-vis-xy-glm-6.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-glm-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-6.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-7.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-glm-7">
+Past versions of top3-gene-vis-xy-glm-7.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-glm-7" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-7.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-8.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-glm-8">
+Past versions of top3-gene-vis-xy-glm-8.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-glm-8" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-8.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="cluster-vector-versus-marker-gene-vector"
+class="section level4">
+<h4>Cluster vector versus marker gene vector</h4>
+<p>We examined the relationship between each cluster vector and its top
+three marker gene vectors identified by the linear modelling approach.
+Each scatter plot compares the spatial activation strength of a marker
+gene with the corresponding cluster vector across spatial bins.</p>
+<p>For most clusters, marker genes show a strong positive trend with the
+corresponding cluster vector, confirming that their expression is
+spatially aligned with the inferred cluster domain.</p>
+<p>However, several genes (e.g. ENO1, PGK1, MIF) exhibit dense stacking
+of points near zero on the cluster axis—indicating that their expression
+is widespread and not restricted to the target cluster. Such patterns
+often reflect a shared marker genes for multiple cell types rather than
+cluster-specific markers.In contrast, genes with clear separation from
+zero (e.g. COL18A1, COL1A1) display highly cluster-specific spatial
+enrichment.</p>
+<p>This distinction helps interpret jazzPanda results: slope and spread
+reveal spatial exclusivity, while near-zero stacking highlights shared
+transcriptional programs across clusters</p>
+<pre class="r"><code>plot_lst=list()
+for (cl in cluster_names){
+    inters_df=jazzPanda_res[jazzPanda_res$top_cluster==cl,]
+    
+    if (nrow(inters_df) &gt;0){
+        inters_df=inters_df[order(inters_df$glm_coef, decreasing = TRUE),]
+        
+        inters_df = inters_df[1:min(3, nrow(inters_df)),]
+        mk_genes = inters_df$gene
+        dff = as.data.frame(cbind(sv_lst$cluster_mt[,cl],
+                              sv_lst$gene_mt[,mk_genes]))
+        colnames(dff) = c(&quot;cluster&quot;, mk_genes)
+        dff$vector_id = c(1:nbins)
+        long_df &lt;- dff %&gt;% 
+         tidyr::pivot_longer(cols = -c(cluster, vector_id), names_to = &quot;gene&quot;, 
+               values_to = &quot;vector_count&quot;)
+        long_df$gene = factor(long_df$gene, levels=mk_genes)
+        p&lt;-ggplot(long_df, aes(x = cluster, y = vector_count, color=gene )) +
+        geom_point(size=0.01) +
+        facet_wrap(~gene, scales=&quot;free_y&quot;, nrow=1) +
+        labs(x = paste(cl, &quot; cluster vector &quot;, sep=&quot;&quot;), 
+         y = &quot;Top3 marker gene vector&quot;) +
+        theme_minimal()+
+        scale_y_continuous(expand = c(0.01,0.01))+ 
+        scale_x_continuous(expand =  c(0.01,0.01))+ 
+        theme(panel.grid = element_blank(),legend.position = &quot;none&quot;,
+        strip.text = element_text(size = 12),
+        axis.line=element_blank(),
+        axis.text=element_text(size = 11),
+        axis.ticks=element_line(color=&quot;black&quot;),
+        axis.title.y=element_text(size = 11),
+         axis.title.x=element_text(size = 12),
+        panel.border  =element_rect(colour = &quot;black&quot;, 
+                                    fill=NA, linewidth=0.5)
+        )
+                
+        if (length(mk_genes) == 2) {
+            p &lt;- (p | plot_spacer()) + 
+            plot_layout(widths = c(2, 1))
+        } else if (length(mk_genes) == 1) {
+            p &lt;- (p | plot_spacer() | plot_spacer()) + 
+            plot_layout(widths = c(1, 1, 1))
+        } 
+        
+        plot_lst[[cl]] = p
+        
+    }
+    
+}
+
+combined_plot &lt;- wrap_plots(plot_lst, ncol = 2)
+
+combined_plot </code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/vvplot-glm-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-vvplot-glm-1">
+Past versions of vvplot-glm-1.png
+</button>
+</p>
+<div id="fig-vvplot-glm-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/vvplot-glm-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="marker-gene-summary-per-cluster" class="section level4">
+<h4>Marker gene summary per cluster</h4>
+<p>For each cluster, we summarized the detected marker genes and their
+corresponding strengths. We list genes with model coefficients above the
+defined cutoff (e.g. 0.1) for each cluster.</p>
+<p>Tumor clusters show strong enrichment for proliferative and metabolic
+genes such as ENO1, PGK1, LDHA, and NDRG1, as well as hypoxia- and
+stress-related genes (VEGFA, HILPDA, MIF, CRYAB). These are hallmark
+features of malignant hepatocytes and hypoxic tumor microenvironments.
+SPINK1 and PTGDS, detected in tumor_1, are known liver cancer–associated
+genes linked to tumor progression and inflammation.</p>
+<p>Macrophages express canonical myeloid and phagocytic markers
+including LYZ, C1QA/B/C, CD163, and FCGR3A, confirming accurate
+annotation. Their expression of VIM, ANXA1, and GPNMB suggests
+activation and tissue-remodeling phenotypes typical of tumor-associated
+macrophages.</p>
+<p>T cells show clear expression of CD3E, IL7R, CXCR4, and ETS1,
+indicating both cytotoxic and helper T-cell populations.</p>
+<p>Stellate cells are characterized by strong collagen and extracellular
+matrix genes (COL1A1, COL1A2, ACTA2, TAGLN, BGN, MGP), consistent with
+their myofibroblastic role in the tumor stroma.</p>
+<p>Periportal LSECs express PECAM1, KLF2, and RGS5, marking vascular
+endothelium, while B cells are dominated by immunoglobulin genes (IGHM,
+IGKC, IGHG1, JCHAIN), reflecting antibody-producing plasma cells.</p>
+<p>Hepatocytes display classic liver-enriched genes including SAA1, CRP,
+MT1X, MT2A, and ARG1, confirming the presence of residual functional
+hepatic tissue.</p>
+<pre class="r"><code>## linear modelling 
+output_data &lt;- do.call(rbind, lapply(cluster_names, function(cl) {
+  subset &lt;- jazzPanda_res[jazzPanda_res$top_cluster == cl, ]
+  sorted_subset &lt;- subset[order(-subset$glm_coef), ]
+  if (length(sorted_subset) == 0){
+    return(data.frame(Cluster = cl, Genes = &quot;  &quot;))
+  }
+  if (cl != &quot;NoSig&quot;){
+    gene_list &lt;- paste(sorted_subset$gene, &quot;(&quot;, round(sorted_subset$glm_coef, 2), &quot;)&quot;, sep=&quot;&quot;, collapse=&quot;, &quot;)
+  }else{
+    gene_list &lt;- paste(sorted_subset$gene, &quot;&quot;, sep=&quot;&quot;, collapse=&quot;, &quot;)
+  }
+  
+  return(data.frame(Cluster = cl, Genes = gene_list))
+}))
+
+knitr::kable(
+  output_data,
+  caption = &quot;Detected marker genes for each cluster by linear modelling approach in jazzPanda, in decreasing value of glm coefficients&quot;
+)</code></pre>
+<table>
+<caption>Detected marker genes for each cluster by linear modelling
+approach in jazzPanda, in decreasing value of glm coefficients</caption>
+<colgroup>
+<col width="3%" />
+<col width="96%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Cluster</th>
+<th align="left">Genes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">tumor_1</td>
+<td align="left">SPINK1(1.14), PTGDS(0.99), COL18A1(0.46), NOTCH1(0.18),
+IL1RAP(0.16)</td>
+</tr>
+<tr class="even">
+<td align="left">tumor_2</td>
+<td align="left">ENO1(29.36), PGK1(23.43), MIF(19.02), NDRG1(16.43),
+VEGFA(13.31), SPP1(9.22), SOX4(6.18), NDUFA4L2(4.79), CRYAB(4.48),
+JUN(4.08), TPI1(3.75), LDHA(3.67), SERPINA3(3.58), EFNA1(3.56),
+IGFBP5(3.39), IGFBP3(2.95), POU5F1(2.58), LGALS1(2.48), SOX9(2.43),
+HSPA1A(2.36), YBX3(2.28), DUSP1(2.19), ZFP36(1.66), CD44(1.57),
+LGALS3(1.55), SLC2A1(1.22), CD68(1.13), GSN(1.1), VEGFB(1.09),
+TNFRSF14(1.03), COL9A2(0.98), ITGA5(0.94), GADD45B(0.87), TNXB(0.63),
+VWA1(0.56), HILPDA(0.54), OSMR(0.36), CELSR1(0.33), SPARCL1(0.3),
+FOS(0.29), MB(0.26), TGFB1(0.21), WNT9A(0.2), TLR5(0.18), INHBA(0.17),
+ITGA3(0.16), GAS6(0.13)</td>
+</tr>
+<tr class="odd">
+<td align="left">Macrophages</td>
+<td align="left">LYZ(8.43), VIM(4.59), HLA-DQA1(3.87), C1QB(3.64),
+C1QC(3.39), C1QA(2.39), RGS1(2.08), JUNB(1.99), COTL1(1.99),
+S100A4(1.82), IFITM1(1.63), MS4A6A(1.35), ANXA1(1.3), GPNMB(1.11),
+FCGR3A(1.1), ITGB2(1.09), TYROBP(1.07), CD163(1.05), MSR1(0.92),
+COL6A2(0.92), CRIP1(0.82), CSF1R(0.77), MMP7(0.73), AIF1(0.71),
+FCER1G(0.65), CD4(0.62), CD53(0.59), ITGAX(0.58), BASP1(0.5),
+MS4A4A(0.36), ICAM1(0.33), OLR1(0.17), IDO1(0.12)</td>
+</tr>
+<tr class="even">
+<td align="left">T</td>
+<td align="left">CXCR4(1.89), IL7R(1.18), ETS1(1.03), SPOCK2(0.72),
+CD69(0.55), CXCL13(0.48), IKZF3(0.34), SELL(0.27), CD3E(0.25)</td>
+</tr>
+<tr class="odd">
+<td align="left">Periportal.LSECs</td>
+<td align="left">RGS5(2.68), NOTCH3(1.27), PECAM1(1.1), KLF2(0.6)</td>
+</tr>
+<tr class="even">
+<td align="left">Stellate.cells</td>
+<td align="left">IGFBP7(8.93), COL1A1(8), BGN(6.44), ACTA2(4.87),
+TAGLN(4.62), MGP(3.71), COL4A1(2.95), COL1A2(2.53), C11orf96(2.08),
+COL4A2(1.92), THBS1(1.85), THBS2(1.8), DCN(1.46), COL5A1(0.91),
+VCAN(0.23)</td>
+</tr>
+<tr class="odd">
+<td align="left">B</td>
+<td align="left">IGHM(22.52), IGKC(13.03), IGHG1(11.27), IGHG2(5.56),
+IGHA1(5.38), JCHAIN(3.87)</td>
+</tr>
+<tr class="even">
+<td align="left">Central.venous.LSECs</td>
+<td align="left">()</td>
+</tr>
+<tr class="odd">
+<td align="left">Cholangiocytes</td>
+<td align="left">()</td>
+</tr>
+<tr class="even">
+<td align="left">Hep</td>
+<td align="left">SAA1(55.18), MT2A(28.62), CRP(8.61), MT1X(4.31),
+AZGP1(3.26), CD14(1.8), INSIG1(1.69), CXCL12(1.56), IGF2(0.8),
+ARG1(0.44)</td>
+</tr>
+<tr class="odd">
+<td align="left">Portal.endothelial.cells</td>
+<td align="left">()</td>
+</tr>
+<tr class="even">
+<td align="left">NK.like.cells</td>
+<td align="left">()</td>
+</tr>
+<tr class="odd">
+<td align="left">Erthyroid.cells</td>
+<td align="left">()</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="correlation-approach" class="section level3">
+<h3>Correlation approach</h3>
+<p>We next applied the correlation-based method using the same 40 × 40
+binning strategy. This approach highlights genes whose spatial patterns
+are highly correlated with specific cell type domains.</p>
+<pre class="r"><code>perm_p = compute_permp(x= list(&quot;cancer&quot; = hl_cancer),
+                       cluster_info=cluster_info, 
+                       perm.size=5000,
+                       bin_type=&quot;square&quot;,
+                       bin_param=c(grid_length,grid_length),
+                       test_genes= all_genes,
+                       correlation_method = &quot;pearson&quot;, 
+                       n_cores = 5,
+                       correction_method=&quot;BH&quot;)
+
+saveRDS(perm_p, here(gdata,paste0(data_nm, &quot;_perm_lst.Rds&quot;)))</code></pre>
+<p>We can get the correlation between every gene and cluster using the
+<code>get_cor</code> function, which quantifies how strongly each gene’s
+spatial expression pattern aligns with the spatial distribution of each
+cluster.</p>
+<p>To assess statistical significance, permutation testing results are
+retrieved from the saved perm_lst object. The corresponding raw p-values
+can be obtained with <code>get_perm_p</code>, and the
+multiple-testing–adjusted p-values with <code>get_perm_adjp</code>.
+These adjusted p-values help identify genes that are significantly
+associated with specific spatial domains after controlling for random
+spatial correlations.</p>
+<pre class="r"><code># load from saved objects
+perm_lst = readRDS(here(gdata,paste0(data_nm, &quot;_perm_lst.Rds&quot;)))
+perm_res = get_perm_adjp(perm_lst)
+obs_corr = get_cor(perm_lst)</code></pre>
+<p>For every cluster, genes were selected if they passed permutation
+significance and exceeded the 75th percentile of observed correlation
+values, with the top 10 highest correlations retained for
+visualization.</p>
+<p>The top markers identified by the jazzPanda correlation method
+capture spatially enriched genes whose expression patterns correlate
+strongly with local cell-type density. The dot plot below summarizes the
+top 10 genes per cluster, with dot size representing detection frequency
+and color reflecting mean expression.</p>
+<pre class="r"><code>top_mg_corr &lt;- data.frame(cluster = character(),
+                          gene    = character(),
+                          corr    = numeric(),
+                          stringsAsFactors = FALSE)
+for (cl in cluster_names) {
+  obs_cutoff &lt;- quantile(obs_corr[, cl], 0.75, na.rm = TRUE)
+  perm_cl &lt;- intersect(
+    rownames(perm_res[perm_res[, cl] &lt; 0.05, ]),
+    rownames(obs_corr[obs_corr[, cl] &gt; obs_cutoff, ])
+  )
+  if (length(perm_cl) &gt; 0) {
+    selected_rows &lt;- obs_corr[perm_cl, , drop = FALSE]
+    ord &lt;- order(selected_rows[, cl], decreasing = TRUE,
+                 na.last = NA)
+    top_genes &lt;- head(rownames(selected_rows)[ord], 5)
+    top_vals  &lt;- head(selected_rows[ord, cl], 5)
+    
+    top_mg_corr &lt;- rbind(
+      top_mg_corr,
+      data.frame(cluster = rep(cl, length(top_genes)),
+                 gene    = top_genes,
+                 corr    = top_vals,
+                 stringsAsFactors = FALSE)
+    )
+  }
+}
+
+
+p1&lt;-DotPlot(seu, features = unique(top_mg_corr$gene)) +
+     scale_colour_gradient(low = &quot;white&quot;, high = &quot;red&quot;) +
+    coord_flip()+
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))+
+    labs(title = &quot;Top 10 marker genes (jazzPanda-correlation)&quot;, 
+         x=&quot;&quot;, y=&quot;&quot;)
+
+p1</code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top10_corr-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top10_corr-1">
+Past versions of top10_corr-1.png
+</button>
+</p>
+<div id="fig-top10_corr-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top10_corr-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="top3-marker-genes-by-jazzpanda_correlation"
+class="section level4">
+<h4>Top3 marker genes by jazzPanda_correlation</h4>
+<p>For each cluster, the top three genes with the highest significant
+correlations were visualized alongside the spatial cluster map. The
+spatial patterns of these marker genes closely align with the
+distribution of their associated clusters, confirming that the
+correlation approach captures coherent spatial co-localization between
+genes and cell-type domains.</p>
+<pre class="r"><code>for (cl in cluster_names){
+    obs_cutoff = quantile(obs_corr[, cl], 0.75)
+    perm_cl&lt;-intersect(row.names(perm_res[perm_res[,cl]&lt;0.05,]),
+                     row.names(obs_corr[obs_corr[, cl]&gt;obs_cutoff,]))
+    inters&lt;-perm_cl
+    rounded_val&lt;-signif(as.numeric(obs_corr[inters,cl]), digits = 3)
+    inters_df = as.data.frame(cbind(gene=inters, value=rounded_val))
+    inters_df$value = as.numeric(inters_df$value)
+    inters_df&lt;-inters_df[order(inters_df$value, decreasing = TRUE),]
+    inters_df$text= paste(inters_df$gene,inters_df$value,sep=&quot;: &quot;)
+    
+    if (length(inters &gt; 0)){
+        inters_df = inters_df[1:min(3, nrow(inters_df)),]
+        inters = inters_df$gene
+        iters_sp1= hl_cancer$feature_name %in% inters
+        vis_r1 =hl_cancer[iters_sp1,
+                        c(&quot;x&quot;,&quot;y&quot;,&quot;feature_name&quot;)]
+        vis_r1$value = inters_df[match(vis_r1$feature_name,inters_df$gene),
+                        &quot;value&quot;]
+        vis_r1=vis_r1[order(vis_r1$value,decreasing = TRUE),]
+        vis_r1$text_label= paste(vis_r1$feature_name,
+                            vis_r1$value,sep=&quot;: &quot;)
+        vis_r1$text_label=factor(vis_r1$text_label, levels=inters_df$text)
+    
+        vis_r1 = vis_r1[order(vis_r1$text_label),]
+
+        genes_plt &lt;- plot_top3_genes(vis_df=vis_r1, fig_ratio=fig_ratio)
+        
+        cluster_data =  cluster_info[cluster_info$cluster==cl, ]
+        cl_pt&lt;- ggplot(data =cluster_data,
+                    aes(x = x, y = y, color=sample))+ 
+                    #geom_hex(bins = 100)+
+                    geom_point(size=0.001, alpha=0.3)+
+                    facet_wrap(~anno_name, nrow=1,strip.position = &quot;left&quot;)+
+                    scale_color_manual(values = c(&quot;black&quot;))+
+                    defined_theme + 
+            theme(legend.position = &quot;none&quot;, 
+                    strip.background = element_blank(), 
+                    legend.key.width = unit(15, &quot;cm&quot;),
+                    aspect.ratio = fig_ratio,
+                    plot.margin = margin(0, 0, 0, 0),
+                    strip.text = element_text(size = rel(1.3)))
+
+        layout_design &lt;- (wrap_plots(cl_pt, ncol = 1) | genes_plt) +
+            plot_layout(widths = c(1, 3), heights = c(1))
+        
+        print(layout_design)
+    }
+  }</code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-corr-1">
+Past versions of top3-gene-vis-xy-corr-1.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-corr-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-2.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-corr-2">
+Past versions of top3-gene-vis-xy-corr-2.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-corr-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-2.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-3.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-corr-3">
+Past versions of top3-gene-vis-xy-corr-3.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-corr-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-3.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-4.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-corr-4">
+Past versions of top3-gene-vis-xy-corr-4.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-corr-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-4.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-5.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-corr-5">
+Past versions of top3-gene-vis-xy-corr-5.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-corr-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-5.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-6.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-corr-6">
+Past versions of top3-gene-vis-xy-corr-6.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-corr-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-6.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-7.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-corr-7">
+Past versions of top3-gene-vis-xy-corr-7.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-corr-7" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-7.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-8.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-corr-8">
+Past versions of top3-gene-vis-xy-corr-8.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-corr-8" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-8.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="cluster-vector-versus-marker-gene-vector-1"
+class="section level4">
+<h4>Cluster vector versus marker gene vector</h4>
+<p>We further examined the quantitative relationship between the cluster
+vector and its top correlated marker gene vectors. Each scatter plot
+compares the spatial strength of a marker gene with the corresponding
+cluster vector across spatial bins. The results show clear positive
+linear relationships, indicating that the marker genes are spatially
+aligned with the inferred cluster domain.</p>
+<pre class="r"><code>plot_lst=list()
+for (cl in cluster_names){
+    obs_cutoff = quantile(obs_corr[, cl], 0.75)
+    perm_cl&lt;-intersect(row.names(perm_res[perm_res[,cl]&lt;0.05,]),
+                     row.names(obs_corr[obs_corr[, cl]&gt;obs_cutoff,]))
+    inters&lt;-perm_cl
+    if (length(inters) &gt;0){
+        rounded_val&lt;-signif(as.numeric(obs_corr[inters,cl]), digits = 3)
+        inters_df = as.data.frame(cbind(gene=inters, value=rounded_val))
+        inters_df$value = as.numeric(inters_df$value)
+        inters_df&lt;-inters_df[order(inters_df$value, decreasing = TRUE),]
+
+        inters_df = inters_df[1:min(3, nrow(inters_df)),]
+        mk_genes = inters_df$gene
+        
+        dff = as.data.frame(cbind(sv_lst$cluster_mt[,cl],
+                          sv_lst$gene_mt[,mk_genes]))
+        colnames(dff) = c(&quot;cluster&quot;, mk_genes)
+        dff$vector_id = c(1:nbins)
+        long_df &lt;- dff %&gt;% 
+         tidyr::pivot_longer(cols = -c(cluster, vector_id), names_to = &quot;gene&quot;, 
+           values_to = &quot;vector_count&quot;)
+        long_df$gene = factor(long_df$gene, levels=mk_genes)
+        p&lt;-ggplot(long_df, aes(x = cluster, y = vector_count, color=gene )) +
+        geom_point(size=0.01) +
+        facet_wrap(~gene, scales=&quot;free_y&quot;, nrow=1) +
+        labs(x = paste(cl, &quot; cluster vector &quot;, sep=&quot;&quot;), 
+        y = &quot;Top3 marker gene vector&quot;) +
+        theme_minimal()+
+        scale_y_continuous(expand = c(0.01,0.01))+ 
+        scale_x_continuous(expand =  c(0.01,0.01))+ 
+        theme(panel.grid = element_blank(),
+          legend.position = &quot;none&quot;,
+        strip.text = element_text(size = 12),
+        axis.line=element_blank(),
+        axis.text=element_text(size = 11),
+        axis.ticks=element_line(color=&quot;black&quot;),
+        axis.title.y=element_text(size = 11),
+         axis.title.x=element_text(size = 12),
+        panel.border  =element_rect(colour = &quot;black&quot;, 
+                                fill=NA, linewidth=0.5)
+        )
+                
+        if (length(mk_genes) == 2) {
+            p &lt;- (p | plot_spacer()) + 
+            plot_layout(widths = c(2, 1))
+        } else if (length(mk_genes) == 1) {
+            p &lt;- (p | plot_spacer() | plot_spacer()) + 
+            plot_layout(widths = c(1, 1, 1))
+        } 
+        
+        plot_lst[[cl]] = p
+    }
+}
+
+
+combined_plot &lt;- wrap_plots(plot_lst, ncol = 2)
+
+combined_plot </code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/vvplot-corr-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-vvplot-corr-1">
+Past versions of vvplot-corr-1.png
+</button>
+</p>
+<div id="fig-vvplot-corr-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/vvplot-corr-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="marker-gene-summary-per-cluster-1" class="section level4">
+<h4>Marker gene summary per cluster</h4>
+<p>The correlation method identified spatially co-expressed genes
+aligned with cell-type distributions, though some overlap between
+adjacent compartments is evident.</p>
+<p>Tumor 1: Broad set of highly correlated oncogenic and metabolic genes
+(STAT3, EGFR, MTOR, HIF1A, CD274), reflecting general tumor activity but
+also over-selection of housekeeping genes.</p>
+<p>Tumor 2: Coherent hypoxia and glycolysis signature (NDUFA4L2, IGFBP3,
+VEGFA, ENO1, PGK1, SPP1), consistent with metabolically active tumor
+regions.</p>
+<p>Macrophages: Strong immune–stromal markers (LYZ, RGS1, SRGN, VIM,
+ANXA1), typical of TAMs; partial mixing with B-cell zones suggested by
+immunoglobulin hits.</p>
+<p>T cells: IL7R and CXCR4 confirm activated tissue-resident T cells,
+while COL1A1 and SAA1 reflect spatial overlap with stromal/hepatic
+areas.</p>
+<p>Periportal LSECs: Vascular and ECM genes (IGFBP7, COL4A1/2, MGP,
+NOTCH3, ACTA2) mark endothelial identity with expected stromal
+proximity.</p>
+<p>Stellate cells: Classic fibroblast signature (COL1A1/2, THBS2, BGN,
+DCN, ACTA2), accurately capturing activated stellate programs.</p>
+<p>B cells: Dominated by immunoglobulin genes (IGHG1/2, IGKC, IGHM,
+JCHAIN), confirming B-lineage identity.</p>
+<p>Hepatocytes: Liver-specific acute-phase genes (CRP, SAA1) validate
+annotation; minor stromal signals due to small spatial domain.</p>
+<p>Other clusters: No distinct markers detected, likely reflecting low
+abundance or diffuse signal.</p>
+<p>It is important to inspect and adjust this cutoff as needed — in some
+cases, the 75th percentile threshold may still fall below 0.1, which
+could include weakly correlated genes. A higher cutoff can be applied to
+ensure that only strongly spatially associated genes are retained.</p>
+<pre class="r"><code># correlation appraoch
+# Combine into a new dataframe for LaTeX output
+output_data &lt;- do.call(rbind, lapply(cluster_names, function(cl) {
+  obs_cutoff = quantile(obs_corr[, cl], 0.75)
+  perm_cl=intersect(row.names(perm_res[perm_res[,cl]&lt;0.05,]),
+                   row.names(obs_corr[obs_corr[, cl]&gt;obs_cutoff,]))
+
+  if (length(perm_cl) == 0){
+    return(data.frame(Cluster = cl, Genes = &quot;  &quot;))
+  }
+  sorted_subset = obs_corr[row.names(obs_corr) %in% perm_cl,]
+  sorted_subset &lt;- sorted_subset[order(-sorted_subset[,cl]), ]
+  if (cl != &quot;NoSig&quot;){
+    gene_list &lt;- paste(row.names(sorted_subset), &quot;(&quot;, round(sorted_subset[,cl], 2), &quot;)&quot;, sep=&quot;&quot;, collapse=&quot;, &quot;)
+  }else{
+    gene_list &lt;- paste(row.names(sorted_subset), &quot;&quot;, sep=&quot;&quot;, collapse=&quot;, &quot;)
+  }
+  
+  return(data.frame(Cluster = cl, Genes = gene_list))
+}))
+knitr::kable(
+  output_data,
+  caption = &quot;Detected marker genes for each cluster by correlation approach in jazzPanda, in decreasing value of observed correlation&quot;
+)</code></pre>
+<table>
+<caption>Detected marker genes for each cluster by correlation approach
+in jazzPanda, in decreasing value of observed correlation</caption>
+<colgroup>
+<col width="0%" />
+<col width="99%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Cluster</th>
+<th align="left">Genes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">tumor_1</td>
+<td align="left">FES(0.94), AR(0.94), SRSF2(0.94), PPIA(0.94),
+FGFR3(0.93), ZBTB16(0.93), XBP1(0.93), NR1H3(0.93), TNFRSF11B(0.93),
+THSD4(0.93), IRF3(0.93), IGF1(0.93), ARF1(0.93), HDAC1(0.93),
+RARA(0.93), MTOR(0.93), HDAC4(0.93), DUSP6(0.92), RXRB(0.92),
+ACACB(0.92), NR2F2(0.92), RPL21(0.92), ATR(0.92), XCL1(0.92),
+TYK2(0.92), DNMT1(0.92), STAT3(0.92), ATP5F1E(0.92), EZH2(0.92),
+CDH1(0.92), PCNA(0.92), VHL(0.92), EIF5A(0.92), BTF3(0.92), NOSIP(0.92),
+NR1H2(0.92), RPL37(0.92), SMAD2(0.92), SNAI1(0.92), AQP3(0.92),
+CCL15(0.92), ACVR1B(0.92), NOTCH1(0.92), FKBP5(0.92), ABL1(0.92),
+TUBB(0.92), IL6R(0.92), IL15RA(0.92), HMGN2(0.92), GLUD1(0.92),
+NFKB1(0.92), HDAC3(0.92), DNMT3A(0.92), HSP90B1(0.92), IL11RA(0.91),
+COL9A3(0.91), BAX(0.91), FAU(0.91), PDS5A(0.91), NFKBIA(0.91),
+UBA52(0.91), APOE(0.91), PTK2(0.91), SNAI2(0.91), EGFR(0.91),
+ATP5F1B(0.91), FASN(0.91), PROX1(0.91), BRAF(0.91), CTNNB1(0.91),
+RNF43(0.91), BID(0.91), SMARCB1(0.91), RPL34(0.91), WNT3(0.91),
+RXRA(0.91), MAPK13(0.91), MALAT1(0.91), IL1RAP(0.91), IL1RN(0.91),
+CDKN1A(0.91), IL13RA1(0.91), HSPB1(0.91), SMAD4(0.91), BECN1(0.91),
+IL17RA(0.91), SEC23A(0.91), FKBP11(0.91), LGALS3BP(0.91), PFN1(0.91),
+HLA-A(0.91), TAP2(0.91), ICA1(0.91), NEAT1(0.91), MMP1(0.91),
+PSD3(0.91), SLCO2B1(0.91), ERBB3(0.91), ADIRF(0.91), TNNC1(0.91),
+GSTP1(0.91), HSP90AA1(0.91), KRAS(0.91), BTG1(0.91), ATG5(0.91),
+KRT15(0.91), TYMS(0.91), EFNA5(0.91), SEC61G(0.91), RACK1(0.91),
+ITGAM(0.91), STAT5B(0.91), CHEK2(0.91), RPL22(0.9), CAMP(0.9),
+KRT86(0.9), MYL12A(0.9), CSK(0.9), RARRES2(0.9), INHA(0.9), PTGES3(0.9),
+CASP3(0.9), SMO(0.9), INHBB(0.9), FZD6(0.9), LTBR(0.9), ATM(0.9),
+CD63(0.9), PLD3(0.9), MAP1LC3B(0.9), BCL2L1(0.9), SERPINH1(0.9),
+MAPK14(0.9), ACVR1(0.9), ATG12(0.9), AKT1(0.9), FZD5(0.9), INSR(0.9),
+RORA(0.9), ATG10(0.9), PLCG1(0.9), ABL2(0.9), HMGB2(0.9), VCAM1(0.9),
+CELSR2(0.9), RPL32(0.9), ACE(0.9), YES1(0.9), MZT2A(0.9), STAT6(0.9),
+CHEK1(0.9), SLC40A1(0.9), ERBB2(0.9), H4C3(0.9), BST2(0.9), BMPR2(0.9),
+CD274(0.9), NACA(0.9), HSP90AB1(0.9), ST6GAL1(0.9), CSTB(0.9), KDR(0.9),
+CXCL16(0.9), PARP1(0.9), DST(0.9), ACVR2A(0.9), FGFR2(0.9), RYK(0.9),
+DHRS2(0.9), IFNGR2(0.9), IL10RB(0.9), CSF1(0.9), IFNAR1(0.9),
+APOC1(0.9), SH3BGRL3(0.9), TUBB4B(0.9), PPARA(0.9), SELENOP(0.9),
+PTGES2(0.89), PDGFC(0.89), ITM2B(0.89), TNFRSF1A(0.89), B2M(0.89),
+ADGRG1(0.89), GLUL(0.89), IL1A(0.89), CD276(0.89), SOD1(0.89),
+CDKN3(0.89), EPHB4(0.89), TPM2(0.89), LEP(0.89), CFLAR(0.89),
+PHLDA2(0.89), ADGRA3(0.89), CAV1(0.89), TOX(0.89), CYSTM1(0.89),
+MST1R(0.89), CX3CL1(0.89), GSK3B(0.89), CD9(0.89), HIF1A(0.89),
+IFNAR2(0.89), CALM1(0.89), HMGCS1(0.89), NR3C1(0.89), BMPR1A(0.89),
+NUSAP1(0.89), EGF(0.89), CCL17(0.89), CD81(0.89), H2AZ1(0.89),
+RAC1(0.89), HSD17B2(0.89), RELA(0.89)</td>
+</tr>
+<tr class="even">
+<td align="left">tumor_2</td>
+<td align="left">NDUFA4L2(0.81), IGFBP3(0.79), VEGFA(0.77),
+IGFBP5(0.76), SLC2A1(0.71), ENO1(0.7), PGK1(0.69), SPP1(0.63)</td>
+</tr>
+<tr class="odd">
+<td align="left">Macrophages</td>
+<td align="left">RGS1(0.82), LYZ(0.8), SRGN(0.8), VIM(0.79),
+CXCR4(0.78), COL1A1(0.76), ANXA1(0.75), TAGLN(0.7), BGN(0.69),
+IL7R(0.67), DCN(0.67), COL1A2(0.66), IGHG1(0.63), IGKC(0.53),
+IGHM(0.46), SAA1(0.38)</td>
+</tr>
+<tr class="even">
+<td align="left">T</td>
+<td align="left">IL7R(0.77), CXCR4(0.74), COL1A1(0.64), IGKC(0.53),
+SAA1(0.45), CRP(0.42)</td>
+</tr>
+<tr class="odd">
+<td align="left">Periportal.LSECs</td>
+<td align="left">IGFBP7(0.81), COL4A1(0.79), COL4A2(0.79), MGP(0.79),
+NOTCH3(0.75), ACTA2(0.74), VIM(0.74), TAGLN(0.7), BGN(0.7), COL1A2(0.7),
+COL1A1(0.66)</td>
+</tr>
+<tr class="even">
+<td align="left">Stellate.cells</td>
+<td align="left">COL1A1(0.88), COL1A2(0.84), THBS2(0.78), IGFBP7(0.75),
+BGN(0.75), DCN(0.73), TAGLN(0.69), ACTA2(0.65), IGKC(0.59),
+SAA1(0.36)</td>
+</tr>
+<tr class="odd">
+<td align="left">B</td>
+<td align="left">IGHG1(0.71), COL1A1(0.66), IGKC(0.65), IGHG2(0.62),
+DCN(0.61), IL7R(0.58), COL1A2(0.55), IGHM(0.52), IGHA1(0.5),
+JCHAIN(0.47), SAA1(0.44), CRP(0.4)</td>
+</tr>
+<tr class="even">
+<td align="left">Central.venous.LSECs</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Cholangiocytes</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Hep</td>
+<td align="left">CRP(0.91), SAA1(0.9), DCN(0.54), IGKC(0.53),
+IL7R(0.44), IGHG1(0.42)</td>
+</tr>
+<tr class="odd">
+<td align="left">Portal.endothelial.cells</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">NK.like.cells</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Erthyroid.cells</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="limma" class="section level2">
+<h2>limma</h2>
+<p>We applied the limma framework to identify differentially expressed
+marker genes across clusters in the liver cancer sample. Count data were
+normalized using log-transformed counts from the speckle package. A
+linear model was fitted for each gene with cluster identity as the
+design factor, and pairwise contrasts were constructed to compare each
+cluster against all others. Empirical Bayes moderation was applied to
+stabilize variance estimates, and significant genes were determined
+using the moderated t-statistics from eBayes.</p>
+<pre class="r"><code>y &lt;- DGEList(counts_cancer_sample[, cluster_info$cell_id])
+y$genes &lt;-row.names(counts_cancer_sample)
+
+logcounts &lt;- speckle::normCounts(y,log=TRUE,prior.count=0.1)
+maxclust &lt;- length(unique(cluster_info$cluster))
+
+grp &lt;- cluster_info$cluster
+
+design &lt;- model.matrix(~0+grp)
+colnames(design) &lt;- levels(grp)
+
+mycont &lt;- matrix(NA,ncol=length(levels(grp)),nrow=length(levels(grp)))
+rownames(mycont)&lt;-colnames(mycont)&lt;-levels(grp)
+diag(mycont)&lt;-1
+mycont[upper.tri(mycont)]&lt;- -1/(length(levels(factor(grp)))-1)
+mycont[lower.tri(mycont)]&lt;- -1/(length(levels(factor(grp)))-1)
+fit &lt;- lmFit(logcounts,design)
+fit.cont &lt;- contrasts.fit(fit,contrasts=mycont)
+fit.cont &lt;- eBayes(fit.cont,trend=TRUE,robust=TRUE)
+
+limma_dt&lt;-decideTests(fit.cont)
+
+summary(limma_dt)
+
+saveRDS(fit.cont, here(gdata,paste0(data_nm, &quot;_fit_cont_obj.Rds&quot;)))</code></pre>
+<pre class="r"><code>fit.cont = readRDS(here(gdata,paste0(data_nm, &quot;_fit_cont_obj.Rds&quot;)))
+limma_dt &lt;- decideTests(fit.cont)
+summary(limma_dt)</code></pre>
+<pre><code>       tumor_1 tumor_2 Macrophages   T Periportal.LSECs Stellate.cells   B
+Down       268     205         654 450              647            746 502
+NotSig     134     128         147 255              143            106 352
+Up         598     667         199 295              210            148 146
+       Central.venous.LSECs Cholangiocytes Hep Portal.endothelial.cells
+Down                    529            435 212                      638
+NotSig                  346            440 447                      303
+Up                      125            125 341                       59
+       NK.like.cells Erthyroid.cells
+Down             414              69
+NotSig           475             915
+Up               111              16</code></pre>
+<pre class="r"><code>top_markers &lt;- lapply(cluster_names, function(cl) {
+  tt &lt;- topTable(fit.cont,
+                 coef = cl,
+                 number = Inf,
+                 adjust.method = &quot;BH&quot;,
+                 sort.by = &quot;P&quot;)
+  tt &lt;- tt[order(tt$adj.P.Val, -abs(tt$logFC)), ]  
+  tt$contrast &lt;- cl
+  tt$gene &lt;- rownames(tt)
+  head(tt, 10)  
+})
+
+
+# Combine into one data.frame
+top_markers_df &lt;- bind_rows(top_markers) %&gt;%
+  select(contrast, gene, logFC, adj.P.Val)
+
+
+p1&lt;- DotPlot(seu, features = unique(top_markers_df$gene)) +
+     scale_colour_gradient(low = &quot;white&quot;, high = &quot;red&quot;) +
+    coord_flip()+
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))+
+    labs(title = &quot;Top 10 marker genes (limma)&quot;, x=&quot;&quot;, y=&quot;&quot;)
+
+p1</code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/looad_limma_res-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-looad_limma_res-1">
+Past versions of looad_limma_res-1.png
+</button>
+</p>
+<div id="fig-looad_limma_res-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/looad_limma_res-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="wilcoxon-rank-sum-test" class="section level2">
+<h2>Wilcoxon Rank Sum Test</h2>
+<p>The <code>FindAllMarkers</code> function applies a Wilcoxon Rank Sum
+test to detect genes with cluster-specific expression shifts. Only
+positive markers (upregulated genes) were retained using a log
+fold-change threshold of 0.1.</p>
+<pre class="r"><code>hlc_seu=CreateSeuratObject(counts = counts_cancer_sample[, cluster_info$cell_id], project = &quot;hl_cancer&quot;)
+Idents(hlc_seu) = cluster_info[match(colnames(hlc_seu), 
+                                      cluster_info$cell_id),&quot;cluster&quot;]
+hlc_seu = NormalizeData(hlc_seu, verbose = FALSE,
+                        normalization.method = &quot;LogNormalize&quot;)
+hlc_seu = FindVariableFeatures(hlc_seu, selection.method = &quot;vst&quot;, 
+                               nfeatures = 1000, verbose = FALSE)
+
+hlc_seu=ScaleData(hlc_seu, verbose = FALSE)
+
+set.seed(989)
+# print(ElbowPlot(hlc_seu, ndims = 50))
+hlc_seu &lt;- RunPCA(hlc_seu, features = row.names(hlc_seu), 
+                  npcs = 30, verbose = FALSE)
+hlc_seu &lt;- RunUMAP(object = hlc_seu, dims = 1:15)
+
+
+seu_markers &lt;- FindAllMarkers(hlc_seu, only.pos = TRUE,logfc.threshold = 0.1)
+
+
+saveRDS(seu_markers, here(gdata,paste0(data_nm, &quot;_seu_markers.Rds&quot;)))
+
+saveRDS(hlc_seu, here(gdata,paste0(data_nm, &quot;_seu.Rds&quot;)))</code></pre>
+<pre class="r"><code>FM_result= readRDS(here(gdata,paste0(data_nm, &quot;_seu_markers.Rds&quot;)))
+FM_result = FM_result[FM_result$avg_log2FC&gt;0.1, ]
+
+table(FM_result$cluster)</code></pre>
+<pre><code>
+                 tumor_1                  tumor_2              Macrophages 
+                     131                      130                      756 
+                       T         Periportal.LSECs           Stellate.cells 
+                     804                      744                      694 
+                       B     Central.venous.LSECs           Cholangiocytes 
+                     768                      746                      740 
+                     Hep Portal.endothelial.cells            NK.like.cells 
+                     161                      726                      656 
+         Erthyroid.cells 
+                     138 </code></pre>
+<pre class="r"><code>FM_result$cluster &lt;- factor(FM_result$cluster,
+                            levels = cluster_names)
+
+top_mg &lt;- FM_result %&gt;%
+  group_by(cluster) %&gt;%
+  arrange(desc(avg_log2FC), .by_group = TRUE) %&gt;% 
+  slice_max(order_by = avg_log2FC, n = 10) %&gt;%
+  select(cluster, gene, avg_log2FC)
+
+p1&lt;-DotPlot(seu, features = unique(top_mg$gene)) +
+     scale_colour_gradient(low = &quot;white&quot;, high = &quot;red&quot;) +
+    coord_flip()+
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))+
+    labs(title = &quot;Top 10 marker genes (WRS)&quot;, x=&quot;&quot;, y=&quot;&quot;)
+
+p1
+# Combine into a new dataframe for LaTeX output
+# output_data &lt;- do.call(rbind, lapply(cluster_names, function(cl) {
+#   subset &lt;- top_mg[top_mg$cluster == cl, ]
+#   sorted_subset &lt;- subset[order(-subset$avg_log2FC), ]
+#   gene_list &lt;- paste(sorted_subset$gene, &quot;(&quot;, round(sorted_subset$avg_log2FC, 2), &quot;)&quot;, sep=&quot;&quot;, collapse=&quot;, &quot;)
+#  
+#   return(data.frame(Cluster = cl, Genes = gene_list))
+# }))
+# latex_table &lt;- xtable(output_data, caption=&quot;Detected marker genes for each cluster by FindMarkers&quot;)
+# print.xtable(latex_table, include.rownames = FALSE, hline.after = c(-1, 0, nrow(output_data)), comment = FALSE)</code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/load_FM_res-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-load_FM_res-1">
+Past versions of load_FM_res-1.png
+</button>
+</p>
+<div id="fig-load_FM_res-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/load_FM_res-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="comparison-of-marker-gene-detection-methods"
+class="section level1">
+<h1>Comparison of marker gene detection methods</h1>
+<div id="cumulative-rank-plot" class="section level2">
+<h2>Cumulative rank plot</h2>
+<p>We compared the performance of different marker detection methods —
+jazzPanda (linear modelling and correlation), limma, and Seurat’s
+Wilcoxon Rank Sum test — by comparing the cumulative average spatial
+correlation between ranked marker genes and their corresponding target
+clusters at the spatial vector level.</p>
+<p>Across multiple cell populations, including tumor subclusters,
+periportal LSECs, stellate cells, macrophages, and T cells, jazzPanda
+consistently prioritized genes with higher spatial concordance. In
+contrast, Wilcoxon and limma markers rarely achieve high correlation,
+indicating that classical differential expression approaches identify
+genes with large expression differences but limited spatial
+coherence.</p>
+<pre class="r"><code>plot_lst=list()
+cor_M = cor(sv_lst$gene_mt,
+            sv_lst$cluster_mt[, cluster_names],
+            method = &quot;spearman&quot;)
+
+Idents(seu)=cluster_info$cluster[match(colnames(seu), 
+                                       cluster_info$cell_id)]
+for (cl in cluster_names){
+    
+    fm_cl=FindMarkers(seu, ident.1 = cl, only.pos = TRUE,
+            logfc.threshold = 0.1)
+    fm_cl = fm_cl[fm_cl$p_val_adj&lt;0.05, ]
+    fm_cl = fm_cl[order(fm_cl$avg_log2FC, decreasing = TRUE),]
+    to_plot_fm =row.names(fm_cl)
+    if (length(to_plot_fm)&gt;0){
+        FM_pt =FM_pt = data.frame(&quot;name&quot;=to_plot_fm,&quot;rk&quot;= 1:length(to_plot_fm),
+                       &quot;y&quot;= get_cmr_ma(to_plot_fm,cor_M = cor_M, cl = cl),
+                       &quot;type&quot;=&quot;Wilcoxon Rank Sum Test&quot;)
+    }else{
+        FM_pt &lt;- data.frame(name = character(0), rk = integer(0), 
+                               y= numeric(0), type = character(0))
+    }
+
+    limma_cl&lt;-topTable(fit.cont,coef=cl,p.value = 0.05, n=Inf, sort.by = &quot;p&quot;)
+    limma_cl = limma_cl[limma_cl$logFC&gt;0, ]
+    to_plot_lm = row.names(limma_cl)
+    if (length(to_plot_lm)&gt;0){
+         limma_pt = data.frame(&quot;name&quot;=to_plot_lm,&quot;rk&quot;= 1:length(to_plot_lm),
+                                  &quot;y&quot;= get_cmr_ma(to_plot_lm,cor_M = cor_M, cl = cl),
+                                  &quot;type&quot;=&quot;limma&quot;)
+    }else{
+        limma_pt &lt;- data.frame(name = character(0), rk = integer(0), 
+                               y= numeric(0), type = character(0))
+    }
+    
+    obs_cutoff = quantile(obs_corr[, cl], 0.75)
+    perm_cl=intersect(row.names(perm_res[perm_res[,cl]&lt;0.05,]),
+                 row.names(obs_corr[obs_corr[, cl]&gt;obs_cutoff,]))
+    if (length(perm_cl) &gt; 0) {
+        rounded_val=signif(as.numeric(obs_corr[perm_cl,cl]), digits = 3)
+        roudned_pval=signif(as.numeric(perm_res[perm_cl,cl]), digits = 3)
+        perm_sorted = as.data.frame(cbind(gene=perm_cl, value=rounded_val, pval=roudned_pval))
+        perm_sorted$value = as.numeric(perm_sorted$value)
+        perm_sorted$pval = as.numeric(perm_sorted$pval)
+        perm_sorted=perm_sorted[order(-perm_sorted$pval,
+                                  perm_sorted$value, 
+                                  decreasing = TRUE),]
+        corr_pt = data.frame(&quot;name&quot;=perm_sorted$gene,&quot;rk&quot;= 1:length(perm_sorted$gene),
+                     &quot;y&quot;= get_cmr_ma(perm_sorted$gene,cor_M = cor_M, cl = cl),
+                     &quot;type&quot;=&quot;jazzPanda-correlation&quot;)
+    } else {
+      corr_pt &lt;-data.frame(name = character(0), rk = integer(0), 
+                               y= numeric(0), type = character(0))
+    }
+    
+    lasso_sig = jazzPanda_res[jazzPanda_res$top_cluster==cl,]
+    if (nrow(lasso_sig) &gt; 0) {
+        lasso_sig &lt;- lasso_sig[order(lasso_sig$glm_coef, decreasing = TRUE), ]
+        lasso_pt = data.frame(&quot;name&quot;=lasso_sig$gene,&quot;rk&quot;= 1:nrow(lasso_sig),
+                          &quot;y&quot;= get_cmr_ma(lasso_sig$gene,cor_M = cor_M, cl = cl),
+                          &quot;type&quot;=&quot;jazzPanda-glm&quot;)
+    } else {
+      lasso_pt &lt;- data.frame(name = character(0), rk = integer(0), 
+                               y= numeric(0), type = character(0))
+    }
+
+    data_lst = rbind(limma_pt, FM_pt,corr_pt,lasso_pt)
+
+    data_lst$type &lt;- factor(data_lst$type,
+                            levels = c(&quot;jazzPanda-correlation&quot; ,
+                                       &quot;jazzPanda-glm&quot;,
+                                       &quot;limma&quot;, &quot;Wilcoxon Rank Sum Test&quot;))
+    data_lst$rk = as.numeric(data_lst$rk)
+    cl = sub(cl, pattern = &quot;.cells&quot;, replacement=&quot;&quot;)
+    p &lt;-ggplot(data_lst, aes(x = rk, y = y, color = type)) +
+        geom_step(size = 0.8) +  # type = &quot;s&quot;
+        scale_color_manual(values = c(&quot;jazzPanda-correlation&quot; = &quot;orange&quot;,
+                                    &quot;jazzPanda-glm&quot; = &quot;red&quot;,
+                                    &quot;limma&quot; = &quot;black&quot;,
+                                    &quot;Wilcoxon Rank Sum Test&quot; = &quot;blue&quot;)) +
+        scale_x_continuous(limits = c(0, 50))+
+        labs(title = paste(cl, &quot;cells&quot;), x = &quot;Rank of marker genes&quot;,
+             y = &quot;Cumulative average correlation&quot;,
+             color = NULL) +
+        theme_classic(base_size = 12) +
+        theme(plot.title = element_text(hjust = 0.5),
+            axis.line = element_blank(),  
+            panel.border = element_rect(color = &quot;black&quot;, 
+                                        fill = NA, linewidth = 1),
+            legend.position = &quot;inside&quot;,
+            legend.position.inside = c(0.98, 0.02),
+            legend.justification = c(&quot;right&quot;, &quot;bottom&quot;),
+            legend.background = element_rect(color = &quot;black&quot;, 
+                                             fill = &quot;white&quot;, linewidth = 0.5),
+            legend.box.background = element_rect(color = &quot;black&quot;,
+                                                 linewidth = 0.5)
+        )
+    plot_lst[[cl]] &lt;- p
+}
+
+
+combined_plot &lt;- wrap_plots(plot_lst, ncol =3)
+
+combined_plot </code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/cmr-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cmr-1">
+Past versions of cmr-1.png
+</button>
+</p>
+<div id="fig-cmr-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/cmr-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="upset-plot" class="section level2">
+<h2>Upset plot</h2>
+<p>We further visualized the overlap between marker genes detected by
+the four methods using UpSet plots for each cluster.</p>
+<p>The limited overlap between jazzPanda and classical tests highlights
+that spatial modelling captures complementary signal beyond differential
+expression alone. In particular, the linear modelling approach
+identifies spatially structured genes that are not necessarily the most
+differentially expressed but show strong spatial association with
+cell-type domains. Conversely, Wilcoxon and limma yield smaller, largely
+overlapping sets dominated by high-abundance genes lacking spatial
+specificity.</p>
+<pre class="r"><code>plot_lst=list()
+for (cl in cluster_names){
+    findM_sig &lt;- FM_result[FM_result$cluster==cl &amp; FM_result$p_val_adj&lt;0.05,&quot;gene&quot;]
+    limma_sig &lt;- row.names(limma_dt[limma_dt[,cl]==1,])
+    lasso_cl &lt;- jazzPanda_res[jazzPanda_res$top_cluster==cl, &quot;gene&quot;]
+    
+    obs_cutoff = quantile(obs_corr[, cl], 0.75)
+    perm_cl=intersect(row.names(perm_res[perm_res[,cl]&lt;0.05,]),
+                 row.names(obs_corr[obs_corr[, cl]&gt;obs_cutoff,]))
+    
+    df_mt &lt;- as.data.frame(matrix(FALSE,nrow=nrow(jazzPanda_res),ncol=4))
+    row.names(df_mt) &lt;- jazzPanda_res$gene
+    colnames(df_mt) &lt;- c(&quot;jazzPanda-glm&quot;,
+                      &quot;jazzPanda-correlation&quot;,
+                      &quot;Wilcoxon Rank Sum Test&quot;,&quot;limma&quot;)
+    df_mt[findM_sig,&quot;Wilcoxon Rank Sum Test&quot;] &lt;- TRUE
+    df_mt[limma_sig,&quot;limma&quot;] &lt;- TRUE
+    df_mt[lasso_cl,&quot;jazzPanda-glm&quot;] &lt;- TRUE
+    df_mt[perm_cl,&quot;jazzPanda-correlation&quot;] &lt;- TRUE
+    
+    df_mt$gene_name &lt;- row.names(df_mt)
+    p = plot(upset(df_mt,
+               intersect=c(&quot;Wilcoxon Rank Sum Test&quot;, &quot;limma&quot;,
+                           &quot;jazzPanda-correlation&quot;,&quot;jazzPanda-glm&quot;),
+               wrap=TRUE, keep_empty_groups= FALSE, name=&quot;&quot;,
+               stripes=&#39;white&#39;,
+               sort_intersections_by =&quot;cardinality&quot;, 
+               sort_sets= FALSE,min_degree=1,
+               set_sizes =( 
+                   upset_set_size()
+                   + theme(axis.title= element_blank(),
+                           axis.ticks.y = element_blank(),
+                           axis.text.y = element_blank())),
+               sort_intersections= &quot;descending&quot;, warn_when_converting=FALSE,
+               warn_when_dropping_groups=TRUE,encode_sets=TRUE,
+               width_ratio=0.3, height_ratio=1/4)+
+             ggtitle(paste(cl,&quot;cells&quot;))+
+                 ggtitle(cl)+
+                 theme(plot.title = element_text( size=15))
+
+    )
+    plot_lst[[cl]] &lt;- p 
+}
+
+combined_plot &lt;- wrap_plots(plot_lst, ncol =3)
+
+combined_plot </code></pre>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/upset-mg-comparison-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-1">
+Past versions of upset-mg-comparison-1.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-liver-cancer.Rmd/upset-mg-comparison-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-liver-cancer.Rmd/upset-mg-comparison-2.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-liver-cancer.Rmd/upset-mg-comparison-3.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-liver-cancer.Rmd/upset-mg-comparison-4.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-liver-cancer.Rmd/upset-mg-comparison-5.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-liver-cancer.Rmd/upset-mg-comparison-6.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-liver-cancer.Rmd/upset-mg-comparison-7.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-liver-cancer.Rmd/upset-mg-comparison-8.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-liver-cancer.Rmd/upset-mg-comparison-9.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-liver-cancer.Rmd/upset-mg-comparison-10.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-liver-cancer.Rmd/upset-mg-comparison-11.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-liver-cancer.Rmd/upset-mg-comparison-12.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-liver-cancer.Rmd/upset-mg-comparison-13.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-liver-cancer.Rmd/upset-mg-comparison-14.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.5.1 (2025-06-13)
+Platform: x86_64-pc-linux-gnu
+Running under: Red Hat Enterprise Linux 9.3 (Plow)
+
+Matrix products: default
+BLAS:   /stornext/System/data/software/rhel/9/base/tools/R/4.5.1/lib64/R/lib/libRblas.so 
+LAPACK: /stornext/System/data/software/rhel/9/base/tools/R/4.5.1/lib64/R/lib/libRlapack.so;  LAPACK version 3.12.1
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Australia/Melbourne
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+ [1] dotenv_1.0.3                corrplot_0.95              
+ [3] xtable_1.8-4                here_1.0.1                 
+ [5] limma_3.64.1                RColorBrewer_1.1-3         
+ [7] patchwork_1.3.1             gridExtra_2.3              
+ [9] ggrepel_0.9.6               ComplexUpset_1.3.3         
+[11] caret_7.0-1                 lattice_0.22-7             
+[13] glmnet_4.1-10               Matrix_1.7-3               
+[15] tidyr_1.3.1                 dplyr_1.1.4                
+[17] data.table_1.17.8           ggplot2_3.5.2              
+[19] Seurat_5.3.0                SeuratObject_5.1.0         
+[21] sp_2.2-0                    SpatialExperiment_1.18.1   
+[23] SingleCellExperiment_1.30.1 SummarizedExperiment_1.38.1
+[25] Biobase_2.68.0              GenomicRanges_1.60.0       
+[27] GenomeInfoDb_1.44.2         IRanges_2.42.0             
+[29] S4Vectors_0.46.0            BiocGenerics_0.54.0        
+[31] generics_0.1.4              MatrixGenerics_1.20.0      
+[33] matrixStats_1.5.0           jazzPanda_0.2.4            
+
+loaded via a namespace (and not attached):
+  [1] RcppAnnoy_0.0.22        splines_4.5.1           later_1.4.2            
+  [4] tibble_3.3.0            polyclip_1.10-7         hardhat_1.4.2          
+  [7] pROC_1.19.0.1           rpart_4.1.24            fastDummies_1.7.5      
+ [10] lifecycle_1.0.4         rprojroot_2.1.0         globals_0.18.0         
+ [13] MASS_7.3-65             magrittr_2.0.3          plotly_4.11.0          
+ [16] sass_0.4.10             rmarkdown_2.29          jquerylib_0.1.4        
+ [19] yaml_2.3.10             httpuv_1.6.16           sctransform_0.4.2      
+ [22] spam_2.11-1             spatstat.sparse_3.1-0   reticulate_1.43.0      
+ [25] cowplot_1.2.0           pbapply_1.7-4           lubridate_1.9.4        
+ [28] abind_1.4-8             Rtsne_0.17              presto_1.0.0           
+ [31] purrr_1.1.0             BumpyMatrix_1.16.0      nnet_7.3-20            
+ [34] ipred_0.9-15            git2r_0.36.2            lava_1.8.1             
+ [37] GenomeInfoDbData_1.2.14 irlba_2.3.5.1           listenv_0.9.1          
+ [40] spatstat.utils_3.1-5    goftest_1.2-3           RSpectra_0.16-2        
+ [43] spatstat.random_3.4-1   fitdistrplus_1.2-4      parallelly_1.45.1      
+ [46] codetools_0.2-20        DelayedArray_0.34.1     tidyselect_1.2.1       
+ [49] shape_1.4.6.1           UCSC.utils_1.4.0        farver_2.1.2           
+ [52] spatstat.explore_3.5-2  jsonlite_2.0.0          progressr_0.15.1       
+ [55] ggridges_0.5.6          survival_3.8-3          iterators_1.0.14       
+ [58] foreach_1.5.2           tools_4.5.1             ica_1.0-3              
+ [61] Rcpp_1.1.0              glue_1.8.0              prodlim_2025.04.28     
+ [64] SparseArray_1.8.1       xfun_0.52               withr_3.0.2            
+ [67] fastmap_1.2.0           digest_0.6.37           timechange_0.3.0       
+ [70] R6_2.6.1                mime_0.13               colorspace_2.1-1       
+ [73] scattermore_1.2         tensor_1.5.1            spatstat.data_3.1-8    
+ [76] hexbin_1.28.5           recipes_1.3.1           class_7.3-23           
+ [79] httr_1.4.7              htmlwidgets_1.6.4       S4Arrays_1.8.1         
+ [82] whisker_0.4.1           uwot_0.2.3              ModelMetrics_1.2.2.2   
+ [85] pkgconfig_2.0.3         gtable_0.3.6            timeDate_4041.110      
+ [88] workflowr_1.7.1         lmtest_0.9-40           XVector_0.48.0         
+ [91] htmltools_0.5.8.1       dotCall64_1.2           scales_1.4.0           
+ [94] png_0.1-8               gower_1.0.2             spatstat.univar_3.1-4  
+ [97] knitr_1.50              rstudioapi_0.17.1       reshape2_1.4.4         
+[100] rjson_0.2.23            nlme_3.1-168            cachem_1.1.0           
+[103] zoo_1.8-14              stringr_1.5.1           KernSmooth_2.23-26     
+[106] parallel_4.5.1          miniUI_0.1.2            pillar_1.11.0          
+[109] grid_4.5.1              vctrs_0.6.5             RANN_2.6.2             
+[112] promises_1.3.3          cluster_2.1.8.1         evaluate_1.0.4         
+[115] magick_2.8.7            cli_3.6.5               compiler_4.5.1         
+[118] rlang_1.1.6             crayon_1.5.3            future.apply_1.20.0    
+[121] labeling_0.4.3          plyr_1.8.9              fs_1.6.6               
+[124] stringi_1.8.7           viridisLite_0.4.2       deldir_2.0-4           
+[127] BiocParallel_1.42.1     lazyeval_0.2.2          spatstat.geom_3.5-0    
+[130] RcppHNSW_0.6.0          future_1.67.0           statmod_1.5.0          
+[133] shiny_1.11.1            ROCR_1.0-11             igraph_2.1.4           
+[136] bslib_0.9.0            </code></pre>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.5.1 (2025-06-13)
+Platform: x86_64-pc-linux-gnu
+Running under: Red Hat Enterprise Linux 9.3 (Plow)
+
+Matrix products: default
+BLAS:   /stornext/System/data/software/rhel/9/base/tools/R/4.5.1/lib64/R/lib/libRblas.so 
+LAPACK: /stornext/System/data/software/rhel/9/base/tools/R/4.5.1/lib64/R/lib/libRlapack.so;  LAPACK version 3.12.1
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Australia/Melbourne
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+ [1] dotenv_1.0.3                corrplot_0.95              
+ [3] xtable_1.8-4                here_1.0.1                 
+ [5] limma_3.64.1                RColorBrewer_1.1-3         
+ [7] patchwork_1.3.1             gridExtra_2.3              
+ [9] ggrepel_0.9.6               ComplexUpset_1.3.3         
+[11] caret_7.0-1                 lattice_0.22-7             
+[13] glmnet_4.1-10               Matrix_1.7-3               
+[15] tidyr_1.3.1                 dplyr_1.1.4                
+[17] data.table_1.17.8           ggplot2_3.5.2              
+[19] Seurat_5.3.0                SeuratObject_5.1.0         
+[21] sp_2.2-0                    SpatialExperiment_1.18.1   
+[23] SingleCellExperiment_1.30.1 SummarizedExperiment_1.38.1
+[25] Biobase_2.68.0              GenomicRanges_1.60.0       
+[27] GenomeInfoDb_1.44.2         IRanges_2.42.0             
+[29] S4Vectors_0.46.0            BiocGenerics_0.54.0        
+[31] generics_0.1.4              MatrixGenerics_1.20.0      
+[33] matrixStats_1.5.0           jazzPanda_0.2.4            
+
+loaded via a namespace (and not attached):
+  [1] RcppAnnoy_0.0.22        splines_4.5.1           later_1.4.2            
+  [4] tibble_3.3.0            polyclip_1.10-7         hardhat_1.4.2          
+  [7] pROC_1.19.0.1           rpart_4.1.24            fastDummies_1.7.5      
+ [10] lifecycle_1.0.4         rprojroot_2.1.0         globals_0.18.0         
+ [13] MASS_7.3-65             magrittr_2.0.3          plotly_4.11.0          
+ [16] sass_0.4.10             rmarkdown_2.29          jquerylib_0.1.4        
+ [19] yaml_2.3.10             httpuv_1.6.16           sctransform_0.4.2      
+ [22] spam_2.11-1             spatstat.sparse_3.1-0   reticulate_1.43.0      
+ [25] cowplot_1.2.0           pbapply_1.7-4           lubridate_1.9.4        
+ [28] abind_1.4-8             Rtsne_0.17              presto_1.0.0           
+ [31] purrr_1.1.0             BumpyMatrix_1.16.0      nnet_7.3-20            
+ [34] ipred_0.9-15            git2r_0.36.2            lava_1.8.1             
+ [37] GenomeInfoDbData_1.2.14 irlba_2.3.5.1           listenv_0.9.1          
+ [40] spatstat.utils_3.1-5    goftest_1.2-3           RSpectra_0.16-2        
+ [43] spatstat.random_3.4-1   fitdistrplus_1.2-4      parallelly_1.45.1      
+ [46] codetools_0.2-20        DelayedArray_0.34.1     tidyselect_1.2.1       
+ [49] shape_1.4.6.1           UCSC.utils_1.4.0        farver_2.1.2           
+ [52] spatstat.explore_3.5-2  jsonlite_2.0.0          progressr_0.15.1       
+ [55] ggridges_0.5.6          survival_3.8-3          iterators_1.0.14       
+ [58] foreach_1.5.2           tools_4.5.1             ica_1.0-3              
+ [61] Rcpp_1.1.0              glue_1.8.0              prodlim_2025.04.28     
+ [64] SparseArray_1.8.1       xfun_0.52               withr_3.0.2            
+ [67] fastmap_1.2.0           digest_0.6.37           timechange_0.3.0       
+ [70] R6_2.6.1                mime_0.13               colorspace_2.1-1       
+ [73] scattermore_1.2         tensor_1.5.1            spatstat.data_3.1-8    
+ [76] hexbin_1.28.5           recipes_1.3.1           class_7.3-23           
+ [79] httr_1.4.7              htmlwidgets_1.6.4       S4Arrays_1.8.1         
+ [82] whisker_0.4.1           uwot_0.2.3              ModelMetrics_1.2.2.2   
+ [85] pkgconfig_2.0.3         gtable_0.3.6            timeDate_4041.110      
+ [88] workflowr_1.7.1         lmtest_0.9-40           XVector_0.48.0         
+ [91] htmltools_0.5.8.1       dotCall64_1.2           scales_1.4.0           
+ [94] png_0.1-8               gower_1.0.2             spatstat.univar_3.1-4  
+ [97] knitr_1.50              rstudioapi_0.17.1       reshape2_1.4.4         
+[100] rjson_0.2.23            nlme_3.1-168            cachem_1.1.0           
+[103] zoo_1.8-14              stringr_1.5.1           KernSmooth_2.23-26     
+[106] parallel_4.5.1          miniUI_0.1.2            pillar_1.11.0          
+[109] grid_4.5.1              vctrs_0.6.5             RANN_2.6.2             
+[112] promises_1.3.3          cluster_2.1.8.1         evaluate_1.0.4         
+[115] magick_2.8.7            cli_3.6.5               compiler_4.5.1         
+[118] rlang_1.1.6             crayon_1.5.3            future.apply_1.20.0    
+[121] labeling_0.4.3          plyr_1.8.9              fs_1.6.6               
+[124] stringi_1.8.7           viridisLite_0.4.2       deldir_2.0-4           
+[127] BiocParallel_1.42.1     lazyeval_0.2.2          spatstat.geom_3.5-0    
+[130] RcppHNSW_0.6.0          future_1.67.0           statmod_1.5.0          
+[133] shiny_1.11.1            ROCR_1.0-11             igraph_2.1.4           
+[136] bslib_0.9.0            </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

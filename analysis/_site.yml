@@ -1,0 +1,27 @@
+name: "jazzPanda_workflowr"
+output_dir: ../docs
+navbar:
+  title: "jazzPanda_workflowr"
+  left:
+  - text: Home
+    href: index.html
+  - text: "Analyses"
+    menu:
+        - text: "Xenium breast cancer data"
+          href: xenium-human-breast-cancer-analysis.html
+        - text: "Xenium human lung data"
+          href: xenium-human-lung-cancer-analysis.html
+        - text: "Xenium mouse brain data"
+          href: xenium-mouse-brain-analysis.html
+        - text: "Cosmx healthy liver data"
+          href: cosmx-human-healthy-liver.html
+        - text: "Cosmx liver cancer data"
+          href: cosmx-human-liver-cancer.html
+        - text: "Merscope breast cancer data"
+          href: merscope-human-breast-cancer.html
+output:
+  workflowr::wflow_html:
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+    highlight: textmate

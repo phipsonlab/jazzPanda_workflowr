@@ -1,0 +1,62 @@
+---
+title: "Home"
+site: workflowr::wflow_site
+output:
+  workflowr::wflow_html:
+    toc: false
+    version: false
+editor_options:
+  chunk_output_type: console
+---
+This website presents an end-to-end analysis workflow for detecting marker genes using the [jazzPanda R package](https://github.com/phipsonlab/jazzPanda). Additional analysis scripts and extended explorations used in the jazzPanda paper are available in the [analysis repository](https://github.com/phipsonlab/jazzPanda_paper). The underlying datasets, including raw vendor data and lightly processed data objects, are publicly available via [Zenodo](https://doi.org/10.5281/zenodo.18149456).
+
+This website hosts the analysis outputs for detecting marker genes with the .  
+
+jazzPanda is designed for **spatial transcriptomics** data and integrates spatial context into marker detection, providing more robust identification of genes that define clusters of cells across different tissue contexts. The analyses presented here demonstrate the application of jazzPanda to a variety of publicly available datasets from multiple spatial technologies.
+
+
+## Raw data access
+### 10x Xenium 
+
+* Human lung cancer sample
+  * Source: https://www.10xgenomics.com/resources/datasets/xenium-human-lung-preview-data-1-standard
+
+* Mouse brain samples
+  * The three samples used in the analysis are replicate 1, replicate 2 and replicate 3. 
+  * Source: https://www.10xgenomics.com/resources/datasets/fresh-frozen-mouse-brain-replicates-1-standard
+
+* Human HER2+ breast cancer samples
+  * The two samples used in the analysis are sample 1 (rep1) and sample 2.
+  * Source: https://www.10xgenomics.com/products/xenium-in-situ/preview-dataset-human-breast
+  * Paper: https://www.biorxiv.org/content/10.1101/2022.10.06.510405v1
+
+* Gene panel
+  * Source: https://www.10xgenomics.com/support/in-situ-gene-expression/documentation/steps/panel-design/pre-designed-xenium-gene-expression-panels
+  * Human lung cancer sample: Xenium Human Lung Gene Expression Panel
+  * Mouse brain samples: Xenium Mouse Brain Gene Expression Panel
+  * Human HER2+ breast cancer samples: Xenium Human Breast Gene Expression Panel
+
+### Nanostring Cosmx
+* Human liver healthy and cancer samples 
+* Source: https://nanostring.com/products/cosmx-spatial-molecular-imager/ffpe-dataset/human-liver-rna-ffpe-dataset/
+
+### Merscope
+* Human breast cancer sample
+* Source: https://info.vizgen.com/ffpe-showcase?submissionGuid=c9a25730-3fe5-444b-bef8-1a74d51ddefb
+
+## Analysis 
+* [Xenium human lung cancer sample](xenium-human-lung-cancer-analysis.html)
+* [Xenium mouse brain samples](xenium-mouse-brain-analysis.html)
+* [Xenium human HER2+ breast cancer samples](xenium-human-breast-cancer-analysis.html)
+* [Cosmx human liver cancer sample](cosmx-human-liver-cancer.html)
+* [Cosmx human normal liver sample](cosmx-human-healthy-liver.html)
+* [Merscope breast cancer sample](merscope-human-breast-cancer.html)
+
+
+## License 
+The code in this analysis is covered by the [MIT license][mit] and the written
+content is covered by a [Creative Commons CC-BY][cc] license.
+
+[mit]: https://choosealicense.com/licenses/mit/ "MIT License"
+[cc]: https://choosealicense.com/licenses/cc-by-4.0/ "CC-BY License"
+

@@ -1,0 +1,1363 @@
+---
+title: "Cosmx human liver cancer sample"
+author: "Melody"
+date: "2025-09-29"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+```{r global options, include = FALSE}
+options(width = 80, digits = 3) 
+
+
+knitr::opts_chunk$set(cache = FALSE,echo = TRUE,prompt = FALSE, 
+                      comment = NA,message = FALSE,warning = FALSE,
+                      fig.align = "center", fig.keep= "all",fig.show ="hold")
+
+```
+
+```{r}
+library(jazzPanda)
+library(SpatialExperiment)
+library(Seurat)
+library(ggplot2)
+library(data.table)
+library(dplyr)
+library(tidyr)
+library(glmnet)
+library(caret)
+library(ComplexUpset)
+library(ggrepel)
+library(gridExtra)
+library(patchwork)
+library(RColorBrewer)
+library(limma)
+library(here)
+library(data.table)
+library(xtable)
+library(corrplot)
+source(here("code/utils.R"))
+
+```
+
+# Load data 
+
+This section loads the provided Seurat object and extracts per-cell metadata and transcript coordinates. We remove low-quality cells using QC flags, convert imaging pixel coordinates to millimetres per-field-of-view (FOV), and build a transcript-level table restricted to the liver cancer sample (slide_ID_numeric = 2). The coordinates are scaled to micrometres for plotting.
+
+## Load cell and transcript
+```{r load-cm}
+
+data_nm  <- "cosmx_hlc"
+seu <- readRDS(file.path(rdata$cosmx_data, "LiverDataReleaseSeurat_newUMAP.RDS"))
+
+
+# local cell metadata   
+metadata <- as.data.frame(seu@meta.data)
+
+## remove low quality cells
+qc_cols <- c("qcFlagsRNACounts", "qcFlagsCellCounts", "qcFlagsCellPropNeg",
+             "qcFlagsCellComplex", "qcFlagsCellArea","qcFlagsFOV")
+metadata <- metadata[!apply(metadata[, qc_cols], 1, function(x) any(x == "Fail")), ]
+
+cell_info_cols = c("x_FOV_px", "y_FOV_px", "x_slide_mm", "y_slide_mm",
+                   "nCount_negprobes","nFeature_negprobes","nCount_falsecode",
+                   "nFeature_falsecode","slide_ID_numeric", "Run_Tissue_name",
+                   "fov","cellType","niche","cell_id")
+cellCoords <- metadata[, cell_info_cols]
+
+# keep cancer tissue only 
+liver_cancer = cellCoords[cellCoords$slide_ID_numeric==2 ,]
+
+# load count matrix 
+counts <-seu[["RNA"]]@counts
+cancer_cells = row.names(liver_cancer)
+
+counts_cancer_sample = counts[, cancer_cells]
+
+rm(counts)
+
+dim(counts_cancer_sample)
+
+
+px_to_mm <- function(data){
+    all_fv = unique(data$fov)
+    parm_df = as.data.frame(matrix(0, ncol=5, nrow=length(all_fv)))
+    colnames(parm_df) = c("fov","y_slope","y_intcp","x_slope","x_intcp")
+    parm_df$fov = all_fv
+    for (fv in all_fv){
+        curr_fov = data[data$fov == fv, ] 
+        curr_fov = curr_fov[order(curr_fov$x_FOV_px), ]
+        curr_fov = curr_fov[c(1, nrow(curr_fov)), ]
+        curr_fov = curr_fov[c(1,2),c("y_slide_mm","x_slide_mm","y_FOV_px","x_FOV_px") ]
+        # mm to px for y
+        y_slope = (curr_fov[2,"y_slide_mm"] - curr_fov[1,"y_slide_mm"]) / (curr_fov[2,"y_FOV_px"] - curr_fov[1,"y_FOV_px"])
+        y_intcp = curr_fov[2,"y_slide_mm"]- (y_slope*curr_fov[2,"y_FOV_px"])
+        # mm to px for x
+        x_slope = (curr_fov[2,"x_slide_mm"] - curr_fov[1,"x_slide_mm"]) / (curr_fov[2,"x_FOV_px"] - curr_fov[1,"x_FOV_px"])
+        x_intcp = curr_fov[2,"x_slide_mm"]- (x_slope*curr_fov[2,"x_FOV_px"])
+        parm_df[parm_df$fov==fv,"y_slope"] = y_slope
+        parm_df[parm_df$fov==fv,"y_intcp"] = y_intcp
+        parm_df[parm_df$fov==fv,"x_slope"] = x_slope
+        parm_df[parm_df$fov==fv,"x_intcp"] = x_intcp
+    }
+    return (parm_df)
+    
+}
+
+# number of cells per fov
+# all fovs contain at least 2 cells
+fov_summary = as.data.frame(table(cellCoords[cellCoords$slide_ID_numeric==2,"fov"]))
+
+
+# caculate the slope and intercept parameters for each fov 
+parm_df = px_to_mm(liver_cancer)
+
+# convert px to mm for each cell based on the calculated params 
+liver_cancer <- liver_cancer %>%
+    left_join(parm_df, by = 'fov') %>%
+    mutate(
+        x_mm = x_FOV_px * x_slope + x_intcp,
+        y_mm = y_FOV_px * y_slope + y_intcp
+    ) %>%
+    select(-x_slope, -y_slope, -x_intcp, -y_intcp) 
+
+
+
+transcriptCoords <-seu@misc$transcriptCoords
+
+all_transcripts_cancer <- transcriptCoords[transcriptCoords$slideID == 2,]
+# remove transctipt detections for low quality cells
+all_transcripts_cancer <- all_transcripts_cancer[all_transcripts_cancer$cell_id %in% liver_cancer$cell_id, ]
+
+ncells_tr = length(unique(all_transcripts_cancer$cell_id))
+
+rm(transcriptCoords)
+
+all_transcripts_cancer <- all_transcripts_cancer %>%
+    left_join(parm_df, by = 'fov') %>%
+    mutate(
+        x_mm = x_FOV_px * x_slope + x_intcp,
+        y_mm = y_FOV_px * y_slope + y_intcp
+    ) %>%
+    select(-x_slope, -y_slope, -x_intcp, -y_intcp) 
+
+all_transcripts_cancer$x = all_transcripts_cancer$x_mm
+all_transcripts_cancer$y = all_transcripts_cancer$y_mm
+all_transcripts_cancer$feature_name = all_transcripts_cancer$target
+
+hl_cancer = all_transcripts_cancer[,c("x","y","feature_name")]
+all_genes = row.names(seu[["RNA"]]@counts)
+
+rm(all_transcripts_cancer, seu)
+hl_cancer$x = hl_cancer$x * 1000
+hl_cancer$y = hl_cancer$y * 1000
+
+
+
+
+```
+
+
+## Quality assessment of negative controls
+### Negative probe
+
+To evaluate nonspecific hybridization and potential technical artefacts, we examined the distribution of negative control probes (NegPrb*) across the dataset.
+These probes are not expected to hybridize with endogenous transcripts.
+Uniform low-level detection indicates well-controlled chemistry and minimal background noise.
+
+The figure shows that NegPrb detections are relatively more abundant but uniformly distributed across the tissue, with no evidence of localized enrichment or clustering.
+```{r,negprobes, fig.width=8, fig.height=5}
+
+
+negprobes_coords <- hl_cancer[grepl("^NegPrb", hl_cancer$feature_name), ]
+
+nc_tb = as.data.frame(sort(table(negprobes_coords$feature_name), 
+                           decreasing = TRUE))
+colnames(nc_tb) = c("name","value_count")
+negprobes_coords$feature_name =factor(negprobes_coords$feature_name,
+                                      levels = nc_tb$name)
+
+ggplot(nc_tb, aes(x = name, y = value_count)) +
+    geom_bar(stat = "identity", color="white") + 
+    geom_text(aes(label = value_count),  vjust = -0.5, size = 3) + 
+    scale_y_continuous(expand = c(0,1), limits = c(0, 78000))+
+    labs(title = " ", x = " ", y = "Number of total detections") +
+    theme_bw()+
+    theme(legend.position = "none",strip.background = element_rect(fill="white"),
+          strip.text = element_text(size=8),
+          axis.text.x= element_text(size=8, angle=90,vjust=0.5,hjust = 1),
+          axis.title.y =element_text(size=8),
+          axis.ticks=element_blank(),
+          axis.title.x=element_blank(),
+          panel.background=element_blank(),
+          panel.grid.minor=element_blank(),
+          plot.background=element_blank())
+
+
+```
+
+```{r negprobes_coords-vishex,  fig.width=6, fig.height=6}
+ggplot(negprobes_coords, aes(x=x, y=y))+
+    geom_hex(bins=auto_hex_bin(nrow(negprobes_coords)))+
+    theme_bw()+
+    scale_fill_gradient(low="white", high="maroon4") + 
+    #facet_wrap(~feature_name, ncol=5)+
+    ggtitle("Negprobes detections")+
+    defined_theme+
+    theme(legend.position = "top",aspect.ratio = 1/1,
+          plot.title = element_text(size=rel(1.3)))
+
+```
+
+### Falsecode probes
+
+False-code probes are barcode sequences that do not match any real probes in the assay, serving as an estimate of background fluorescence and nonspecific binding.
+We visualized both the total detection counts per probe and their spatial distribution.
+
+FalseCode features are detected at very low frequencies with no apparent spatial enrichment, indicating minimal false-positive signal.
+```{r falsecode, fig.width=12, fig.height=8}
+falsecode_coords <- hl_cancer[grepl("^FalseCode", hl_cancer$feature_name), ]
+
+fc_tb = as.data.frame(sort(table(falsecode_coords$feature_name), decreasing = TRUE))
+colnames(fc_tb) = c("name","value_count")
+fc_tb$cate = "total detection<1426"
+fc_tb[fc_tb$value_count> 1426,"cate"] = "total detection>=1426"
+fc_tb$cate=factor(fc_tb$cate, 
+                  levels=c("total detection<1426", "total detection>=1426"))
+falsecode_coords$feature_name =factor(falsecode_coords$feature_name,
+                                      levels = fc_tb$name)
+
+ggplot(fc_tb, aes(x = name, y = value_count)) +
+    geom_bar(stat = "identity",position = position_dodge(width = 0.9), color="white") + 
+    facet_wrap(~cate, ncol=1, scales = "free")+
+    scale_y_continuous(expand = c(0,2))+
+    labs(title = " ", x = " ", y = "Number of total detections") +
+    theme_bw()+
+    theme(legend.position = "none",strip.background = element_rect(fill="white"),
+          strip.text = element_text(size=10),
+          axis.text.x= element_text(size=10, angle=90,vjust=0.5,hjust = 1),
+          axis.title.y =element_text(size=10),
+          axis.ticks=element_blank(),
+          axis.title.x=element_blank(),
+          panel.background=element_blank(),
+          panel.grid.minor=element_blank(),
+          plot.background=element_blank())
+
+
+```
+
+```{r falsecode-xy, fig.width=6, fig.height=6}
+ggplot(falsecode_coords,aes(x=x, y=y))+
+    geom_hex(bins=auto_hex_bin(nrow(falsecode_coords)))+
+    scale_fill_gradient(low="white", high="maroon4") + 
+    theme_bw()+
+    defined_theme+
+    ggtitle("Falsecode detections")+
+    theme(legend.position = "top",aspect.ratio = 1/1,
+          plot.title = element_text(size=rel(1.3)))
+```
+
+# Single cell summary
+
+These summary plots characterise per-cell detection counts and sparsity. We can calculate per-cell and per-gene summary statistics from the CosMx counts matrix:
+
+- Total detections per cell: sums all transcript counts in each cell.
+
+- Proportion of zeroes per cell: fraction of genes not detected in each cell.
+
+- Detected genes per cell: number of non-zero genes per cell.
+
+- Average expression per gene: mean expression across cells, ignoring zeros.
+
+Each distribution is visualised with histograms and density curves to assess data quality and sparsity.
+
+```{r sc_output}
+td_r1 <- colSums(counts_cancer_sample)
+summary(td_r1)
+pz_r1 <-colMeans(counts_cancer_sample==0)
+summary(pz_r1)
+numgene_r1 <- colSums(counts_cancer_sample!=0)
+summary(numgene_r1)
+td_df = as.data.frame(cbind(as.vector(td_r1),
+                              rep("hliver_cancer", length(td_r1))))
+colnames(td_df) = c("td","sample")
+td_df$td= as.numeric(td_df$td)
+
+
+# Build the entire summary as one string
+output <- paste0(
+  "\n================= Summary Statistics =================\n\n",
+  "--- CosMx human liver cancer sample---\n",
+  make_sc_summary(td_r1, "Total detections per cell:"),
+  make_sc_summary(pz_r1, "Proportion of zeroes per cell:"),
+  make_sc_summary(numgene_r1, "Detected genes per cell:"),
+  "\n========================================================\n"
+)
+
+cat(output)
+
+```
+
+```{r sc_vis}
+p1<-ggplot(data = td_df, aes(x = td, color=sample)) +
+  geom_histogram(aes(y = after_stat(density)), 
+                 binwidth = 300, fill = "gray", color = "black") +
+  geom_density(color = "steelblue", size = 2) +
+  labs(title = "Distribution of total detections per cell",
+       x = " ", y = "Density") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5), 
+        strip.text = element_text(size=12)) 
+
+pz = as.data.frame(cbind(as.vector(pz_r1),rep("hliver_cancer", length(pz_r1))))
+colnames(pz) = c("prop_ze","sample")
+pz$prop_ze= as.numeric(pz$prop_ze)
+
+p2<-ggplot(data = pz, aes(x = prop_ze)) +
+  geom_histogram(aes(y = after_stat(density)), 
+                 binwidth = 0.05, fill = "gray", color = "black") +
+  geom_density(color = "steelblue", size = 2) +
+  labs(title = "Distribution of proportion of zeroes per cell",
+       x = " ", y = "Density") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5),
+        strip.text = element_text(size=12))
+
+
+numgens = as.data.frame(cbind(as.vector(numgene_r1),rep("hliver_cancer", length(numgene_r1))))
+colnames(numgens) = c("numgen","sample")
+numgens$numgen= as.numeric(numgens$numgen)
+
+p3<-ggplot(data = numgens, aes(x = numgen)) +
+  geom_histogram(aes(y = after_stat(density)), 
+                 binwidth = 20, fill = "gray", color = "black") +
+  geom_density(color = "steelblue", size = 2) +
+  labs(title = "Distribution of detected genes per cell",
+       x = " ", y = "Density") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5),
+        strip.text = element_text(size=12))
+
+
+```
+
+```{r ave-expression, fig.width=10, fig.height=8}
+cm_new1=counts_cancer_sample
+cm_new1[cm_new1==0] = NA
+cm_new1 = as.data.frame(cm_new1)
+cm_new1$avg2 = rowMeans(cm_new1,na.rm = TRUE)
+summary(cm_new1$avg2)
+
+avg_exp = as.data.frame(cbind("avg"=cm_new1$avg2,
+                             "sample"=rep("hliver_heathy", nrow(cm_new1))))
+
+avg_exp$avg=as.numeric(avg_exp$avg)
+
+
+p4<-ggplot(data = avg_exp, aes(x = avg, color=sample)) +
+  geom_histogram(aes(y = after_stat(density)), 
+                 binwidth = 0.5, fill = "gray", color = "black") +
+    geom_density(color = "orange", linewidth = 1) +
+  labs(title = "Distribution of average gene expression per cell",
+       x = " ", y = "Density") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5),
+        strip.text = element_text(size=12))
+
+
+layout_design <- (p1|p2)/(p3|p4)
+print(layout_design)
+
+```
+
+The total detection and mean expression distributions are right-skewed, indicating a majority of cells with modest transcript counts and a minority with high expression, as expected for spatial transcriptomics data. The high fraction of zero values per cell (peaking around 80–90%) reflects sparsity in subcellular-resolution assays.The median number of detected genes is around `r round(median(td_r1), 1)` for this cancer liver sample.  
+
+# Refine clustering 
+
+The following code subsets to the liver cancer tissue section and harmonizes related cell subtypes into broader annotations (e.g., multiple macrophage and T-cell subtypes merged into “Macrophages” and “T”). The resulting coordinates are scaled and plotted using hexbin density maps, showing the spatial distribution of each annotated cell type across the tissue.
+
+```{r define-cluster, eval=FALSE} 
+
+selected_cols = c("x_FOV_px", "y_FOV_px","x_slide_mm", "y_slide_mm", "slide_ID_numeric", "Run_Tissue_name", "fov","cellType","niche","cell_id" )
+cluster_info = cellCoords[cellCoords$slide_ID_numeric=="2" & (row.names(cellCoords) %in% row.names(metadata)),selected_cols ]
+
+colnames(cluster_info) =c("x_FOV_px","y_FOV_px" , "x", "y", "slide_ID_numeric", "Run_Tissue_name", "fov","cellTypes","niche","cell_id")
+cluster_info$anno = as.character(cluster_info$cellTypes)
+cluster_info[cluster_info$cellTypes %in% c("Antibody.secreting.B.cells", "Mature.B.cells"),"anno"] = "B"
+cluster_info[cluster_info$cellTypes %in% c("CD3+.alpha.beta.T.cells", "gamma.delta.T.cells.1"),"anno"] = "T"
+cluster_info[cluster_info$cellTypes %in% c("Non.inflammatory.macrophages", "Inflammatory.macrophages"),"anno"] = "Macrophages"
+
+ig_clusters = c("NotDet")
+
+cluster_info = cluster_info[cluster_info$anno != "NotDet",]
+
+cluster_info$anno = factor(cluster_info$anno,
+                            levels=c("tumor_1","tumor_2","Macrophages","T",
+                                     "Periportal.LSECs","Stellate.cells","B",
+                                     "Central.venous.LSECs","Cholangiocytes","Hep",
+                                     "Portal.endothelial.cells",
+                                     "NK.like.cells","Erthyroid.cells"))
+cluster_info$cluster = cluster_info$anno  
+cluster_info$sample = "cancer"
+
+cluster_info = cluster_info[!duplicated(cluster_info[,c("x","y")]),]
+cluster_info$x = cluster_info$x * 1000
+cluster_info$y = cluster_info$y * 1000
+
+
+cluster_names = c("tumor_1","tumor_2","Macrophages",
+                  "T", "Periportal.LSECs","Stellate.cells",
+                  "B","Central.venous.LSECs","Cholangiocytes",
+                  "Hep","Portal.endothelial.cells","NK.like.cells",
+                  "Erthyroid.cells")
+
+saveRDS(cluster_info, here(gdata,paste0(data_nm, "_clusters.Rds")))
+
+```
+
+```{r load processed data}
+
+# load generated data  (see code above for how they were created)
+cluster_info = readRDS(here(gdata,paste0(data_nm, "_clusters.Rds")))
+cluster_info$anno_name = cluster_info$cluster
+
+
+cluster_names = c("tumor_1","tumor_2","Macrophages",
+                  "T", "Periportal.LSECs","Stellate.cells",
+                  "B","Central.venous.LSECs","Cholangiocytes",
+                  "Hep","Portal.endothelial.cells","NK.like.cells",
+                  "Erthyroid.cells")
+
+cluster_info$cluster = factor(cluster_info$cluster,
+                              levels=cluster_names)
+
+cluster_info$anno_name = factor(cluster_info$anno_name,
+                              levels=cluster_names)
+cluster_info = cluster_info[order(cluster_info$anno_name), ]
+
+
+fig_ratio = cluster_info %>%
+  group_by(sample) %>%
+  summarise(
+    x_range = diff(range(x, na.rm = TRUE)),
+    y_range = diff(range(y, na.rm = TRUE)),
+    ratio   = y_range / x_range,
+    .groups = "drop"
+  ) %>% summarise(max_ratio = max(ratio)) %>%  pull(max_ratio)
+```
+
+We visualized the spatial distribution of annotated cell types to examine tissue structure and cell localization patterns in the CosMx liver cancer sample.
+The following plot displays all cells colored by their assigned cell type, highlighting the overall organization of the tissue.
+
+```{r cluster-xy-whole, fig.width=6, fig.height=6}
+ggplot(data = cluster_info,
+        aes(x = x, y = y, color=cluster))+
+        geom_point(size=0.0001)+
+        facet_wrap(~sample)+
+        theme_classic()+
+        guides(color=guide_legend(title="", nrow = 4,
+        override.aes=list(alpha=1, size=4)))+
+        defined_theme+
+        theme(aspect.ratio = fig_ratio,
+              legend.position = "bottom",
+              strip.text = element_blank())
+
+```
+
+The faceted hexbin plots reveal that major cell types occupy distinct and spatially coherent regions within the section. Tumor regions (tumor_1, tumor_2) form dense contiguous areas, while immune and stromal populations such as macrophages, T cells, and periportal LSECs localize to the tissue periphery or vascular interfaces. Hepatocytes and cholangiocytes appear in spatially restricted niches consistent with expected hepatic zonation.
+
+```{r cluster-xy, fig.width=12, fig.height=9}
+
+ggplot(data = cluster_info,
+        aes(x = x, y = y))+
+        geom_hex(bins = 200)+
+        facet_wrap(~cluster, nrow=3)+
+        scale_fill_gradient(low="white", high="maroon4") + 
+        theme_classic()+
+        guides(color=guide_legend(title="",
+                                  override.aes=list(alpha=1, size=8)))+
+        defined_theme+
+        theme(legend.position = "right", 
+              aspect.ratio = fig_ratio,
+              strip.text = element_text(size=12))
+
+```
+
+We quantified the number of cells assigned to each annotated cell type to assess the overall cellular composition of the CosMx liver cancer sample.
+The bar plot shows that tumor-associated cells (tumor_1 and tumor_2) overwhelmingly dominate the dataset, reflecting the high tumor cell density captured in this section. Among non-tumor populations, macrophages and T cells are the most prevalent, indicating notable immune infiltration within the tumor microenvironment. Stromal and endothelial subsets such as stellate cells, LSECs, and B cells are less abundant, while hepatocytes and cholangiocytes are relatively rare.
+
+```{r ct-prop,  fig.width=10, fig.height=5}
+
+sum_df <- as.data.frame(table(cluster_info$anno_name))
+colnames(sum_df) = c("cellType","n")
+ggplot(sum_df, aes(x = cellType, y = n, fill=n)) +
+    geom_bar(stat = "identity", position="stack", fill="black") +
+    geom_text(aes(label = n),size=3, 
+              position = position_dodge(width = 0.9), vjust = -0.5) + 
+   scale_y_continuous(expand = c(0,1), limits=c(0,400000))+
+    labs(title = " ", x = " ", y = "number of cells", fill="cell type") +
+    theme_bw()+
+    theme(legend.position = "none",
+          axis.text= element_text(size=12, angle=90,vjust=0.5,hjust = 1),
+          strip.text = element_text(size = rel(1.1)),
+          axis.line=element_blank(),
+          axis.text.y=element_blank(),axis.ticks=element_blank(),
+          axis.title=element_text(size=12),
+          panel.background=element_blank(),
+          panel.grid.major=element_blank(),
+          panel.grid.minor=element_blank(),
+          plot.background=element_blank())
+
+```
+
+# Detect marker genes 
+## jazzPanda
+
+We applied jazzPanda to this dataset using both the linear modelling and correlation-based approaches to detect spatially enriched marker genes across clusters.
+
+### Linear modelling approach 
+
+We first used the linear modelling approach to identify spatially enriched marker genes. The dataset was converted into spatial gene and cluster vectors using a 40 × 40 square binning strategy. False-code and negative-probe transcripts were included as background controls. For each gene, a linear model was fitted to estimate its spatial association with relevant cell type patterns. 
+```{r mg-glm, eval=FALSE}
+grid_length = 40
+seed_number=589
+set.seed(seed_number)
+
+hliver_vector_lst = get_vectors(x= list("cancer" = hl_cancer),
+                                sample_names = "cancer",
+                                cluster_info = cluster_info,
+                                bin_type="square",
+                                bin_param=c(grid_length, grid_length), 
+                                test_genes = all_genes,
+                                n_cores =5)
+
+falsecode_coords$sample = "cancer"
+negprobes_coords$sample = "cancer"
+kpt_cols = c("x","y","feature_name","sample")
+
+nc_coords = rbind(falsecode_coords[,kpt_cols],negprobes_coords[,kpt_cols])
+
+falsecode_names = unique(falsecode_coords$feature_name)
+negprobe_names = unique(negprobes_coords$feature_name)
+nc_vectors = create_genesets(x=list("cancer" = nc_coords), 
+                             sample_names=c("cancer"),
+                             name_lst=list(falsecode=falsecode_names,
+                                           negprobe=negprobe_names),
+                             bin_type="square",
+                             bin_param=c(grid_length, grid_length),
+                             cluster_info=NULL)
+set.seed(589)
+
+jazzPanda_res_lst = lasso_markers(gene_mt=hliver_vector_lst$gene_mt,
+                                  cluster_mt = hliver_vector_lst$cluster_mt,
+                                  sample_names=c("cancer"),
+                                  keep_positive=TRUE, 
+                                  background=nc_vectors,
+                                  n_fold = 10)
+
+
+saveRDS(hliver_vector_lst, here(gdata,paste0(data_nm, "_sq40_vector_lst.Rds")))
+saveRDS(jazzPanda_res_lst, here(gdata,paste0(data_nm, "_jazzPanda_res_lst.Rds")))
+```
+
+We then used `get_top_mg` to extract unique marker genes for each cluster based on a coefficient cutoff of 0.1. This function returns the top spatially enriched genes that are most specific to each cluster. In contrast, if shared marker genes across clusters are of interest, all significant genes can be retrieved using `get_full_mg`.
+
+```{r}
+# load from saved objects
+jazzPanda_res_lst = readRDS(here(gdata,paste0(data_nm, "_jazzPanda_res_lst.Rds")))
+sv_lst = readRDS(here(gdata,paste0(data_nm, "_sq40_vector_lst.Rds")))
+nbins = 1600
+jazzPanda_res = get_top_mg(jazzPanda_res_lst, coef_cutoff=0.1) 
+
+
+seu = readRDS(here(gdata,paste0(data_nm, "_seu.Rds")))
+seu <- subset(seu, cells = cluster_info$cell_id)
+Idents(seu)=cluster_info$anno_name[match(colnames(seu), cluster_info$cell_id)]
+seu$sample = cluster_info$sample[match(colnames(seu), cluster_info$cell_id)]
+Idents(seu) = factor(Idents(seu), levels = cluster_names)
+```
+
+#### Cluster to cluster correlation
+
+To examine the relationship between spatial expression patterns of different cell types, we computed pairwise Pearson correlations between the cluster-level vectors generated by jazzPanda.
+The resulting correlation matrix (visualized above) reflects how similar the spatial gene expression signatures are across annotated clusters.
+
+The figure shows strong positive correlations among stromal and immune populations, particularly between macrophages, T cells, and periportal LSECs, suggesting coordinated spatial localization or shared microenvironmental influence. Tumor clusters (tumor_1, tumor_2) display moderate correlations with macrophages and LSECs, consistent with tumor–stroma and tumor–immune interactions. In contrast, hepatocytes and cholangiocytes exhibit weak or negative correlations with most other clusters, reflecting their distinct transcriptional and spatial niches.
+
+```{r cc-corr, fig.width=8, fig.height=8}
+cluster_mtt = sv_lst$cluster_mt
+cluster_mtt = cluster_mtt[,cluster_names]
+cor_M_cluster = cor(cluster_mtt,cluster_mtt,method = "pearson")
+col <- colorRampPalette(c("#4477AA", "#77AADD", "#FFFFFF","#EE9988", "#BB4444"))
+corrplot(
+  cor_M_cluster,
+  method      = "color",
+  col         = col(200),
+  diag        = TRUE,
+  addCoef.col = "black",
+  type        = "upper",
+  tl.col      = "black",
+  tl.cex      = 0.7,
+  number.cex  = 0.8,
+  tl.srt      = 45,
+  mar         = c(0, 0, 3, 0),   
+  sig.level   = 0.05,
+  insig       = "blank",
+  title       = "cluster–cluster correlation", 
+  cex.main    = 1.2
+)
+```
+
+The dot plot displays the top 10 marker genes identified by the jazzPanda linear modelling approach across annotated cell types.
+Dot size represents the proportion of cells expressing each gene, and color indicates average expression level.
+The figure shows cell-type-specific expression patterns—tumor clusters enriched for metabolic and stress-response genes, macrophages for immune and phagocytic genes, stellate cells for extracellular matrix components, and hepatocytes for classic liver-function markers.
+
+```{r top10_glm,fig.width=12, fig.height=16}
+glm_mg = jazzPanda_res[jazzPanda_res$top_cluster != "NoSig", ]
+glm_mg$top_cluster = factor(glm_mg$top_cluster, levels = cluster_names)
+top_mg_glm <- glm_mg %>%
+  group_by(top_cluster) %>%
+  arrange(desc(glm_coef), .by_group = TRUE) %>% 
+  slice_max(order_by = glm_coef, n = 10) %>%
+  select(top_cluster, gene, glm_coef)
+
+p1<-DotPlot(seu, features = top_mg_glm$gene) +
+     scale_colour_gradient(low = "white", high = "red") +
+    coord_flip()+
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))+
+    labs(title = "Top 10 marker genes (jazzPanda-glm)", x="", y="")
+
+p1
+```
+
+#### Top3 marker genes by jazzPanda_glm
+
+We visualized the top three marker genes identified by the linear modelling approach for each cluster. For each selected gene, its spatial transcript locations were plotted alongside the corresponding cluster map. Across clusters, the spatial expression patterns of marker genes closely match the distribution of their associated cell types
+
+```{r  top3-gene-vis-xy-glm,  fig.width=12, fig.height=3}
+
+for (cl in cluster_names){
+    inters=jazzPanda_res[jazzPanda_res$top_cluster==cl,"gene"]
+    rounded_val=signif(as.numeric(jazzPanda_res[inters,"glm_coef"]),
+                          digits = 3)
+    inters_df = as.data.frame(cbind(gene=inters, value=rounded_val))
+    inters_df$value = as.numeric(inters_df$value)
+    inters_df=inters_df[order(inters_df$value, decreasing = TRUE),]
+    inters_df$text= paste(inters_df$gene,inters_df$value,sep=": ")
+    
+    if (length(inters > 0)){
+        inters_df = inters_df[1:min(3, nrow(inters_df)),]
+        inters = inters_df$gene
+        iters_sp1= hl_cancer$feature_name %in% inters
+        vis_r1 =hl_cancer[iters_sp1,
+                        c("x","y","feature_name")]
+        vis_r1$value = inters_df[match(vis_r1$feature_name,inters_df$gene),
+                        "value"]
+        vis_r1=vis_r1[order(vis_r1$value,decreasing = TRUE),]
+        vis_r1$text_label= paste(vis_r1$feature_name,
+                            vis_r1$value,sep=": ")
+        vis_r1$text_label=factor(vis_r1$text_label, levels=inters_df$text)
+    
+        vis_r1 = vis_r1[order(vis_r1$text_label),]
+
+        genes_plt <- plot_top3_genes(vis_df=vis_r1, fig_ratio=fig_ratio)
+        
+        cluster_data =  cluster_info[cluster_info$cluster==cl, ]
+        cl_pt<- ggplot(data =cluster_data,
+                    aes(x = x, y = y, color=sample))+ 
+                    geom_point(size=0.001, alpha=0.3)+
+                    facet_wrap(~anno_name, nrow=1,strip.position = "left")+
+                    scale_color_manual(values = c("black"))+
+                    defined_theme + 
+                theme(legend.position = "none", 
+                        aspect.ratio = fig_ratio,
+                        strip.background = element_blank(), 
+                        plot.margin = margin(0, 0, 0, 0),
+                        legend.key.width = unit(15, "cm"),
+                        strip.text = element_text(size = rel(1.3)))
+
+        layout_design <- (wrap_plots(cl_pt, ncol = 1) | genes_plt) +
+            plot_layout(widths = c(1, 3), heights = c(1))
+        
+        print(layout_design)
+
+    }
+  }
+```
+
+
+#### Cluster vector versus marker gene vector 
+
+We examined the relationship between each cluster vector and its top three marker gene vectors identified by the linear modelling approach. Each scatter plot compares the spatial activation strength of a marker gene with the corresponding cluster vector across spatial bins.
+
+For most clusters, marker genes show a strong positive trend with the corresponding cluster vector, confirming that their expression is spatially aligned with the inferred cluster domain.
+
+However, several genes (e.g. ENO1, PGK1, MIF) exhibit dense stacking of points near zero on the cluster axis—indicating that their expression is widespread and not restricted to the target cluster.
+Such patterns often reflect a shared marker genes for multiple cell types rather than cluster-specific markers.In contrast, genes with clear separation from zero (e.g. COL18A1, COL1A1) display highly cluster-specific spatial enrichment.
+
+This distinction helps interpret jazzPanda results: slope and spread reveal spatial exclusivity, while near-zero stacking highlights shared transcriptional programs across clusters
+
+
+```{r vvplot-glm, fig.width=12, fig.height=10}
+
+plot_lst=list()
+for (cl in cluster_names){
+    inters_df=jazzPanda_res[jazzPanda_res$top_cluster==cl,]
+    
+    if (nrow(inters_df) >0){
+        inters_df=inters_df[order(inters_df$glm_coef, decreasing = TRUE),]
+        
+        inters_df = inters_df[1:min(3, nrow(inters_df)),]
+        mk_genes = inters_df$gene
+        dff = as.data.frame(cbind(sv_lst$cluster_mt[,cl],
+                              sv_lst$gene_mt[,mk_genes]))
+        colnames(dff) = c("cluster", mk_genes)
+        dff$vector_id = c(1:nbins)
+        long_df <- dff %>% 
+         tidyr::pivot_longer(cols = -c(cluster, vector_id), names_to = "gene", 
+               values_to = "vector_count")
+        long_df$gene = factor(long_df$gene, levels=mk_genes)
+        p<-ggplot(long_df, aes(x = cluster, y = vector_count, color=gene )) +
+        geom_point(size=0.01) +
+        facet_wrap(~gene, scales="free_y", nrow=1) +
+        labs(x = paste(cl, " cluster vector ", sep=""), 
+         y = "Top3 marker gene vector") +
+        theme_minimal()+
+        scale_y_continuous(expand = c(0.01,0.01))+ 
+        scale_x_continuous(expand =  c(0.01,0.01))+ 
+        theme(panel.grid = element_blank(),legend.position = "none",
+        strip.text = element_text(size = 12),
+        axis.line=element_blank(),
+        axis.text=element_text(size = 11),
+        axis.ticks=element_line(color="black"),
+        axis.title.y=element_text(size = 11),
+         axis.title.x=element_text(size = 12),
+        panel.border  =element_rect(colour = "black", 
+                                    fill=NA, linewidth=0.5)
+        )
+                
+        if (length(mk_genes) == 2) {
+            p <- (p | plot_spacer()) + 
+            plot_layout(widths = c(2, 1))
+        } else if (length(mk_genes) == 1) {
+            p <- (p | plot_spacer() | plot_spacer()) + 
+            plot_layout(widths = c(1, 1, 1))
+        } 
+        
+        plot_lst[[cl]] = p
+        
+    }
+    
+}
+
+combined_plot <- wrap_plots(plot_lst, ncol = 2)
+
+combined_plot 
+
+```
+
+#### Marker gene summary per cluster
+
+For each cluster, we summarized the detected marker genes and their corresponding strengths. We list genes with model coefficients above the defined cutoff (e.g. 0.1) for each cluster.
+
+Tumor clusters show strong enrichment for proliferative and metabolic genes such as ENO1, PGK1, LDHA, and NDRG1, as well as hypoxia- and stress-related genes (VEGFA, HILPDA, MIF, CRYAB).
+These are hallmark features of malignant hepatocytes and hypoxic tumor microenvironments. SPINK1 and PTGDS, detected in tumor_1, are known liver cancer–associated genes linked to tumor progression and inflammation.
+
+Macrophages express canonical myeloid and phagocytic markers including LYZ, C1QA/B/C, CD163, and FCGR3A, confirming accurate annotation.
+Their expression of VIM, ANXA1, and GPNMB suggests activation and tissue-remodeling phenotypes typical of tumor-associated macrophages.
+
+T cells show clear expression of CD3E, IL7R, CXCR4, and ETS1, indicating both cytotoxic and helper T-cell populations.
+
+Stellate cells are characterized by strong collagen and extracellular matrix genes (COL1A1, COL1A2, ACTA2, TAGLN, BGN, MGP), consistent with their myofibroblastic role in the tumor stroma.
+
+Periportal LSECs express PECAM1, KLF2, and RGS5, marking vascular endothelium, while B cells are dominated by immunoglobulin genes (IGHM, IGKC, IGHG1, JCHAIN), reflecting antibody-producing plasma cells.
+
+Hepatocytes display classic liver-enriched genes including SAA1, CRP, MT1X, MT2A, and ARG1, confirming the presence of residual functional hepatic tissue.
+
+```{r, output_markergenes_glm}
+## linear modelling 
+output_data <- do.call(rbind, lapply(cluster_names, function(cl) {
+  subset <- jazzPanda_res[jazzPanda_res$top_cluster == cl, ]
+  sorted_subset <- subset[order(-subset$glm_coef), ]
+  if (length(sorted_subset) == 0){
+    return(data.frame(Cluster = cl, Genes = "  "))
+  }
+  if (cl != "NoSig"){
+    gene_list <- paste(sorted_subset$gene, "(", round(sorted_subset$glm_coef, 2), ")", sep="", collapse=", ")
+  }else{
+    gene_list <- paste(sorted_subset$gene, "", sep="", collapse=", ")
+  }
+  
+  return(data.frame(Cluster = cl, Genes = gene_list))
+}))
+
+knitr::kable(
+  output_data,
+  caption = "Detected marker genes for each cluster by linear modelling approach in jazzPanda, in decreasing value of glm coefficients"
+)
+```
+
+### Correlation approach
+
+We next applied the correlation-based method using the same 40 × 40 binning strategy. This approach highlights genes whose spatial patterns are highly correlated with specific cell type domains. 
+
+```{r mg-perm, eval=FALSE}
+
+perm_p = compute_permp(x= list("cancer" = hl_cancer),
+                       cluster_info=cluster_info, 
+                       perm.size=5000,
+                       bin_type="square",
+                       bin_param=c(grid_length,grid_length),
+                       test_genes= all_genes,
+                       correlation_method = "pearson", 
+                       n_cores = 5,
+                       correction_method="BH")
+
+saveRDS(perm_p, here(gdata,paste0(data_nm, "_perm_lst.Rds")))
+```
+
+We can get the correlation between every gene and cluster using the `get_cor` function, which quantifies how strongly each gene’s spatial expression pattern aligns with the spatial distribution of each cluster.
+
+To assess statistical significance, permutation testing results are retrieved from the saved perm_lst object. The corresponding raw p-values can be obtained with `get_perm_p`, and the multiple-testing–adjusted p-values with `get_perm_adjp`. These adjusted p-values help identify genes that are significantly associated with specific spatial domains after controlling for random spatial correlations.
+
+```{r}
+# load from saved objects
+perm_lst = readRDS(here(gdata,paste0(data_nm, "_perm_lst.Rds")))
+perm_res = get_perm_adjp(perm_lst)
+obs_corr = get_cor(perm_lst)
+
+```
+
+For every cluster, genes were selected if they passed permutation significance and exceeded the 75th percentile of observed correlation values, with the top 10 highest correlations retained for visualization.
+
+The top markers identified by the jazzPanda correlation method capture spatially enriched genes whose expression patterns correlate strongly with local cell-type density. The dot plot below summarizes the top 10 genes per cluster, with dot size representing detection frequency and color reflecting mean expression.
+
+```{r top10_corr,fig.width=12, fig.height=14}
+top_mg_corr <- data.frame(cluster = character(),
+                          gene    = character(),
+                          corr    = numeric(),
+                          stringsAsFactors = FALSE)
+for (cl in cluster_names) {
+  obs_cutoff <- quantile(obs_corr[, cl], 0.75, na.rm = TRUE)
+  perm_cl <- intersect(
+    rownames(perm_res[perm_res[, cl] < 0.05, ]),
+    rownames(obs_corr[obs_corr[, cl] > obs_cutoff, ])
+  )
+  if (length(perm_cl) > 0) {
+    selected_rows <- obs_corr[perm_cl, , drop = FALSE]
+    ord <- order(selected_rows[, cl], decreasing = TRUE,
+                 na.last = NA)
+    top_genes <- head(rownames(selected_rows)[ord], 5)
+    top_vals  <- head(selected_rows[ord, cl], 5)
+    
+    top_mg_corr <- rbind(
+      top_mg_corr,
+      data.frame(cluster = rep(cl, length(top_genes)),
+                 gene    = top_genes,
+                 corr    = top_vals,
+                 stringsAsFactors = FALSE)
+    )
+  }
+}
+
+
+p1<-DotPlot(seu, features = unique(top_mg_corr$gene)) +
+     scale_colour_gradient(low = "white", high = "red") +
+    coord_flip()+
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))+
+    labs(title = "Top 10 marker genes (jazzPanda-correlation)", 
+         x="", y="")
+
+p1
+```
+
+
+#### Top3 marker genes by jazzPanda_correlation
+
+For each cluster, the top three genes with the highest significant correlations were visualized alongside the spatial cluster map. The spatial patterns of these marker genes closely align with the distribution of their associated clusters, confirming that the correlation approach captures coherent spatial co-localization between genes and cell-type domains.
+
+```{r  top3-gene-vis-xy-corr,  fig.width=12, fig.height=3}
+
+for (cl in cluster_names){
+    obs_cutoff = quantile(obs_corr[, cl], 0.75)
+    perm_cl<-intersect(row.names(perm_res[perm_res[,cl]<0.05,]),
+                     row.names(obs_corr[obs_corr[, cl]>obs_cutoff,]))
+    inters<-perm_cl
+    rounded_val<-signif(as.numeric(obs_corr[inters,cl]), digits = 3)
+    inters_df = as.data.frame(cbind(gene=inters, value=rounded_val))
+    inters_df$value = as.numeric(inters_df$value)
+    inters_df<-inters_df[order(inters_df$value, decreasing = TRUE),]
+    inters_df$text= paste(inters_df$gene,inters_df$value,sep=": ")
+    
+    if (length(inters > 0)){
+        inters_df = inters_df[1:min(3, nrow(inters_df)),]
+        inters = inters_df$gene
+        iters_sp1= hl_cancer$feature_name %in% inters
+        vis_r1 =hl_cancer[iters_sp1,
+                        c("x","y","feature_name")]
+        vis_r1$value = inters_df[match(vis_r1$feature_name,inters_df$gene),
+                        "value"]
+        vis_r1=vis_r1[order(vis_r1$value,decreasing = TRUE),]
+        vis_r1$text_label= paste(vis_r1$feature_name,
+                            vis_r1$value,sep=": ")
+        vis_r1$text_label=factor(vis_r1$text_label, levels=inters_df$text)
+    
+        vis_r1 = vis_r1[order(vis_r1$text_label),]
+
+        genes_plt <- plot_top3_genes(vis_df=vis_r1, fig_ratio=fig_ratio)
+        
+        cluster_data =  cluster_info[cluster_info$cluster==cl, ]
+        cl_pt<- ggplot(data =cluster_data,
+                    aes(x = x, y = y, color=sample))+ 
+                    #geom_hex(bins = 100)+
+                    geom_point(size=0.001, alpha=0.3)+
+                    facet_wrap(~anno_name, nrow=1,strip.position = "left")+
+                    scale_color_manual(values = c("black"))+
+                    defined_theme + 
+            theme(legend.position = "none", 
+                    strip.background = element_blank(), 
+                    legend.key.width = unit(15, "cm"),
+                    aspect.ratio = fig_ratio,
+                    plot.margin = margin(0, 0, 0, 0),
+                    strip.text = element_text(size = rel(1.3)))
+
+        layout_design <- (wrap_plots(cl_pt, ncol = 1) | genes_plt) +
+            plot_layout(widths = c(1, 3), heights = c(1))
+        
+        print(layout_design)
+    }
+  }
+
+
+
+```
+
+
+#### Cluster vector versus marker gene vector 
+
+We further examined the quantitative relationship between the cluster vector and its top correlated marker gene vectors. Each scatter plot compares the spatial strength of a marker gene with the corresponding cluster vector across spatial bins. The results show clear positive linear relationships, indicating that the marker genes are spatially aligned with the inferred cluster domain.
+
+```{r vvplot-corr, fig.width=12, fig.height=10}
+
+plot_lst=list()
+for (cl in cluster_names){
+    obs_cutoff = quantile(obs_corr[, cl], 0.75)
+    perm_cl<-intersect(row.names(perm_res[perm_res[,cl]<0.05,]),
+                     row.names(obs_corr[obs_corr[, cl]>obs_cutoff,]))
+    inters<-perm_cl
+    if (length(inters) >0){
+        rounded_val<-signif(as.numeric(obs_corr[inters,cl]), digits = 3)
+        inters_df = as.data.frame(cbind(gene=inters, value=rounded_val))
+        inters_df$value = as.numeric(inters_df$value)
+        inters_df<-inters_df[order(inters_df$value, decreasing = TRUE),]
+
+        inters_df = inters_df[1:min(3, nrow(inters_df)),]
+        mk_genes = inters_df$gene
+        
+        dff = as.data.frame(cbind(sv_lst$cluster_mt[,cl],
+                          sv_lst$gene_mt[,mk_genes]))
+        colnames(dff) = c("cluster", mk_genes)
+        dff$vector_id = c(1:nbins)
+        long_df <- dff %>% 
+         tidyr::pivot_longer(cols = -c(cluster, vector_id), names_to = "gene", 
+           values_to = "vector_count")
+        long_df$gene = factor(long_df$gene, levels=mk_genes)
+        p<-ggplot(long_df, aes(x = cluster, y = vector_count, color=gene )) +
+        geom_point(size=0.01) +
+        facet_wrap(~gene, scales="free_y", nrow=1) +
+        labs(x = paste(cl, " cluster vector ", sep=""), 
+        y = "Top3 marker gene vector") +
+        theme_minimal()+
+        scale_y_continuous(expand = c(0.01,0.01))+ 
+        scale_x_continuous(expand =  c(0.01,0.01))+ 
+        theme(panel.grid = element_blank(),
+          legend.position = "none",
+        strip.text = element_text(size = 12),
+        axis.line=element_blank(),
+        axis.text=element_text(size = 11),
+        axis.ticks=element_line(color="black"),
+        axis.title.y=element_text(size = 11),
+         axis.title.x=element_text(size = 12),
+        panel.border  =element_rect(colour = "black", 
+                                fill=NA, linewidth=0.5)
+        )
+                
+        if (length(mk_genes) == 2) {
+            p <- (p | plot_spacer()) + 
+            plot_layout(widths = c(2, 1))
+        } else if (length(mk_genes) == 1) {
+            p <- (p | plot_spacer() | plot_spacer()) + 
+            plot_layout(widths = c(1, 1, 1))
+        } 
+        
+        plot_lst[[cl]] = p
+    }
+}
+
+
+combined_plot <- wrap_plots(plot_lst, ncol = 2)
+
+combined_plot 
+
+```
+
+#### Marker gene summary per cluster
+
+The correlation method identified spatially co-expressed genes aligned with cell-type distributions, though some overlap between adjacent compartments is evident.
+
+Tumor 1: Broad set of highly correlated oncogenic and metabolic genes (STAT3, EGFR, MTOR, HIF1A, CD274), reflecting general tumor activity but also over-selection of housekeeping genes.
+
+Tumor 2: Coherent hypoxia and glycolysis signature (NDUFA4L2, IGFBP3, VEGFA, ENO1, PGK1, SPP1), consistent with metabolically active tumor regions.
+
+Macrophages: Strong immune–stromal markers (LYZ, RGS1, SRGN, VIM, ANXA1), typical of TAMs; partial mixing with B-cell zones suggested by immunoglobulin hits.
+
+T cells: IL7R and CXCR4 confirm activated tissue-resident T cells, while COL1A1 and SAA1 reflect spatial overlap with stromal/hepatic areas.
+
+Periportal LSECs: Vascular and ECM genes (IGFBP7, COL4A1/2, MGP, NOTCH3, ACTA2) mark endothelial identity with expected stromal proximity.
+
+Stellate cells: Classic fibroblast signature (COL1A1/2, THBS2, BGN, DCN, ACTA2), accurately capturing activated stellate programs.
+
+B cells: Dominated by immunoglobulin genes (IGHG1/2, IGKC, IGHM, JCHAIN), confirming B-lineage identity.
+
+Hepatocytes: Liver-specific acute-phase genes (CRP, SAA1) validate annotation; minor stromal signals due to small spatial domain.
+
+Other clusters: No distinct markers detected, likely reflecting low abundance or diffuse signal.
+
+It is important to inspect and adjust this cutoff as needed — in some cases, the 75th percentile threshold may still fall below 0.1, which could include weakly correlated genes. A higher cutoff can be applied to ensure that only strongly spatially associated genes are retained.
+
+```{r, output_markergenes}
+# correlation appraoch
+# Combine into a new dataframe for LaTeX output
+output_data <- do.call(rbind, lapply(cluster_names, function(cl) {
+  obs_cutoff = quantile(obs_corr[, cl], 0.75)
+  perm_cl=intersect(row.names(perm_res[perm_res[,cl]<0.05,]),
+                   row.names(obs_corr[obs_corr[, cl]>obs_cutoff,]))
+
+  if (length(perm_cl) == 0){
+    return(data.frame(Cluster = cl, Genes = "  "))
+  }
+  sorted_subset = obs_corr[row.names(obs_corr) %in% perm_cl,]
+  sorted_subset <- sorted_subset[order(-sorted_subset[,cl]), ]
+  if (cl != "NoSig"){
+    gene_list <- paste(row.names(sorted_subset), "(", round(sorted_subset[,cl], 2), ")", sep="", collapse=", ")
+  }else{
+    gene_list <- paste(row.names(sorted_subset), "", sep="", collapse=", ")
+  }
+  
+  return(data.frame(Cluster = cl, Genes = gene_list))
+}))
+knitr::kable(
+  output_data,
+  caption = "Detected marker genes for each cluster by correlation approach in jazzPanda, in decreasing value of observed correlation"
+)
+```
+
+## limma
+
+We applied the limma framework to identify differentially expressed marker genes across clusters in the liver cancer sample. Count data were normalized using log-transformed counts from the speckle package. A linear model was fitted for each gene with cluster identity as the design factor, and pairwise contrasts were constructed to compare each cluster against all others. Empirical Bayes moderation was applied to stabilize variance estimates, and significant genes were determined using the moderated t-statistics from eBayes.
+
+```{r limma, eval=FALSE}
+
+y <- DGEList(counts_cancer_sample[, cluster_info$cell_id])
+y$genes <-row.names(counts_cancer_sample)
+
+logcounts <- speckle::normCounts(y,log=TRUE,prior.count=0.1)
+maxclust <- length(unique(cluster_info$cluster))
+
+grp <- cluster_info$cluster
+
+design <- model.matrix(~0+grp)
+colnames(design) <- levels(grp)
+
+mycont <- matrix(NA,ncol=length(levels(grp)),nrow=length(levels(grp)))
+rownames(mycont)<-colnames(mycont)<-levels(grp)
+diag(mycont)<-1
+mycont[upper.tri(mycont)]<- -1/(length(levels(factor(grp)))-1)
+mycont[lower.tri(mycont)]<- -1/(length(levels(factor(grp)))-1)
+fit <- lmFit(logcounts,design)
+fit.cont <- contrasts.fit(fit,contrasts=mycont)
+fit.cont <- eBayes(fit.cont,trend=TRUE,robust=TRUE)
+
+limma_dt<-decideTests(fit.cont)
+
+summary(limma_dt)
+
+saveRDS(fit.cont, here(gdata,paste0(data_nm, "_fit_cont_obj.Rds")))
+```
+
+
+```{r looad_limma_res, fig.width=12, fig.height=16}
+fit.cont = readRDS(here(gdata,paste0(data_nm, "_fit_cont_obj.Rds")))
+limma_dt <- decideTests(fit.cont)
+summary(limma_dt)
+
+top_markers <- lapply(cluster_names, function(cl) {
+  tt <- topTable(fit.cont,
+                 coef = cl,
+                 number = Inf,
+                 adjust.method = "BH",
+                 sort.by = "P")
+  tt <- tt[order(tt$adj.P.Val, -abs(tt$logFC)), ]  
+  tt$contrast <- cl
+  tt$gene <- rownames(tt)
+  head(tt, 10)  
+})
+
+
+# Combine into one data.frame
+top_markers_df <- bind_rows(top_markers) %>%
+  select(contrast, gene, logFC, adj.P.Val)
+
+
+p1<- DotPlot(seu, features = unique(top_markers_df$gene)) +
+     scale_colour_gradient(low = "white", high = "red") +
+    coord_flip()+
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))+
+    labs(title = "Top 10 marker genes (limma)", x="", y="")
+
+p1
+```
+
+## Wilcoxon Rank Sum Test
+
+The `FindAllMarkers` function applies a Wilcoxon Rank Sum test to detect genes with cluster-specific expression shifts. Only positive markers (upregulated genes) were retained using a log fold-change threshold of 0.1. 
+
+```{r FM, eval=FALSE}
+
+hlc_seu=CreateSeuratObject(counts = counts_cancer_sample[, cluster_info$cell_id], project = "hl_cancer")
+Idents(hlc_seu) = cluster_info[match(colnames(hlc_seu), 
+                                      cluster_info$cell_id),"cluster"]
+hlc_seu = NormalizeData(hlc_seu, verbose = FALSE,
+                        normalization.method = "LogNormalize")
+hlc_seu = FindVariableFeatures(hlc_seu, selection.method = "vst", 
+                               nfeatures = 1000, verbose = FALSE)
+
+hlc_seu=ScaleData(hlc_seu, verbose = FALSE)
+
+set.seed(989)
+# print(ElbowPlot(hlc_seu, ndims = 50))
+hlc_seu <- RunPCA(hlc_seu, features = row.names(hlc_seu), 
+                  npcs = 30, verbose = FALSE)
+hlc_seu <- RunUMAP(object = hlc_seu, dims = 1:15)
+
+
+seu_markers <- FindAllMarkers(hlc_seu, only.pos = TRUE,logfc.threshold = 0.1)
+
+
+saveRDS(seu_markers, here(gdata,paste0(data_nm, "_seu_markers.Rds")))
+
+saveRDS(hlc_seu, here(gdata,paste0(data_nm, "_seu.Rds")))
+```
+
+```{r load_FM_res, fig.width=12, fig.height=18}
+
+FM_result= readRDS(here(gdata,paste0(data_nm, "_seu_markers.Rds")))
+FM_result = FM_result[FM_result$avg_log2FC>0.1, ]
+
+table(FM_result$cluster)
+FM_result$cluster <- factor(FM_result$cluster,
+                            levels = cluster_names)
+
+top_mg <- FM_result %>%
+  group_by(cluster) %>%
+  arrange(desc(avg_log2FC), .by_group = TRUE) %>% 
+  slice_max(order_by = avg_log2FC, n = 10) %>%
+  select(cluster, gene, avg_log2FC)
+
+p1<-DotPlot(seu, features = unique(top_mg$gene)) +
+     scale_colour_gradient(low = "white", high = "red") +
+    coord_flip()+
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))+
+    labs(title = "Top 10 marker genes (WRS)", x="", y="")
+
+p1
+# Combine into a new dataframe for LaTeX output
+# output_data <- do.call(rbind, lapply(cluster_names, function(cl) {
+#   subset <- top_mg[top_mg$cluster == cl, ]
+#   sorted_subset <- subset[order(-subset$avg_log2FC), ]
+#   gene_list <- paste(sorted_subset$gene, "(", round(sorted_subset$avg_log2FC, 2), ")", sep="", collapse=", ")
+#  
+#   return(data.frame(Cluster = cl, Genes = gene_list))
+# }))
+# latex_table <- xtable(output_data, caption="Detected marker genes for each cluster by FindMarkers")
+# print.xtable(latex_table, include.rownames = FALSE, hline.after = c(-1, 0, nrow(output_data)), comment = FALSE)
+```
+
+# Comparison of marker gene detection methods
+## Cumulative rank plot
+
+We compared the performance of different marker detection methods — jazzPanda (linear modelling and correlation), limma, and Seurat’s Wilcoxon Rank Sum test — by comparing the cumulative average spatial correlation between ranked marker genes and their corresponding target clusters at the spatial vector level.
+
+Across multiple cell populations, including tumor subclusters, periportal LSECs, stellate cells, macrophages, and T cells, jazzPanda consistently prioritized genes with higher spatial concordance. In contrast, Wilcoxon and limma markers rarely achieve high correlation, indicating that classical differential expression approaches identify genes with large expression differences but limited spatial coherence.
+
+```{r cmr, fig.width=12, fig.height=18}
+plot_lst=list()
+cor_M = cor(sv_lst$gene_mt,
+            sv_lst$cluster_mt[, cluster_names],
+            method = "spearman")
+
+Idents(seu)=cluster_info$cluster[match(colnames(seu), 
+                                       cluster_info$cell_id)]
+for (cl in cluster_names){
+    
+    fm_cl=FindMarkers(seu, ident.1 = cl, only.pos = TRUE,
+            logfc.threshold = 0.1)
+    fm_cl = fm_cl[fm_cl$p_val_adj<0.05, ]
+    fm_cl = fm_cl[order(fm_cl$avg_log2FC, decreasing = TRUE),]
+    to_plot_fm =row.names(fm_cl)
+    if (length(to_plot_fm)>0){
+        FM_pt =FM_pt = data.frame("name"=to_plot_fm,"rk"= 1:length(to_plot_fm),
+                       "y"= get_cmr_ma(to_plot_fm,cor_M = cor_M, cl = cl),
+                       "type"="Wilcoxon Rank Sum Test")
+    }else{
+        FM_pt <- data.frame(name = character(0), rk = integer(0), 
+                               y= numeric(0), type = character(0))
+    }
+
+    limma_cl<-topTable(fit.cont,coef=cl,p.value = 0.05, n=Inf, sort.by = "p")
+    limma_cl = limma_cl[limma_cl$logFC>0, ]
+    to_plot_lm = row.names(limma_cl)
+    if (length(to_plot_lm)>0){
+         limma_pt = data.frame("name"=to_plot_lm,"rk"= 1:length(to_plot_lm),
+                                  "y"= get_cmr_ma(to_plot_lm,cor_M = cor_M, cl = cl),
+                                  "type"="limma")
+    }else{
+        limma_pt <- data.frame(name = character(0), rk = integer(0), 
+                               y= numeric(0), type = character(0))
+    }
+    
+    obs_cutoff = quantile(obs_corr[, cl], 0.75)
+    perm_cl=intersect(row.names(perm_res[perm_res[,cl]<0.05,]),
+                 row.names(obs_corr[obs_corr[, cl]>obs_cutoff,]))
+    if (length(perm_cl) > 0) {
+        rounded_val=signif(as.numeric(obs_corr[perm_cl,cl]), digits = 3)
+        roudned_pval=signif(as.numeric(perm_res[perm_cl,cl]), digits = 3)
+        perm_sorted = as.data.frame(cbind(gene=perm_cl, value=rounded_val, pval=roudned_pval))
+        perm_sorted$value = as.numeric(perm_sorted$value)
+        perm_sorted$pval = as.numeric(perm_sorted$pval)
+        perm_sorted=perm_sorted[order(-perm_sorted$pval,
+                                  perm_sorted$value, 
+                                  decreasing = TRUE),]
+        corr_pt = data.frame("name"=perm_sorted$gene,"rk"= 1:length(perm_sorted$gene),
+                     "y"= get_cmr_ma(perm_sorted$gene,cor_M = cor_M, cl = cl),
+                     "type"="jazzPanda-correlation")
+    } else {
+      corr_pt <-data.frame(name = character(0), rk = integer(0), 
+                               y= numeric(0), type = character(0))
+    }
+    
+    lasso_sig = jazzPanda_res[jazzPanda_res$top_cluster==cl,]
+    if (nrow(lasso_sig) > 0) {
+        lasso_sig <- lasso_sig[order(lasso_sig$glm_coef, decreasing = TRUE), ]
+        lasso_pt = data.frame("name"=lasso_sig$gene,"rk"= 1:nrow(lasso_sig),
+                          "y"= get_cmr_ma(lasso_sig$gene,cor_M = cor_M, cl = cl),
+                          "type"="jazzPanda-glm")
+    } else {
+      lasso_pt <- data.frame(name = character(0), rk = integer(0), 
+                               y= numeric(0), type = character(0))
+    }
+
+    data_lst = rbind(limma_pt, FM_pt,corr_pt,lasso_pt)
+
+    data_lst$type <- factor(data_lst$type,
+                            levels = c("jazzPanda-correlation" ,
+                                       "jazzPanda-glm",
+                                       "limma", "Wilcoxon Rank Sum Test"))
+    data_lst$rk = as.numeric(data_lst$rk)
+    cl = sub(cl, pattern = ".cells", replacement="")
+    p <-ggplot(data_lst, aes(x = rk, y = y, color = type)) +
+        geom_step(size = 0.8) +  # type = "s"
+        scale_color_manual(values = c("jazzPanda-correlation" = "orange",
+                                    "jazzPanda-glm" = "red",
+                                    "limma" = "black",
+                                    "Wilcoxon Rank Sum Test" = "blue")) +
+        scale_x_continuous(limits = c(0, 50))+
+        labs(title = paste(cl, "cells"), x = "Rank of marker genes",
+             y = "Cumulative average correlation",
+             color = NULL) +
+        theme_classic(base_size = 12) +
+        theme(plot.title = element_text(hjust = 0.5),
+            axis.line = element_blank(),  
+            panel.border = element_rect(color = "black", 
+                                        fill = NA, linewidth = 1),
+            legend.position = "inside",
+            legend.position.inside = c(0.98, 0.02),
+            legend.justification = c("right", "bottom"),
+            legend.background = element_rect(color = "black", 
+                                             fill = "white", linewidth = 0.5),
+            legend.box.background = element_rect(color = "black",
+                                                 linewidth = 0.5)
+        )
+    plot_lst[[cl]] <- p
+}
+
+
+combined_plot <- wrap_plots(plot_lst, ncol =3)
+
+combined_plot 
+
+
+```
+
+## Upset plot
+
+We further visualized the overlap between marker genes detected by the four methods using UpSet plots for each cluster. 
+
+The limited overlap between jazzPanda and classical tests highlights that spatial modelling captures complementary signal beyond differential expression alone. In particular, the linear modelling approach identifies spatially structured genes that are not necessarily the most differentially expressed but show strong spatial association with cell-type domains. Conversely, Wilcoxon and limma yield smaller, largely overlapping sets dominated by high-abundance genes lacking spatial specificity.
+
+```{r upset-mg-comparison, fig.width=12, fig.height=18}
+plot_lst=list()
+for (cl in cluster_names){
+    findM_sig <- FM_result[FM_result$cluster==cl & FM_result$p_val_adj<0.05,"gene"]
+    limma_sig <- row.names(limma_dt[limma_dt[,cl]==1,])
+    lasso_cl <- jazzPanda_res[jazzPanda_res$top_cluster==cl, "gene"]
+    
+    obs_cutoff = quantile(obs_corr[, cl], 0.75)
+    perm_cl=intersect(row.names(perm_res[perm_res[,cl]<0.05,]),
+                 row.names(obs_corr[obs_corr[, cl]>obs_cutoff,]))
+    
+    df_mt <- as.data.frame(matrix(FALSE,nrow=nrow(jazzPanda_res),ncol=4))
+    row.names(df_mt) <- jazzPanda_res$gene
+    colnames(df_mt) <- c("jazzPanda-glm",
+                      "jazzPanda-correlation",
+                      "Wilcoxon Rank Sum Test","limma")
+    df_mt[findM_sig,"Wilcoxon Rank Sum Test"] <- TRUE
+    df_mt[limma_sig,"limma"] <- TRUE
+    df_mt[lasso_cl,"jazzPanda-glm"] <- TRUE
+    df_mt[perm_cl,"jazzPanda-correlation"] <- TRUE
+    
+    df_mt$gene_name <- row.names(df_mt)
+    p = plot(upset(df_mt,
+               intersect=c("Wilcoxon Rank Sum Test", "limma",
+                           "jazzPanda-correlation","jazzPanda-glm"),
+               wrap=TRUE, keep_empty_groups= FALSE, name="",
+               stripes='white',
+               sort_intersections_by ="cardinality", 
+               sort_sets= FALSE,min_degree=1,
+               set_sizes =( 
+                   upset_set_size()
+                   + theme(axis.title= element_blank(),
+                           axis.ticks.y = element_blank(),
+                           axis.text.y = element_blank())),
+               sort_intersections= "descending", warn_when_converting=FALSE,
+               warn_when_dropping_groups=TRUE,encode_sets=TRUE,
+               width_ratio=0.3, height_ratio=1/4)+
+             ggtitle(paste(cl,"cells"))+
+                 ggtitle(cl)+
+                 theme(plot.title = element_text( size=15))
+
+    )
+    plot_lst[[cl]] <- p 
+}
+
+combined_plot <- wrap_plots(plot_lst, ncol =3)
+
+combined_plot 
+
+```
+
+```{r}
+sessionInfo()
+```
+
+

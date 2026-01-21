@@ -1,0 +1,3272 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Melody Jin" />
+
+<meta name="date" content="2025-09-29" />
+
+<title>Xenium human breast cancer brain - two samples</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">jazzPanda_workflowr</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Analyses
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="xenium-human-breast-cancer-analysis.html">Xenium breast cancer data</a>
+    </li>
+    <li>
+      <a href="xenium-human-lung-cancer-analysis.html">Xenium human lung data</a>
+    </li>
+    <li>
+      <a href="xenium-mouse-brain-analysis.html">Xenium mouse brain data</a>
+    </li>
+    <li>
+      <a href="cosmx-human-healthy-liver.html">Cosmx healthy liver data</a>
+    </li>
+    <li>
+      <a href="cosmx-human-liver-cancer.html">Cosmx liver cancer data</a>
+    </li>
+    <li>
+      <a href="merscope-human-breast-cancer.html">Merscope breast cancer data</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Xenium human breast cancer brain - two
+samples</h1>
+<h4 class="author">Melody Jin</h4>
+<h4 class="date">2025-09-29</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2026-01-21
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong>
+<code>jazzPanda_workflowr/analysis/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.1). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguncommittedchanges"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed12345code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(12345)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed12345code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(12345)</code> was run prior to running the
+code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsghpersonalmelodyphipsonlabjazzPandaworkflowrtree3dea452c78d5948194281937875b5fd327947949targetblank3dea452a">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/tree/3dea452c78d5948194281937875b5fd327947949" target="_blank">3dea452</a>
+</a>
+</p>
+</div>
+<div
+id="strongRepositoryversionstrongahrefhttpsghpersonalmelodyphipsonlabjazzPandaworkflowrtree3dea452c78d5948194281937875b5fd327947949targetblank3dea452a"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/tree/3dea452c78d5948194281937875b5fd327947949" target="_blank">3dea452</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+    Ignored:    .env
+    Ignored:    .ipynb_checkpoints/
+
+Untracked files:
+    Untracked:  .env.example
+    Untracked:  analysis/figure/
+
+Unstaged changes:
+    Modified:   .gitignore
+    Modified:   analysis/cosmx-human-healthy-liver.Rmd
+    Modified:   analysis/cosmx-human-liver-cancer.Rmd
+    Modified:   analysis/index.Rmd
+    Modified:   analysis/merscope-human-breast-cancer.Rmd
+    Modified:   analysis/run_workflow_cosmx_healthy_liver.sh
+    Modified:   analysis/run_workflow_cosmx_liver_cancer.sh
+    Modified:   analysis/run_workflow_merscope_human_breast_cancer.sh
+    Modified:   analysis/run_workflow_xenium_human_breast_cancer.sh
+    Modified:   analysis/run_workflow_xenium_human_lung_cancer.sh
+    Modified:   analysis/run_workflow_xenium_mouse_brain.sh
+    Modified:   analysis/slurm_out/workflowr_cosmx_healthy_liver.err
+    Modified:   analysis/slurm_out/workflowr_cosmx_healthy_liver.out
+    Modified:   analysis/slurm_out/workflowr_cosmx_liver_cancer.err
+    Modified:   analysis/slurm_out/workflowr_cosmx_liver_cancer.out
+    Modified:   analysis/slurm_out/workflowr_merscope_human_breast_cancer.err
+    Modified:   analysis/slurm_out/workflowr_merscope_human_breast_cancer.out
+    Modified:   analysis/slurm_out/workflowr_xenium_human_breast_cancer.err
+    Modified:   analysis/slurm_out/workflowr_xenium_human_breast_cancer.out
+    Modified:   analysis/slurm_out/workflowr_xenium_human_lung_cancer.err
+    Modified:   analysis/slurm_out/workflowr_xenium_human_lung_cancer.out
+    Modified:   analysis/slurm_out/workflowr_xenium_mouse_brain.err
+    Modified:   analysis/slurm_out/workflowr_xenium_mouse_brain.out
+    Modified:   analysis/xenium-human-breast-cancer-analysis.Rmd
+    Modified:   analysis/xenium-human-lung-cancer-analysis.Rmd
+    Modified:   analysis/xenium-mouse-brain-analysis.Rmd
+    Modified:   code/utils.R
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown
+(<code>analysis/xenium-human-breast-cancer-analysis.Rmd</code>) and HTML
+(<code>docs/xenium-human-breast-cancer-analysis.html</code>) files. If
+you’ve configured a remote Git repository (see
+<code>?wflow_git_remote</code>), click on the hyperlinks in the table
+below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/analysis/xenium-human-breast-cancer-analysis.Rmd" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+<td>
+Add script
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/xenium-human-breast-cancer-analysis.html" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+<td>
+Add script
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<pre class="r"><code>library(spatstat)
+library(jazzPanda)
+library(SpatialExperiment)
+library(Seurat)
+library(ggplot2)
+library(data.table)
+library(dplyr)
+library(glmnet)
+library(caret)
+library(ComplexUpset)
+library(corrplot)
+library(gridExtra)
+library(patchwork)
+library(RColorBrewer)
+library(limma)
+library(edgeR)
+library(speckle)
+library(here)
+source(here(&quot;code/utils.R&quot;))</code></pre>
+<div id="load-sample1-and-sample2-dataset" class="section level1">
+<h1>Load sample1 and sample2 dataset</h1>
+<pre class="r"><code>data_nm = &quot;xenium_hbreast&quot;
+sp1 = get_xenium_data(rdata$xhb_r1, 
+                      mtx_name=&quot;cell_feature_matrix&quot;,
+                      trans_name=&quot;transcripts.csv.gz&quot;, 
+                      cells_name=&quot;cells.csv.gz&quot; )
+sp1$trans_info = sp1$trans_info[sp1$trans_info$qv &gt;=20 &amp; 
+                                    sp1$trans_info$cell_id != -1 &amp; 
+                                    !(sp1$trans_info$cell_id %in% sp1$zero_cells), ]
+
+## sample2
+sp2 = get_xenium_data(rdata$xhb_r2, 
+                      mtx_name=&quot;cell_feature_matrix&quot;,
+                      trans_name=&quot;transcripts.csv.gz&quot;, 
+                      cells_name=&quot;cells.csv.gz&quot; )
+
+sp2$trans_info = sp2$trans_info[sp2$trans_info$qv &gt;=20 &amp; 
+                                    sp2$trans_info$cell_id != -1 &amp; 
+                                    !(sp2$trans_info$cell_id %in% sp1$zero_cells), ]</code></pre>
+</div>
+<div id="single-cell-summary" class="section level1">
+<h1>Single cell summary</h1>
+<p>These summary plots characterise per-cell detection counts and
+sparsity. We can calculate per-cell and per-gene summary statistics from
+the counts matrix:</p>
+<ul>
+<li><p>Total detections per cell: sums all transcript counts in each
+cell.</p></li>
+<li><p>Proportion of zeroes per cell: fraction of genes not detected in
+each cell.</p></li>
+<li><p>Detected genes per cell: number of non-zero genes per
+cell.</p></li>
+<li><p>Average expression per gene: mean expression across cells,
+ignoring zeros.</p></li>
+</ul>
+<p>Each distribution is visualised with histograms and density curves to
+assess data quality and sparsity.</p>
+<pre class="r"><code>td_r1 &lt;- colSums(sp1$cm)
+pz_r1 &lt;- colMeans(sp1$cm==0)
+numgene_r1 &lt;- colSums(sp1$cm!=0)
+
+td_r2 &lt;- colSums(sp2$cm)
+pz_r2 &lt;- colMeans(sp2$cm==0)
+numgene_r2 &lt;- colSums(sp2$cm!=0)
+
+
+# Build the entire summary as one string
+output &lt;- paste0(
+  &quot;\n================= Summary Statistics =================\n\n&quot;,
+  &quot;--- Sample 1 ---\n&quot;,
+  make_sc_summary(td_r1, &quot;Total detections per cell:&quot;),
+  make_sc_summary(pz_r1, &quot;Proportion of zeroes per cell:&quot;),
+  make_sc_summary(numgene_r1, &quot;Detected genes per cell:&quot;),
+  &quot;\n--- Sample 2 ---\n&quot;,
+  make_sc_summary(td_r2, &quot;Total detections per cell:&quot;),
+  make_sc_summary(pz_r2, &quot;Proportion of zeroes per cell:&quot;),
+  make_sc_summary(numgene_r2, &quot;Detected genes per cell:&quot;),
+  &quot;\n========================================================\n&quot;
+)
+
+cat(output)</code></pre>
+<pre><code>
+================= Summary Statistics =================
+
+--- Sample 1 ---
+Total detections per cell:
+  Min: 1.0000 |  1Q: 97.0000 |  Median: 166.0000 |  Mean: 192.9693 |  3Q: 263.0000 |  Max: 1359.0000
+Proportion of zeroes per cell:
+  Min: 0.3802 |  1Q: 0.7476 |  Median: 0.7955 |  Mean: 0.7963 |  3Q: 0.8466 |  Max: 0.9968
+Detected genes per cell:
+  Min: 1.0000 |  1Q: 48.0000 |  Median: 64.0000 |  Mean: 63.7426 |  3Q: 79.0000 |  Max: 194.0000
+
+--- Sample 2 ---
+Total detections per cell:
+  Min: 1.0000 |  1Q: 38.0000 |  Median: 63.0000 |  Mean: 89.7103 |  3Q: 101.0000 |  Max: 1487.0000
+Proportion of zeroes per cell:
+  Min: 0.4826 |  1Q: 0.8160 |  Median: 0.8646 |  Mean: 0.8583 |  3Q: 0.9062 |  Max: 0.9965
+Detected genes per cell:
+  Min: 1.0000 |  1Q: 27.0000 |  Median: 39.0000 |  Mean: 40.8172 |  3Q: 53.0000 |  Max: 149.0000
+
+========================================================</code></pre>
+<pre class="r"><code>td_df = as.data.frame(rbind(cbind(as.vector(td_r1),rep(&quot;sample1&quot;, length(td_r1))),
+                cbind(as.vector(td_r2),rep(&quot;sample2&quot;, length(td_r2)))))
+colnames(td_df) = c(&quot;td&quot;,&quot;sample&quot;)
+td_df$td= as.numeric(td_df$td)
+
+p1&lt;-ggplot(data = td_df, aes(x = td, color=sample)) +
+  geom_histogram(aes(y = after_stat(density)), 
+                 binwidth = 50, fill = &quot;gray&quot;, color = &quot;black&quot;) +
+  geom_density(color = &quot;steelblue&quot;, size = 2) +
+  facet_wrap(~sample)+
+  labs(title = &quot;Distribution of total detections per cell&quot;,
+       x = &quot; &quot;, y = &quot;Density&quot;) +
+  #xlim(0, 1000) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5), 
+        strip.text = element_text(size=12)) 
+
+pz = as.data.frame(rbind(cbind(as.vector(pz_r1),rep(&quot;sample1&quot;, length(pz_r1))),
+                cbind(as.vector(pz_r2),rep(&quot;sample2&quot;, length(pz_r2)))))
+colnames(pz) = c(&quot;prop_ze&quot;,&quot;sample&quot;)
+pz$prop_ze= as.numeric(pz$prop_ze)
+
+p2&lt;-ggplot(data = pz, aes(x = prop_ze, color=sample)) +
+  geom_histogram(aes(y = after_stat(density)), 
+                 binwidth = 0.05, fill = &quot;gray&quot;, color = &quot;black&quot;) +
+  geom_density(color = &quot;steelblue&quot;, size = 2) +
+  facet_wrap(~sample)+
+  labs(title = &quot;Distribution of proportion of zeroes per cell&quot;,
+       x = &quot; &quot;, y = &quot;Density&quot;) +
+  #xlim(0, 1) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5),
+        strip.text = element_text(size=12))
+
+
+numgens = as.data.frame(rbind(cbind(as.vector(numgene_r1),rep(&quot;sample1&quot;, length(numgene_r1))),
+                cbind(as.vector(numgene_r2),rep(&quot;sample2&quot;, length(numgene_r2)))))
+colnames(numgens) = c(&quot;numgen&quot;,&quot;sample&quot;)
+numgens$numgen= as.numeric(numgens$numgen)
+
+p3&lt;-ggplot(data = numgens, aes(x = numgen, color=sample)) +
+  geom_histogram(aes(y = after_stat(density)), 
+                 binwidth = 10, fill = &quot;gray&quot;, color = &quot;black&quot;) +
+  geom_density(color = &quot;steelblue&quot;, size = 2) +
+  facet_wrap(~sample)+
+  labs(title = &quot;Distribution of detected genes per cell&quot;,
+       x = &quot; &quot;, y = &quot;Density&quot;) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5),
+        strip.text = element_text(size=12))</code></pre>
+<pre class="r"><code>cm_new1=sp1$cm
+cm_new1[cm_new1==0] = NA
+cm_new1 = as.data.frame(cm_new1)
+cm_new1$avg2 = rowMeans(cm_new1,na.rm = TRUE)
+summary(cm_new1$avg2)</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1.02    1.34    1.71    2.13    2.38   13.50 </code></pre>
+<pre class="r"><code>cm_new2=sp2$cm
+cm_new2[cm_new2==0] = NA
+cm_new2 = as.data.frame(cm_new2)
+cm_new2$avg2 = rowMeans(cm_new2,na.rm = TRUE)
+summary(cm_new2$avg2)</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1.01    1.24    1.45    1.82    1.90   13.43 </code></pre>
+<pre class="r"><code>avg_exp = as.data.frame(cbind(&quot;avg&quot;=c(cm_new1$avg2, cm_new2$avg2),
+                             &quot;sample&quot;=c(rep(&quot;sample1&quot;, nrow(sp1$cm)), 
+                               rep(&quot;sample2&quot;, nrow(sp1$cm)))))
+
+avg_exp$avg=as.numeric(avg_exp$avg)
+avg_exp$sample = factor(avg_exp$sample,
+                        levels = c(&quot;sample1&quot;, &quot;sample2&quot;))
+
+p4&lt;-ggplot(data = avg_exp, aes(x = avg, color=sample)) +
+  geom_histogram(aes(y = after_stat(density)), 
+                 binwidth = 1, fill = &quot;gray&quot;, color = &quot;black&quot;) +
+  geom_density(color = &quot;orange&quot;, linewidth = 1) +
+  facet_wrap(~sample)+
+  labs(title = &quot;Distribution of average gene expression per cell&quot;,
+       x = &quot; &quot;, y = &quot;Density&quot;) +
+  #xlim(0, 1) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5),
+        strip.text = element_text(size=12))
+
+
+layout_design &lt;- (p1|p2)/(p3|p4)
+
+layout_design</code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/ave-expression-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-ave-expression-1">
+Past versions of ave-expression-1.png
+</button>
+</p>
+<div id="fig-ave-expression-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/ave-expression-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Both samples show similar overall distribution shapes across metrics.
+Sample 1 has higher transcript detection, with a median of 166 total
+counts and 64 detected genes per cell, while sample 2 shows lower
+detection levels (median 63 counts and 39 genes). The proportion of
+zeroes is high in both datasets (around 0.80 for sample 1 and 0.86 for
+sample 2). Average gene expression per cell is strongly right-skewed,
+indicating that most genes are expressed at low levels (median 1.71 in
+sample 1 and 1.45 in sample 2).</p>
+</div>
+<div id="quality-assessment-of-negative-controls"
+class="section level1">
+<h1>Quality assessment of negative controls</h1>
+<div id="negative-control-probes" class="section level2">
+<h2>Negative control probes</h2>
+<p>Negative control probes are non-targeting probes designed not to
+hybridize to any transcript. There are 28 negative control probe targets
+in sample 1 and 20 in sample 2. In sample 1, the detection counts range
+from 110 to 12,975, with a median of 382, while in sample 2 they range
+from 15 to 86, with a median of 45. Notably, the probe antisense_PROKR2
+shows a particularly high detection count (12,975) exclusively in sample
+1.</p>
+<pre class="r"><code>probe_coords &lt;- dplyr::bind_rows(
+  sp1$trans_info %&gt;%
+    filter(feature_name %in% sp1$probe) %&gt;%
+    select(feature_name, x, y) %&gt;%
+    mutate(sample = &quot;sample1&quot;),
+  
+  sp2$trans_info %&gt;%
+    filter(feature_name %in% sp2$probe) %&gt;%
+    select(feature_name, x, y) %&gt;%
+    mutate(sample = &quot;sample2&quot;)
+)
+
+ordered_feature = probe_coords %&gt;% group_by(feature_name) %&gt;% count() %&gt;% arrange(desc(n))%&gt;% pull(feature_name) 
+probe_tb = as.data.frame(probe_coords %&gt;% group_by(sample, feature_name) %&gt;% count())
+colnames(probe_tb) = c(&quot;sample&quot;,&quot;feature_name&quot;,&quot;value_count&quot;)
+probe_tb$feature_name = factor(probe_tb$feature_name, levels= ordered_feature)
+
+probe_tb = probe_tb[order(probe_tb$feature_name), ]
+
+p1&lt;- ggplot(probe_tb, aes(x = feature_name, y = value_count)) +
+    geom_bar(stat = &quot;identity&quot;, position = position_dodge()) + 
+    facet_wrap(~sample, ncol=2, scales = &quot;free&quot;)+
+    labs(title = &quot; &quot;, x = &quot; &quot;, y = &quot;Number of total detections&quot;) +
+    theme_bw()+
+    theme(legend.position = &quot;none&quot;,
+          axis.text.x= element_text(size=8, angle=45,vjust=1,hjust = 1),
+          aspect.ratio = 5/7,
+          axis.text.y=element_text(size=8),
+          axis.ticks=element_blank(),
+          axis.title.x=element_blank(),
+          strip.background = element_rect(fill=&quot;white&quot;, colour=&quot;black&quot;),
+          panel.background=element_blank(),
+          panel.grid.minor=element_blank(),
+          plot.background=element_blank())
+
+p1</code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/nc_probe-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-nc_probe-1">
+Past versions of nc_probe-1.png
+</button>
+</p>
+<div id="fig-nc_probe-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/nc_probe-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code>p1&lt;-ggplot(probe_coords, aes(x = x, y = y)) +
+            geom_hex(bins = auto_hex_bin(min(table(probe_coords$sample)), 
+                                         target_points_per_bin = 1)) +
+            theme_bw() +
+            scale_fill_gradient(low = &quot;white&quot;, high = &quot;black&quot;) +
+            guides(fill = guide_colorbar(barheight = unit(0.06, &quot;npc&quot;),
+                                         barwidth  = unit(0.4, &quot;npc&quot;),
+                                         )) +
+            scale_x_reverse()+
+            facet_wrap(~sample, ncol=2) +
+            defined_theme +
+            theme(legend.title = element_text(size = 10,
+                                              hjust = 1, vjust=0.8),
+                legend.position = &quot;bottom&quot;,
+                aspect.ratio = 7/10,
+                legend.text = element_text(size = 9),
+                strip.text = element_text(size = 12),
+                strip.background = element_blank())
+
+p1</code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/nc_porbe_xy-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-nc_porbe_xy-1">
+Past versions of nc_porbe_xy-1.png
+</button>
+</p>
+<div id="fig-nc_porbe_xy-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/nc_porbe_xy-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="negative-control-codewords" class="section level2">
+<h2>Negative control codewords</h2>
+<p>Negative control codewords are unused barcode sequences included to
+detect random or erroneous decoding events, providing a measure of
+decoding noise. In this dataset, 41 negative codeword targets were used,
+with median detection counts of about 46 in sample 1 and 6 in sample 2.
+There are no particular localised spatial patterns for these codeword
+targets.</p>
+<pre class="r"><code>codeword_coords &lt;- dplyr::bind_rows(
+  sp1$trans_info %&gt;%
+    filter(feature_name %in% sp1$codeword) %&gt;%
+    select(feature_name, x, y) %&gt;%
+    mutate(sample = &quot;sample1&quot;),
+  
+  sp2$trans_info %&gt;%
+    filter(feature_name %in% sp2$codeword) %&gt;%
+    select(feature_name, x, y) %&gt;%
+    mutate(sample = &quot;sample2&quot;)
+)
+
+
+ordered_feature = codeword_coords %&gt;% 
+    group_by(feature_name) %&gt;% 
+    count() %&gt;% 
+    arrange(desc(n)) %&gt;% pull(feature_name) 
+codeword_tb = as.data.frame(codeword_coords %&gt;% 
+                                group_by(sample, feature_name) %&gt;% 
+                                count())
+colnames(codeword_tb) = c(&quot;sample&quot;,&quot;feature_name&quot;,&quot;value_count&quot;)
+codeword_tb$feature_name = factor(codeword_tb$feature_name, levels= ordered_feature)
+
+codeword_tb = codeword_tb[order(codeword_tb$feature_name), ]
+
+p2&lt;- ggplot(codeword_tb, aes(x = feature_name, y = value_count)) +
+    geom_bar(stat = &quot;identity&quot;, position = position_dodge()) + 
+    facet_wrap(~sample, ncol=2, scales = &quot;free&quot;)+
+    labs(title = &quot; &quot;, x = &quot; &quot;, y = &quot;Number of total detections&quot;) +
+    theme_bw()+
+    theme(legend.position = &quot;none&quot;,
+          axis.text.x= element_text(size=8, angle=45,vjust=1,hjust = 1),
+          aspect.ratio = 5/7,
+          axis.text.y=element_text(size=8),
+          axis.ticks=element_blank(),
+          axis.title.x=element_blank(),
+          strip.background = element_rect(fill=&quot;white&quot;, colour =&quot;black&quot;),
+          panel.background=element_blank(),
+          panel.grid.minor=element_blank(),
+          plot.background=element_blank())
+
+p2</code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/nc_codeword-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-nc_codeword-1">
+Past versions of nc_codeword-1.png
+</button>
+</p>
+<div id="fig-nc_codeword-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/nc_codeword-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code>p2&lt;- ggplot(codeword_coords, aes(x = x, y = y)) +
+            geom_hex(bins = auto_hex_bin(min(table(probe_coords$sample)), 
+                                         target_points_per_bin = 1)) +
+            theme_bw() +
+            scale_fill_gradient(low = &quot;white&quot;, high = &quot;black&quot;) +
+            guides(fill = guide_colorbar(barheight = unit(0.06, &quot;npc&quot;),
+                                         barwidth  = unit(0.4, &quot;npc&quot;),
+                                         )) +
+            scale_x_reverse()+
+            facet_wrap(~sample, ncol=2) +
+            defined_theme +
+            theme(legend.title = element_text(size = 10, hjust = 1, vjust=0.8),
+                legend.position = &quot;bottom&quot;,
+                aspect.ratio = 7/10,
+                legend.text = element_text(size = 9),
+                strip.text =  element_text(size = 12),
+                strip.background = element_blank())
+
+p2</code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/nc_codeword_xy-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-nc_codeword_xy-1">
+Past versions of nc_codeword_xy-1.png
+</button>
+</p>
+<div id="fig-nc_codeword_xy-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/nc_codeword_xy-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="clustering" class="section level1">
+<h1>Clustering</h1>
+<p>We process the two samples separately, and align them based on the
+shared cell types. For sample 1, we used the provided cell type labels
+and refined them by collapsing subtypes. For sample 2, we perform
+Louvain clustering with resolution 0.5, and annotate the resulting
+clusters with known marker genes. This process produced 14 cell types
+for sample 2, which were then grouped into broader categories for
+alignment with sample 1. Finally, cells from nine shared cell types in
+each sample were joined, and a cluster label (c1-c9) was created for
+representing each of the cell type.</p>
+<pre class="r"><code>project_root=&quot;/path/to/jazzPanda_paper/dir&quot;
+
+graphclust_sp1=read.csv(file.path(project_root, &quot;data&quot;, &quot;Xenium_rep1_supervised_celltype.csv&quot;))
+graphclust_sp1$anno =as.character(graphclust_sp1$Cluster)
+target_clusters = c(&quot;Tumor&quot;, &quot;Stromal&quot;,&quot;Macrophages&quot;,&quot;Myoepithelial&quot;,
+                    &quot;T_Cells&quot;, &quot;B_Cells&quot;,&quot;Endothelial&quot;, &quot;Dendritic&quot;, &quot;Mast_Cells&quot;)
+
+t_cells =  c(&quot;CD4+_T_Cells&quot;,&quot;CD8+_T_Cells&quot;,&quot;T_Cell_&amp;_Tumor_Hybrid&quot;,
+             &quot;Stromal_&amp;_T_Cell_Hybrid&quot;)
+dc_cells = c(&quot;LAMP3+_DCs&quot;,&quot;IRF7+_DCs&quot;)
+macro_cells = c(&quot;Macrophages_1&quot;,&quot;Macrophages_2&quot;)
+myo_cells = c(&quot;Myoepi_KRT15+&quot;, &quot;Myoepi_ACTA2+&quot;)
+tumor_cells = c(&quot;Invasive_Tumor&quot;, &quot;Prolif_Invasive_Tumor&quot;)
+graphclust_sp1[graphclust_sp1$Cluster %in% t_cells, &quot;anno&quot;] = &quot;T_Cells&quot;
+graphclust_sp1[graphclust_sp1$Cluster %in% macro_cells,&quot;anno&quot;] = &quot;Macrophages&quot;
+graphclust_sp1[graphclust_sp1$Cluster %in% c(&quot;DCIS_1&quot;, &quot;DCIS_2&quot;),&quot;anno&quot;] = &quot;DCIS&quot;
+graphclust_sp1[graphclust_sp1$Cluster %in% dc_cells,&quot;anno&quot;] = &quot;Dendritic&quot;
+graphclust_sp1[graphclust_sp1$Cluster %in% myo_cells,&quot;anno&quot;] = &quot;Myoepithelial&quot;
+graphclust_sp1[graphclust_sp1$Cluster %in% tumor_cells,&quot;anno&quot;] = &quot;Tumor&quot;
+
+graphclust_sp1$anno=factor(graphclust_sp1$anno,
+                           levels=c(&quot;Tumor&quot;, &quot;DCIS&quot;, &quot;Stromal&quot;,
+                                    &quot;Macrophages&quot;,&quot;Myoepithelial&quot;,
+                                    &quot;T_Cells&quot;, &quot;B_Cells&quot;,
+                                    &quot;Endothelial&quot;, 
+                                    &quot;Dendritic&quot;, &quot;Mast_Cells&quot;,
+                                    &quot;Perivascular-Like&quot;,&quot;Unlabeled&quot;))
+
+
+sp1_clusters = as.data.frame(cbind(as.character(graphclust_sp1$anno),
+                                   paste(&quot;c&quot;,as.numeric(factor(graphclust_sp1$anno)), 
+                                         sep=&quot;&quot;)))
+
+row.names(sp1_clusters) = graphclust_sp1$Barcode
+colnames(sp1_clusters) = c(&quot;anno&quot;,&quot;cluster&quot;)
+
+cells= sp1$cell_info
+row.names(cells) =cells$cell_id
+rp_names =  row.names(sp1_clusters) 
+sp1_clusters[rp_names,&quot;x&quot;] = cells[match(rp_names,row.names(cells)),
+                                   &quot;x&quot;]
+sp1_clusters[rp_names,&quot;y&quot;] = cells[match(rp_names,row.names(cells)),
+                                   &quot;y&quot;]
+
+sp1_clusters$anno=factor(sp1_clusters$anno,
+                         levels=c(&quot;Tumor&quot;, &quot;DCIS&quot;, &quot;Stromal&quot;,
+                                  &quot;Macrophages&quot;,&quot;Myoepithelial&quot;,
+                                  &quot;T_Cells&quot;, &quot;B_Cells&quot;,
+                                  &quot;Endothelial&quot;, 
+                                  &quot;Dendritic&quot;, &quot;Mast_Cells&quot;,
+                                  &quot;Perivascular-Like&quot;,&quot;Unlabeled&quot;))
+sp1_clusters$cluster=factor(sp1_clusters$cluster,
+                            levels=paste(&quot;c&quot;, 1:12, sep=&quot;&quot;))
+
+sp1_clusters$cells =paste(row.names(sp1_clusters),&quot;_1&quot;,sep=&quot;&quot;)
+sp1_clusters$sample=&quot;sample1&quot;
+selected_sp1 = sp1_clusters
+selected_sp1$cluster_comb = as.character(selected_sp1$anno)
+selected_sp1[selected_sp1$cluster_comb ==&quot;DCIS&quot;,&quot;cluster_comb&quot;]  = &quot;Tumor&quot;
+selected_sp1 = selected_sp1[selected_sp1$cluster_comb %in% target_clusters,]
+selected_sp1$cluster_comb = factor(selected_sp1$cluster_comb, levels=target_clusters)
+selected_sp1$cluster =paste(&quot;c&quot;,as.numeric(factor(selected_sp1$cluster_comb)),
+                            sep=&quot;&quot;)
+selected_sp1 = selected_sp1[,c(&quot;cluster&quot;,&quot;x&quot;,&quot;y&quot;,&quot;cells&quot;,&quot;sample&quot;,&quot;cluster_comb&quot;)]
+colnames(selected_sp1)[6]=&quot;anno&quot;
+
+sample2_anno = read.csv(file.path(project_root, &quot;data&quot;, &quot;Sample2_Xenium_cell_type_manual.csv&quot;),
+                        row.names = 1)
+sp2_clusters = as.data.frame(cbind(row.names(sample2_anno),
+                                   as.character(sample2_anno$cell_type)))
+colnames(sp2_clusters) = c(&quot;cells&quot;,&quot;anno&quot;)
+row.names(sp2_clusters) = sp2_clusters$cells
+cells= sp2$cell_info
+row.names(cells) = cells$cell_id
+rp_names = sp2_clusters$cells
+sp2_clusters[rp_names,&quot;x&quot;] = cells[match(rp_names,row.names(cells)),
+                                   &quot;x&quot;]
+sp2_clusters[rp_names,&quot;y&quot;] = cells[match(rp_names,row.names(cells)),
+                                   &quot;y&quot;]
+
+sp2_clusters$sample=&quot;sample2&quot;
+
+sp2_clusters[sp2_clusters$anno %in% c(&quot;B&quot;, &quot;Plasma&quot;),&quot;anno&quot;]=&quot;B_Cells&quot; 
+sp2_clusters[sp2_clusters$anno %in% c(&quot;Macrophage&quot;),&quot;anno&quot;]=&quot;Macrophages&quot; 
+sp2_clusters[sp2_clusters$anno %in% c(&quot;T&quot;,&quot;NK&quot;),&quot;anno&quot;]=&quot;T_Cells&quot; 
+sp2_clusters[sp2_clusters$anno %in% c(&quot;Fibroblast&quot;),&quot;anno&quot;]=&quot;Stromal&quot; 
+sp2_clusters[sp2_clusters$anno %in% c(&quot;Mast&quot;),&quot;anno&quot;]=&quot;Mast_Cells&quot; 
+sp2_clusters$anno = factor(sp2_clusters$anno,
+                           levels=c(&quot;Tumor&quot;, &quot;Stromal&quot;,&quot;Macrophages&quot;,
+                                    &quot;Myoepithelial&quot;, &quot;T_Cells&quot;, &quot;B_Cells&quot;,
+                                    &quot;Endothelial&quot;, &quot;Dendritic&quot;, &quot;Mast_Cells&quot;,
+                                    &quot;ML&quot;,&quot;LP&quot;,&quot;Adipocyte&quot;))
+
+sp2_clusters$cells=paste(sp2_clusters$cells,&quot;-sp2&quot;, sep=&quot;&quot;)
+
+
+sp2_clusters$anno = as.character(sp2_clusters$anno)
+selected_sp2 = sp2_clusters[sp2_clusters$anno %in% target_clusters,]
+
+selected_sp2$anno = factor(selected_sp2$anno, levels=target_clusters)
+selected_sp2$cluster =paste(&quot;c&quot;,as.numeric(factor(selected_sp2$anno)), 
+                            sep=&quot;&quot;)
+
+selected_sp2 = selected_sp2[,c(&quot;cluster&quot;,&quot;x&quot;,&quot;y&quot;,&quot;cells&quot;,&quot;sample&quot;,&quot;anno&quot;)]
+clusters = rbind(selected_sp1, selected_sp2)
+table(clusters$sample, clusters$anno)
+clusters$anno = factor(clusters$anno, target_clusters)
+
+
+saveRDS(cluster_info, here(gdata,paste0(data_nm, &quot;_clusters.Rds&quot;)))</code></pre>
+<pre class="r"><code>xhb_color&lt;- c(&quot;#FC8D62&quot;,&quot;#66C2A5&quot; ,&quot;#8DA0CB&quot;,&quot;#E78AC3&quot;,
+              &quot;#A6D854&quot;,&quot;skyblue&quot;,&quot;purple3&quot;,&quot;#E5C498&quot;,&quot;blue&quot;)
+# load generated data  (see code above for how they were created)
+cluster_info = readRDS(here(gdata,paste0(data_nm, &quot;_clusters.Rds&quot;)))
+colnames(cluster_info)[6] = &quot;anno_name&quot;
+
+cluster_names = paste0(&quot;c&quot;, 1:9)
+cluster_info$cluster = factor(cluster_info$cluster,
+                              levels=cluster_names)
+ct_names =c(&quot;Tumor&quot;, &quot;Stromal&quot;,&quot;Macrophages&quot;,&quot;Myoepithelial&quot;, &quot;T_Cells&quot;, 
+            &quot;B_Cells&quot;,&quot;Endothelial&quot;, &quot;Dendritic&quot;, &quot;Mast_Cells&quot;)
+cluster_info$anno_name = factor(cluster_info$anno_name,
+                          levels=ct_names)
+
+cluster_info = cluster_info[order(cluster_info$anno_name), ]
+cluster_info$cells = paste0(&quot;_&quot;, cluster_info$cells)
+anno_df = unique(cluster_info[c(&quot;cluster&quot;, &quot;anno_name&quot;)])
+anno_df$anno_name = factor(anno_df$anno_name, levels = ct_names)</code></pre>
+<p>We can see that While both samples contain the same major cell types,
+their relative proportions differ markedly. Sample 1 is dominated by
+tumor and stromal cells, which together account for more than 65% of
+cells. In contrast, sample 2 shows a lower tumor and stromal fraction
+but a clear increase in immune and vascular components. Notably, T cells
+are more than twice as abundant in sample 2, accompanied by higher
+proportions of B cells, endothelial cells, dendritic cells, and mast
+cells.</p>
+<pre class="r"><code>sum_df = cluster_info[,c(&quot;anno_name&quot;, &quot;cells&quot;,&quot;sample&quot;),drop=FALSE] %&gt;% 
+    group_by(anno_name, sample) %&gt;% dplyr::count()
+
+ggplot(sum_df, aes(x = sample, y = n, fill=anno_name)) +
+  geom_bar( stat=&quot;identity&quot;,position=&quot;fill&quot;) +
+  scale_y_continuous(labels = scales::percent)+
+  labs(title = &quot; &quot;, x = &quot; &quot;, y = &quot;proportion of cell types&quot;, fill=&quot;cell types&quot;) +
+
+     scale_fill_manual(values =xhb_color)+
+   theme(legend.position = &quot;right&quot;,axis.text.x= element_text(size=12),
+         strip.text = element_text(size = rel(1)),
+          axis.line=element_blank(),
+               axis.text.y=element_blank(),axis.ticks=element_blank(),
+               axis.title.x=element_blank(),
+               axis.title.y=element_blank(),
+               panel.background=element_blank(),
+               panel.grid.major=element_blank(),
+               panel.grid.minor=element_blank(),
+         plot.background=element_blank())</code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/unnamed-chunk-2-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-1">
+Past versions of unnamed-chunk-2-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/unnamed-chunk-2-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code>ggplot(data = cluster_info,
+        aes(x = x, y = y, color=cluster))+
+        geom_point(size=0.001)+
+        facet_wrap(~sample, nrow=1)+
+        theme_classic()+
+        scale_y_reverse()+
+        scale_color_manual(values =xhb_color)+
+        guides(color=guide_legend(title=&quot;cluster&quot;, ncol = 1,
+        override.aes=list(alpha=1, size=8)))+ defined_theme+
+        theme(strip.background = element_rect(color=&quot;white&quot;),
+                legend.position = &quot;right&quot;,legend.key.width = unit(1, &quot;cm&quot;),
+                aspect.ratio = 5/7,
+                legend.title = element_text(size = 12),
+                legend.text = element_text(size = 12),
+                legend.key.height = unit(1, &quot;cm&quot;),
+                strip.text = element_text(size = rel(2.2)))</code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/xy-whole-1.png" width="1536" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-xy-whole-1">
+Past versions of xy-whole-1.png
+</button>
+</p>
+<div id="fig-xy-whole-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/xy-whole-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The clusters show distinct and largely non-overlapping spatial
+patterns. We can see that the corresponding clusters in sample 1 and
+sample 2 differ in their spatial arrangement, reflecting heterogeneity
+in tissue structures.</p>
+<pre class="r"><code>p1&lt;- ggplot(data = cluster_info[cluster_info$sample==&quot;sample1&quot;, ],
+        aes(x = x, y = y, color=cluster))+
+        geom_point(size=0.001)+
+        facet_wrap(~cluster, ncol=3)+
+        scale_y_reverse()+
+        scale_color_manual(values = xhb_color)+
+        theme_classic()+
+        guides(color=guide_legend(title=&quot;cluster&quot;,
+                                  override.aes=list(alpha=1, size=8)))+
+        theme_minimal()+
+        defined_theme+
+        labs(title = &quot;Sample1&quot;)+
+        theme(aspect.ratio = 5/7,
+              plot.title = element_text(size = rel(1.6)),
+              strip.text = element_text(size = rel(1.2)))
+
+
+p2&lt;- ggplot(data = cluster_info[cluster_info$sample==&quot;sample2&quot;, ],
+        aes(x = x, y = y, color=cluster))+
+        geom_point(size=0.001)+
+        facet_wrap(~cluster, ncol=3)+
+        scale_y_reverse()+
+        scale_color_manual(values = xhb_color)+
+        theme_classic()+
+        guides(color=guide_legend(title=&quot;cluster&quot;,
+                                  override.aes=list(alpha=1, size=8)))+
+        theme_minimal()+
+        defined_theme+
+        labs(title = &quot;Sample2&quot;)+
+        
+        theme(aspect.ratio = 5/7,
+              plot.title = element_text(size = rel(1.6)),
+              strip.text = element_text(size = rel(1.2)))
+
+layout_design &lt;- p1 / p2 
+layout_design</code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/xy-percluster-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-xy-percluster-1">
+Past versions of xy-percluster-1.png
+</button>
+</p>
+<div id="fig-xy-percluster-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/xy-percluster-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="find-shared-marker-genes-for-sample1-and-sample2"
+class="section level1">
+<h1>Find shared marker genes for sample1 and sample2</h1>
+<div id="jazzpanda" class="section level2">
+<h2>jazzPanda</h2>
+<p>We applied jazzPanda to this dataset using the linear modelling
+approach to detect spatially enriched marker genes across clusters. The
+dataset was converted into spatial gene and cluster vectors using a 40 ×
+40 square binning strategy. Transcript detections for the negative
+control probes and codewords targets were included as the background
+control. For each gene, a linear model was fitted to estimate its
+spatial association with relevant cell type patterns.</p>
+<pre class="r"><code>shared_genes = intersect(row.names(sp1$cm), row.names(sp2$cm))
+seed_number= 589
+
+grid_length=40
+keep_targets = c(shared_genes,
+                 intersect(sp1$probe,sp2$probe),
+                 intersect(sp1$codeword,sp2$codeword))
+
+sp1_sp2_vectors = get_vectors(x= list(&quot;sample1&quot; = sp1$trans_info, 
+                                      &quot;sample2&quot; = sp2$trans_info),
+                              sample_names = c(&quot;sample1&quot;, &quot;sample2&quot;),
+                              cluster_info = cluster_info, bin_type=&quot;square&quot;,
+                              bin_param=c(grid_length,grid_length), 
+                              test_genes = shared_genes, 
+                              n_cores = 5)
+})
+sp1_sp2_nc_vectors = create_genesets(x= list(&quot;sample1&quot; = sp1$trans_info, 
+                                             &quot;sample2&quot; = sp2$trans_info),
+                                     sample_names = c(&quot;sample1&quot;, &quot;sample2&quot;),
+                                     name_lst=list(probe=intersect(sp1$probe,sp2$probe), 
+                                                   codeword=intersect(sp1$codeword,sp2$codeword)),
+                                     bin_type=&quot;square&quot;,
+                                     bin_param=c(40,40), 
+                                     cluster_info = NULL)
+
+set.seed(seed_number)
+
+sp1_sp2_lasso_with_nc = lasso_markers(gene_mt=sp1_sp2_vectors$gene_mt,
+                                      cluster_mt = sp1_sp2_vectors$cluster_mt,
+                                      sample_names=c(&quot;sample1&quot;,&quot;sample2&quot;),
+                                      keep_positive=TRUE, 
+                                      background=sp1_sp2_nc_vectors)
+
+saveRDS(all_vectors, here(gdata,paste0(data_nm, &quot;_sq50_vector_lst.Rds&quot;)))
+saveRDS(jazzPanda_res_lst, here(gdata,paste0(data_nm, &quot;_jazzPanda_res_lst.Rds&quot;)))</code></pre>
+<p>We then used <code>get_top_mg</code> to extract unique marker genes
+for each cluster based on a coefficient cutoff of 0.1. This function
+returns the top spatially enriched genes that are most specific to each
+cluster. In contrast, if shared marker genes across clusters are of
+interest, all significant genes can be retrieved using
+<code>get_full_mg</code>.</p>
+<pre class="r"><code># load generated data  (see code above for how they were created)
+
+jazzPanda_res_lst = readRDS(here(gdata,paste0(data_nm, &quot;_jazzPanda_res_lst.Rds&quot;)))
+sv_lst = readRDS(here(gdata,paste0(data_nm, &quot;_sq40_vector_lst.Rds&quot;)))
+nbins = 1600
+jazzPanda_res = get_top_mg(jazzPanda_res_lst, coef_cutoff=0.1)  
+jazzPanda_summary = as.data.frame(table(jazzPanda_res$top_cluster))
+colnames(jazzPanda_summary) = c(&quot;cluster&quot;,&quot;jazzPanda_glm&quot;)
+
+seu = readRDS(here(gdata,paste0(data_nm, &quot;_seu.Rds&quot;)))
+seu &lt;- subset(seu, cells = cluster_info$cells)
+Idents(seu)=cluster_info$cluster[match(colnames(seu), cluster_info$cells)]
+Idents(seu) = factor(Idents(seu), levels = cluster_names)
+seu$sample = cluster_info$sample[match(colnames(seu), cluster_info$cells)]</code></pre>
+<pre class="r"><code>glm_mg = jazzPanda_res[jazzPanda_res$top_cluster != &quot;NoSig&quot;, ]
+glm_mg$top_cluster = factor(glm_mg$top_cluster, levels = cluster_names)
+top_mg_glm &lt;- glm_mg %&gt;%
+  group_by(top_cluster) %&gt;%
+  arrange(desc(glm_coef), .by_group = TRUE) %&gt;% 
+  slice_max(order_by = glm_coef, n = 10) %&gt;%
+  select(top_cluster, gene, glm_coef)
+
+p1&lt;-DotPlot(seu, features = top_mg_glm$gene) +
+     scale_colour_gradient(low = &quot;white&quot;, high = &quot;red&quot;) +
+    coord_flip()+
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))+
+    labs(title = &quot;Top 10 marker genes (jazzPanda-glm)&quot;, x=&quot;&quot;, y=&quot;&quot;)
+
+p1</code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/top10_glm-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top10_glm-1">
+Past versions of top10_glm-1.png
+</button>
+</p>
+<div id="fig-top10_glm-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/top10_glm-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="cluster-to-cluster-correlation" class="section level3">
+<h3>Cluster to cluster correlation</h3>
+<p>We computed pairwise Pearson correlations between spatial cluster
+vectors to assess relationships among cell type distribution for every
+sample.</p>
+<p>The cluster–cluster correlation matrices reveal both shared and
+sample-specific structures. In sample 1, cluster 1 (c1) shows weak to
+negative correlations with other clusters (notably –0.37 with c2 and
+–0.18 with c6), whereas in sample 2, these relationships become largely
+neutral, indicating sample-dependent behavior of c1. In contrast,
+clusters 2–3–5–6 exhibit consistent positive correlations across both
+samples, with c3–c5–c6 forming a stable, strongly associated module.
+Clusters 5–8 also display coherent interrelations whereas c4 and c9
+remain generally independent in both datasets. Overall, while
+correlation magnitudes are higher in sample 2, the relative
+cluster–cluster relationships are largely preserved, implying that the
+underlying biological organization is stable but expressed with varying
+coherence across sample</p>
+<pre class="r"><code>for (curr_sp in c(&quot;sample1&quot;, &quot;sample2&quot;)){
+    
+    cluster_mtt &lt;- sv_lst$cluster_mt[sv_lst$cluster_mt[, curr_sp] == 1, ]
+    cluster_mtt &lt;- cluster_mtt[, cluster_names]
+    cor_M_cluster &lt;- cor(cluster_mtt, cluster_mtt, method = &quot;pearson&quot;)
+    
+    col &lt;- colorRampPalette(c(&quot;#4477AA&quot;, &quot;#77AADD&quot;, &quot;#FFFFFF&quot;,
+                              &quot;#EE9988&quot;, &quot;#BB4444&quot;))
+    
+    corrplot(cor_M_cluster,
+            method = &quot;color&quot;,
+            col = col(200),
+            diag = TRUE,
+            addCoef.col = &quot;black&quot;,
+            type = &quot;upper&quot;,
+            tl.col = &quot;black&quot;,
+            tl.cex = 1,
+            number.cex = 0.8,
+            tl.srt = 0,
+            mar = c(0, 0, 3, 0),   
+            sig.level = 0.05,
+            insig = &quot;blank&quot;)
+    
+    title(paste(curr_sp, &quot;cluster–cluster correlation&quot;),
+            line = 1,               
+            cex.main = 1.2)
+
+}</code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/cc-corr-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cc-corr-1">
+Past versions of cc-corr-1.png
+</button>
+</p>
+<div id="fig-cc-corr-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/cc-corr-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/cc-corr-2.png" width="576" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cc-corr-2">
+Past versions of cc-corr-2.png
+</button>
+</p>
+<div id="fig-cc-corr-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/cc-corr-2.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="top3-marker-genes-by-jazzpanda_glm" class="section level3">
+<h3>Top3 marker genes by jazzPanda_glm</h3>
+<p>We visualized the top three marker genes identified by the linear
+modelling approach for each cluster. For each selected gene, its spatial
+transcript locations were plotted alongside the corresponding cluster
+map. Across clusters, the spatial expression patterns of marker genes
+closely match the distribution of their associated cell types</p>
+<pre class="r"><code>for (cl in cluster_names){
+    ct_nm = anno_df[anno_df$cluster==cl, &quot;anno_name&quot;]
+    inters=jazzPanda_res[jazzPanda_res$top_cluster==cl,&quot;gene&quot;]
+    rounded_val=signif(as.numeric(jazzPanda_res[inters,&quot;glm_coef&quot;]),
+                          digits = 3)
+    inters_df = as.data.frame(cbind(gene=inters, value=rounded_val))
+    inters_df$value = as.numeric(inters_df$value)
+    inters_df=inters_df[order(inters_df$value, decreasing = TRUE),]
+    inters_df$text= paste(inters_df$gene,inters_df$value,sep=&quot;: &quot;)
+    
+    if (length(inters &gt; 0)){
+        inters_df = inters_df[1:min(3, nrow(inters_df)),]
+        inters = inters_df$gene
+        iters_sp1= sp1$trans_info$feature_name %in% inters
+        vis_r1 =sp1$trans_info[iters_sp1,
+                        c(&quot;x&quot;,&quot;y&quot;,&quot;feature_name&quot;)]
+        vis_r1$value = inters_df[match(vis_r1$feature_name,inters_df$gene),
+                        &quot;value&quot;]
+        vis_r1$sample = &quot;sample1&quot;
+        iters_sp2= sp2$trans_info$feature_name %in% inters
+        vis_r2 =sp2$trans_info[iters_sp2,
+                        c(&quot;x&quot;,&quot;y&quot;,&quot;feature_name&quot;)]
+        vis_r2$value = inters_df[match(vis_r2$feature_name,inters_df$gene),
+                        &quot;value&quot;]
+        vis_r2$sample = &quot;sample2&quot;
+        vis_df = rbind(vis_r1, vis_r2)
+        vis_df$text_label= paste(vis_df$feature_name,
+                            vis_df$value,sep=&quot;: &quot;)
+        vis_df$text_label=factor(vis_df$text_label, levels=inters_df$text)
+    
+        vis_df = vis_df[order(vis_df$text_label),]
+
+        genes_plt&lt;- ggplot(data = vis_df,
+                    aes(x = x, y = y))+ 
+                    scale_y_reverse()+
+                    geom_hex(bins = auto_hex_bin(mean(table(vis_df$sample, 
+                                                            vis_df$feature_name))))+
+                    facet_grid(sample~text_label)+
+                    scale_fill_gradient(low=&quot;white&quot;, high=&quot;maroon4&quot;) + 
+                    guides(fill = guide_colorbar(barheight = unit(0.2, &quot;npc&quot;), 
+                                                 barwidth  = unit(0.03, &quot;npc&quot;)))+
+                    defined_theme+ theme(legend.position = &quot;right&quot;, 
+                              strip.background = element_rect(fill =NA,colour = NA),
+                              strip.text = element_text(size = rel(1.2)), 
+                              strip.text.y.right = element_blank(),
+                              legend.key.width = unit(2, &quot;cm&quot;),
+                              fig_ratio=5/7,
+                              legend.title = element_text(size = 10),
+                              legend.text = element_text(size = 10),
+                               legend.key.height = unit(2, &quot;cm&quot;))
+
+        cluster_data =  cluster_info[cluster_info$cluster==cl, ]
+        cluster_data$label = paste(cluster_data$sample, cluster_data$anno_name, sep=&quot;-&quot;)
+        cluster_data$label =factor(cluster_data$label, 
+                                   levels=c(paste0(&quot;sample1-&quot;, ct_nm), 
+                                            paste0(&quot;sample2-&quot;,ct_nm )))
+        cl_pt&lt;- ggplot(data =cluster_data,
+                    aes(x = x, y = y, color=sample))+ 
+                    #geom_hex(bins = 100)+
+                    geom_point(size=0.01)+
+                    facet_wrap(~label, nrow=2,strip.position = &quot;left&quot;)+
+                    scale_y_reverse()+
+                    scale_color_manual(values = c(&quot;black&quot;,&quot;black&quot;))+
+                    defined_theme + 
+            theme(legend.position = &quot;none&quot;, fig_ratio=5/7,
+                  strip.background = element_blank(), 
+                  legend.key.width = unit(15, &quot;cm&quot;),
+                  strip.text = element_text(size = rel(1.2)))
+
+        if (length(inters) == 2) {
+            genes_plt &lt;- (genes_plt | plot_spacer()) + 
+            plot_layout(widths = c(2, 1))
+        } else if (length(inters) == 1) {
+            genes_plt &lt;- (genes_plt | plot_spacer() | plot_spacer()) + 
+            plot_layout(widths = c(1, 1, 1))
+        } 
+        
+        lyt &lt;- wrap_plots(cl_pt, ncol = 1) | genes_plt
+        layout_design &lt;- lyt + patchwork::plot_layout(widths = c(1, 3))
+        print(layout_design)
+    }
+  }</code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-1">
+Past versions of top3-gene-vis-xy-1.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-2.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-2">
+Past versions of top3-gene-vis-xy-2.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-2.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-3.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-3">
+Past versions of top3-gene-vis-xy-3.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-3.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-4.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-4">
+Past versions of top3-gene-vis-xy-4.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-4.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-5.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-5">
+Past versions of top3-gene-vis-xy-5.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-5.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-6.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-6">
+Past versions of top3-gene-vis-xy-6.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-6.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-7.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-7">
+Past versions of top3-gene-vis-xy-7.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-7" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-7.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-8.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-8">
+Past versions of top3-gene-vis-xy-8.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-8" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-8.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-9.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-9">
+Past versions of top3-gene-vis-xy-9.png
+</button>
+</p>
+<div id="fig-top3-gene-vis-xy-9" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/top3-gene-vis-xy-9.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="cluster-vector-versus-marker-gene-vector"
+class="section level3">
+<h3>Cluster vector versus marker gene vector</h3>
+<p>We visualized the top three marker genes for each cluster by plotting
+their spatial gene vectors against the corresponding cluster vector.
+Each scatter plot shows how strongly each marker gene’s spatial pattern
+aligns with the overall spatial signal of its cluster, allowing
+assessment of both marker specificity and coherence with spatial
+domains.</p>
+<p>Most top marker genes exhibit strong positive correlations with their
+corresponding cluster vectors, confirming good spatial alignment between
+gene expression and cluster structure. For instance, immune-related
+markers such as IL7R, PTPRC, and TRAC (c5) display distinct and compact
+expression patterns. Interestingly, for the Mast cell cluster, while
+sample 1 shows limited signal, sample 2 reveals a clear linear
+relationship between the cluster vector and marker gene vectors,
+suggesting that the model leverages information from sample 2 to
+identify reliable marker genes.</p>
+<pre class="r"><code>plot_lst=list()
+for (cl in cluster_names){
+    ct_nm = anno_df[anno_df$cluster==cl, &quot;anno_name&quot;]
+    inters_df=jazzPanda_res[jazzPanda_res$top_cluster==cl,]
+    
+    if (nrow(inters_df) &gt;0){
+        inters_df=inters_df[order(inters_df$glm_coef, decreasing = TRUE),]
+        
+        inters_df = inters_df[1:min(3, nrow(inters_df)),]
+        mk_genes = inters_df$gene
+        dff = as.data.frame(cbind(sv_lst$cluster_mt[,cl],
+                              sv_lst$gene_mt[,mk_genes]))
+        colnames(dff) = c(&quot;cluster&quot;, mk_genes)
+        dff$vector_id = c(1:nbins, 1:nbins)
+        dff$sample= &quot;sample1&quot;
+        dff[nbins:(2*nbins),&quot;sample&quot;] = &quot;sample2&quot;
+        long_df &lt;- dff %&gt;% 
+         tidyr::pivot_longer(cols = -c(cluster, vector_id, sample), names_to = &quot;gene&quot;, 
+               values_to = &quot;vector_count&quot;)
+        long_df$gene = factor(long_df$gene, levels=mk_genes)
+        long_df$sample = factor(long_df$sample, levels=c(&quot;sample1&quot;, &quot;sample2&quot;))
+        p&lt;-ggplot(long_df, aes(x = cluster, y = vector_count, color=gene )) +
+        geom_point(size=0.01) +
+        facet_grid(sample~gene, scales=&quot;free_y&quot;) +
+        labs(x = paste(ct_nm, &quot; cluster vector &quot;, sep=&quot;&quot;), 
+         y = &quot;Top3 marker gene vector&quot;) +
+        theme_minimal()+
+        scale_y_continuous(expand = c(0.01,0.01))+ 
+        scale_x_continuous(expand =  c(0.01,0.01))+ 
+        theme(panel.grid = element_blank(),legend.position = &quot;none&quot;,
+        strip.text = element_text(size = 12),
+        axis.line=element_blank(),
+        axis.text=element_text(size = 11),
+        axis.ticks=element_line(color=&quot;black&quot;),
+        axis.title=element_text(size = 13),
+        panel.border  =element_rect(colour = &quot;black&quot;, 
+                                    fill=NA, linewidth=0.5)
+        )
+        
+        if (length(mk_genes) == 2) {
+            p &lt;- (p | plot_spacer()) + 
+            plot_layout(widths = c(2, 1))
+        } else if (length(mk_genes) == 1) {
+            p &lt;- (p | plot_spacer() | plot_spacer()) + 
+            plot_layout(widths = c(1, 1, 1))
+        } 
+        
+        plot_lst[[cl]] = p
+        
+    }
+    
+}
+combined_plot &lt;- wrap_plots(plot_lst, ncol = 2)
+
+combined_plot </code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/vvplot-glm-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-vvplot-glm-1">
+Past versions of vvplot-glm-1.png
+</button>
+</p>
+<div id="fig-vvplot-glm-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/vvplot-glm-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="marker-gene-summary-per-cluster" class="section level3">
+<h3>Marker gene summary per cluster</h3>
+<p>For each cluster, we summarized the detected marker genes and their
+corresponding strengths. We list genes with model coefficients above the
+defined cutoff (e.g. 0.1) for each cluster.</p>
+<p>Tumor (c1) shows strong expression of ERBB2, EPCAM, GATA3, and FOXA1,
+consistent with a HER2-enriched luminal epithelial phenotype. The
+co-expression of CCND1 and AR indicates active cell-cycle and hormone
+signaling, characteristic of proliferative luminal tumors.</p>
+<p>Stromal (c2) expresses LUM, POSTN, MMP2, and CXCL12, defining a
+cancer-associated fibroblast (CAF) population involved in extracellular
+matrix remodeling and tumor–stroma signaling.</p>
+<p>Macrophages (c3) express LYZ, CD68, CD163, and MRC1, marking
+tumor-associated macrophages (TAMs) with an M2-like, immunoregulatory
+phenotype (HAVCR2, CD163).</p>
+<p>Myoepithelial (c4) expresses KRT5, KRT14, and ACTA2, consistent with
+a basal/myoepithelial cell compartment, likely representing residual
+normal or basal-like tumor elements.</p>
+<p>T Cells (c5) show CD3E, TRAC, CD8A, and CCR7, reflecting a mixed
+T-cell population with both cytotoxic and memory subsets.</p>
+<p>B Cells (c6) express MS4A1, MZB1, and CD79A, representing mature and
+plasma B-cell states.</p>
+<p>Endothelial (c7) expresses PECAM1, VWF, and KDR, marking vascular
+endothelial cells that form the tumor vasculature and support
+angiogenesis.</p>
+<p>Dendritic (c8) expresses TCL1A and LILRA4, characteristic of
+plasmacytoid dendritic cells, while Mast Cells (c9) express CPA3 and
+CTSG, consistent with an activated mast cell population.</p>
+<pre class="r"><code>## linear modelling 
+output_data &lt;- do.call(rbind, lapply(cluster_names, function(cl) {
+  subset &lt;- jazzPanda_res[jazzPanda_res$top_cluster == cl, ]
+  ct_nm = anno_df[anno_df$cluster==cl, &quot;anno_name&quot;]
+  cl_ct = paste0(cl,&quot; (&quot;,ct_nm, &quot;)&quot;)
+  sorted_subset &lt;- subset[order(-subset$glm_coef), ]
+  if (length(sorted_subset) == 0){
+    return(data.frame(Cluster = cl_ct, Genes = &quot;  &quot;))
+  }
+  if (cl != &quot;NoSig&quot;){
+    gene_list &lt;- paste(sorted_subset$gene, &quot;(&quot;, round(sorted_subset$glm_coef, 2), &quot;)&quot;, sep=&quot;&quot;, collapse=&quot;, &quot;)
+  }else{
+    gene_list &lt;- paste(sorted_subset$gene, &quot;&quot;, sep=&quot;&quot;, collapse=&quot;, &quot;)
+  }
+  
+  return(data.frame(Cluster = cl_ct, Genes = gene_list))
+}))
+
+knitr::kable(
+  output_data,
+  caption = &quot;Detected marker genes for each cluster by linear modelling approach in jazzPanda, in decreasing value of glm coefficients&quot;
+)</code></pre>
+<table>
+<caption>Detected marker genes for each cluster by linear modelling
+approach in jazzPanda, in decreasing value of glm coefficients</caption>
+<colgroup>
+<col width="1%" />
+<col width="98%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Cluster</th>
+<th align="left">Genes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">c1 (Tumor)</td>
+<td align="left">ERBB2(21.44), KRT7(13.48), SCD(12.03), EPCAM(9.52),
+FOXA1(8.41), CCND1(8.02), TACSTD2(7.87), GATA3(7.83), SERHL2(7.37),
+KRT8(6.89), ANKRD30A(6.7), FASN(5.94), MLPH(4.82), CDH1(4.47),
+CD9(4.19), ABCC11(4.18), CTTN(3.68), TPD52(3.5), CEACAM6(3.46),
+MDM2(3.27), TOMM7(3.13), NARS(3.07), TCIM(2.95), S100A14(2.61),
+ENAH(2.2), LYPD3(1.97), FLNB(1.95), CCDC6(1.93), MYO5B(1.81),
+ADAM9(1.7), SMS(1.68), HMGA1(1.52), RUNX1(1.42), TRAF4(1.41), AR(1.4),
+TENT5C(1.4), USP53(1.39), TMEM147(1.39), LARS(1.32), ACTG2(1.28),
+SH3YL1(1.27), TOP2A(1.26), QARS(1.16), JUP(1.15), ZNF562(1.15),
+SEC11C(1.14), TFAP2A(1.09), SEC24A(1.07), SQLE(1.07), VOPP1(1.05),
+SLC5A6(1.01), PCLAF(0.94), SRPK1(0.9), TRAPPC3(0.86), RHOH(0.79),
+FAM107B(0.79), KLF5(0.78), WARS(0.67), CENPF(0.66), TUBA4A(0.56),
+MYBPC1(0.55), CCPG1(0.5), SDC4(0.5), OCIAD2(0.49), KARS(0.46),
+AGR3(0.45), RTKN2(0.45), BACE2(0.44), PTRHD1(0.44), TRIB1(0.41),
+HOOK2(0.41), C6orf132(0.39), MUC6(0.38), MKI67(0.37), S100A8(0.36),
+EIF4EBP1(0.36), DNTTIP1(0.35), AQP3(0.35), HOXD8(0.34), DUSP5(0.27),
+ANKRD28(0.26), CXCL16(0.25), PELI1(0.25), TUBB2B(0.23), ALDH1A3(0.19),
+FSTL3(0.19), DMKN(0.19), THAP2(0.19), AKR1C1(0.18), STC1(0.18),
+MAP3K8(0.18), LGALSL(0.17), TIFA(0.16), DAPK3(0.15), PPARG(0.14),
+RORC(0.14), CEACAM8(0.13), APOBEC3B(0.11), HPX(0.11), C2orf42(0.1)</td>
+</tr>
+<tr class="even">
+<td align="left">c2 (Stromal)</td>
+<td align="left">LUM(18), POSTN(15.8), CCDC80(6.94), CXCL12(6.45),
+MMP2(5.11), SFRP4(3.12), PTGDS(2.81), PDGFRB(2.56), ZEB2(2.44),
+FBLN1(2.38), PDGFRA(2.18), BASP1(1.8), ITM2C(1.66), CRISPLD2(1.62),
+IGF1(1.28), S100A4(1.23), ZEB1(1.19), TCF4(1.07), PDK4(1.03),
+PRDM1(0.98), GJB2(0.96), LRRC15(0.87), ERN1(0.82), DPT(0.75),
+GLIPR1(0.72), PIM1(0.44), RAB30(0.36), PDE4A(0.32), TCEAL7(0.16),
+FAM49A(0.16), CCL8(0.11)</td>
+</tr>
+<tr class="odd">
+<td align="left">c3 (Macrophages)</td>
+<td align="left">LYZ(11.84), FCER1G(4.73), CD68(4.49), CD4(4.02),
+FGL2(2.97), AIF1(2.82), APOC1(2.41), IGSF6(2), ITGAX(1.91), CD163(1.83),
+SLAMF7(1.55), C1QC(1.4), MRC1(1.39), HAVCR2(1.23), MNDA(1.07),
+CD14(0.98), FCGR3A(0.97), C15orf48(0.97), MMP12(0.94), CD83(0.93),
+C1QA(0.92), MMP1(0.88), CD86(0.85), ITGAM(0.52), FCER1A(0.49),
+TPSAB1(0.27), LY86(0.25), PDCD1LG2(0.25), CD80(0.12), CLEC9A(0.12)</td>
+</tr>
+<tr class="even">
+<td align="left">c4 (Myoepithelial)</td>
+<td align="left">SERPINA3(8.35), DST(7.21), SFRP1(5.98), MYLK(5.9),
+ACTA2(5.07), KRT14(4.65), PTN(3.86), KRT5(3.39), DSP(3.01), MYH11(2.47),
+KRT6B(1.99), DSC2(1.9), SVIL(1.73), KRT23(1.21), ESR1(1.15), KIT(1.1),
+EGFR(0.93), PIGR(0.8), OPRPN(0.68), SLC25A37(0.66), OXTR(0.37),
+PGR(0.33), C5orf46(0.29), CDC42EP1(0.25), CX3CR1(0.22), FOXC2(0.18),
+SCGB2A1(0.13)</td>
+</tr>
+<tr class="odd">
+<td align="left">c5 (T_Cells)</td>
+<td align="left">IL7R(3.4), PTPRC(3.26), TRAC(2.81), CD3E(2.77),
+CXCR4(2.69), CD8A(1.25), CCL5(1.24), IL2RG(1.23), CYTIP(0.99),
+KLRB1(0.83), LDHB(0.83), CD3G(0.75), GZMA(0.72), GPR183(0.72),
+CCR7(0.7), CD69(0.7), SERPINB9(0.65), TCF7(0.64), CD247(0.64),
+SELL(0.62), SMAP2(0.59), ADGRE5(0.47), LPXN(0.46), CTLA4(0.43),
+LTB(0.43), SLAMF1(0.4), TIGIT(0.35), KLRD1(0.26), NKG7(0.26),
+CD27(0.25), DUSP2(0.2), PRF1(0.19), KLRC1(0.18), GNLY(0.18)</td>
+</tr>
+<tr class="even">
+<td align="left">c6 (B_Cells)</td>
+<td align="left">MS4A1(2.55), BANK1(1.58), MZB1(1.57), CD79A(0.94),
+CD19(0.46), TNFRSF17(0.4), CD79B(0.24), CLECL1(0.18)</td>
+</tr>
+<tr class="odd">
+<td align="left">c7 (Endothelial)</td>
+<td align="left">AQP1(7.37), PECAM1(4.92), VWF(4.89), CD93(3.7),
+CAV1(3.01), CLEC14A(1.91), RAMP2(1.52), MMRN2(1.52), KDR(1.21),
+ADH1B(0.84), NOSTRIN(0.75), ANKRD29(0.7), HOXD9(0.67), RAPGEF3(0.65),
+ANGPT2(0.64), EGFL7(0.56), IL3RA(0.54), SOX17(0.53), CAVIN2(0.45),
+AVPR1A(0.35), SOX18(0.26), SNAI1(0.24), LPL(0.17), TIMP4(0.12)</td>
+</tr>
+<tr class="even">
+<td align="left">c8 (Dendritic)</td>
+<td align="left">TCL1A(1.88), LILRA4(1.75), SPIB(1.48), PLD4(0.83)</td>
+</tr>
+<tr class="odd">
+<td align="left">c9 (Mast_Cells)</td>
+<td align="left">CPA3(1.95), CTSG(0.75)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="wilcoxon-rank-sum-test" class="section level2">
+<h2>Wilcoxon Rank Sum Test</h2>
+<p>The <code>FindAllMarkers</code> function applies a Wilcoxon Rank Sum
+test to detect genes with cluster-specific expression shifts. Only
+positive markers (upregulated genes) were retained using a log
+fold-change threshold of 0.1</p>
+<pre class="r"><code>set.seed(1939)
+cm_new1=sp1$cm[,setdiff(colnames(sp1$cm),c(sp1$zero_cells,&quot;cate&quot;))]
+colnames(cm_new1)=paste(colnames(cm_new1),&quot;_1&quot;, sep=&quot;&quot;)
+biorep1=factor(rep(c(&quot;hb1&quot;),c(ncol(cm_new1))))
+names(biorep1) = colnames(cm_new1)
+
+sp1_seu=CreateSeuratObject(counts = cm_new1, project = &quot;hb1&quot;)
+sp1_seu=AddMetaData(object=sp1_seu, metadata = biorep1, col.name=&quot;biorep&quot;)
+DefaultAssay(sp1_seu) &lt;- &#39;RNA&#39;
+sp1_seu = NormalizeData(sp1_seu,normalization.method =&quot;LogNormalize&quot;)
+sp1_seu = FindVariableFeatures(sp1_seu, selection.method = &quot;vst&quot;,
+                               nfeatures = nrow(sp1$cm), verbose = FALSE)
+
+sp1_seu=ScaleData(sp1_seu)
+
+sp1_seu=RunPCA(sp1_seu, npcs = 50, verbose = FALSE)
+
+set.seed(1939)
+cm_sp2=sp2$cm[,setdiff(colnames(sp2$cm),c(sp2$zero_cells,&quot;cate&quot;))]
+colnames(cm_sp2)=paste(colnames(cm_sp2),&quot;_2&quot;, sep=&quot;&quot;)
+biosp2=factor(rep(c(&quot;hb2&quot;),c(ncol(cm_sp2))))
+names(biosp2) = colnames(cm_sp2)
+sp2_seu=CreateSeuratObject(counts = cm_sp2, project = &quot;hb2&quot;)
+sp2_seu=AddMetaData(object=sp2_seu, metadata = biosp2, col.name=&quot;biorep&quot;)
+DefaultAssay(sp2_seu) &lt;- &#39;RNA&#39;
+sp2_seu &lt;- NormalizeData(sp2_seu,normalization.method =&quot;LogNormalize&quot;)
+sp2_seu = FindVariableFeatures(sp2_seu, selection.method = &quot;vst&quot;,
+                               nfeatures = nrow(sp2$cm), verbose = FALSE)
+
+sp2_seu &lt;- ScaleData(sp2_seu)
+sp2_seu=RunPCA(sp2_seu, npcs = 50, verbose = FALSE)
+
+merged_seu = Merge_Seurat_List(
+    list(sp1_seu[shared_genes,], sp2_seu[shared_genes,]),
+    # add.cell.ids = c(),
+    merge.data = FALSE,
+    project = &quot;hbreast&quot;
+)
+Idents(merged_seu) = cluster_info$cluster
+
+# re-join layers after integration
+merged_seu[[&quot;RNA&quot;]] &lt;- JoinLayers(merged_seu[[&quot;RNA&quot;]])
+
+VariableFeatures(merged_seu) &lt;- row.names(merged_seu)
+merged_seu &lt;- ScaleData(merged_seu, features = row.names(merged_seu),
+                        verbose = FALSE)
+set.seed(1939)
+# print(ElbowPlot(merged_seu, ndims = 50))
+merged_seu &lt;- RunPCA(merged_seu, features = row.names(merged_seu),
+                     npcs = 50, verbose = FALSE)
+merged_seu &lt;- RunUMAP(merged_seu, dims = 1:20, verbose = FALSE)
+
+
+FM_res &lt;- FindAllMarkers(merged_seu, only.pos = TRUE,logfc.threshold = 0.1)
+
+saveRDS(merged_seu, here(gdata,paste0(data_nm, &quot;_seu.Rds&quot;)))
+saveRDS(FM_res, here(gdata,paste0(data_nm, &quot;_seu_markers.Rds&quot;)))</code></pre>
+<pre class="r"><code>FM_result= readRDS(here(gdata,paste0(data_nm, &quot;_seu_markers.Rds&quot;)))
+FM_result = FM_result[FM_result$avg_log2FC&gt;0.1, ]
+
+table(FM_result$cluster)</code></pre>
+<pre><code>
+c1 c3 c2 c4 c5 c7 c9 c6 c8 
+78 71 55 71 82 75 80 87 76 </code></pre>
+<pre class="r"><code>FM_result$cluster &lt;- factor(FM_result$cluster,
+                            levels = cluster_names)
+
+top_mg &lt;- FM_result %&gt;%
+  group_by(cluster) %&gt;%
+  arrange(desc(avg_log2FC), .by_group = TRUE) %&gt;% 
+  slice_max(order_by = avg_log2FC, n = 10) %&gt;%
+  select(cluster, gene, avg_log2FC)
+
+p1&lt;-DotPlot(seu, features = unique(top_mg$gene)) +
+     scale_colour_gradient(low = &quot;white&quot;, high = &quot;red&quot;) +
+    coord_flip()+
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))+
+    labs(title = &quot;Top 10 marker genes (WRS)&quot;, x=&quot;&quot;, y=&quot;&quot;)
+
+p1</code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/load_FM_res-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-load_FM_res-1">
+Past versions of load_FM_res-1.png
+</button>
+</p>
+<div id="fig-load_FM_res-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/load_FM_res-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="limma" class="section level2">
+<h2>limma</h2>
+<p>We applied the limma framework to identify differentially expressed
+marker genes across clusters in the healthy liver sample. Count data
+were normalized using log-transformed counts from the speckle package. A
+linear model was fitted for each gene with cluster identity as the
+design factor, and pairwise contrasts were constructed to compare each
+cluster against all others. Empirical Bayes moderation was applied to
+stabilize variance estimates, and significant genes were determined
+using the moderated t-statistics from eBayes.</p>
+<pre class="r"><code>cm_new1=sp1$cm[,setdiff(colnames(sp1$cm),c(sp1$zero_cells,&quot;cate&quot;))]
+colnames(cm_new1)=paste(colnames(cm_new1),&quot;_1&quot;, sep=&quot;&quot;)
+biorep1=factor(rep(c(&quot;hb1&quot;),c(ncol(cm_new1))))
+names(biorep1) = colnames(cm_new1)
+
+cm_sp2=sp2$cm[,setdiff(colnames(sp2$cm),c(sp2$zero_cells,&quot;cate&quot;))]
+colnames(cm_sp2)=paste(colnames(cm_sp2),&quot;-sp2&quot;, sep=&quot;&quot;)
+biosp2=factor(rep(c(&quot;hb2&quot;),c(ncol(cm_sp2))))
+names(biosp2) = colnames(cm_sp2)
+
+rep_clusters = cluster_info
+y=DGEList(cbind(cm_new1[shared_genes,intersect(colnames(cm_new1),rep_clusters$cells)], cm_sp2[shared_genes,intersect(colnames(cm_sp2),rep_clusters$cells)]))
+sample=c(biorep1[intersect(colnames(cm_new1),rep_clusters$cells)],biosp2[intersect(colnames(cm_sp2),rep_clusters$cells)])
+logcounts.all &lt;- normCounts(y,log=TRUE,prior.count=0.1)
+all.ct &lt;- factor(rep_clusters$cluster)
+
+design &lt;- model.matrix(~0+all.ct+sample)
+colnames(design)[1:(length(levels(all.ct)))] &lt;- levels(all.ct)
+
+mycont &lt;- matrix(0,ncol=length(levels(all.ct)),nrow=length(levels(all.ct)))
+colnames(mycont)&lt;-levels(all.ct)
+diag(mycont)&lt;-1
+mycont[upper.tri(mycont)]&lt;- -1/(length(levels(all.ct))-1)
+mycont[lower.tri(mycont)]&lt;- -1/(length(levels(all.ct))-1)
+
+# Fill out remaining rows with 0s
+zero.rows &lt;- matrix(0,ncol=length(levels(all.ct)),nrow=(ncol(design)-length(levels(all.ct))))
+test &lt;- rbind(mycont,zero.rows)
+
+fit &lt;- lmFit(logcounts.all,design)
+fit.cont &lt;- contrasts.fit(fit,contrasts=test)
+fit.cont &lt;- eBayes(fit.cont,trend=TRUE,robust=TRUE)
+
+fit.cont$genes &lt;- shared_genes
+limma_dt&lt;-decideTests(fit.cont)
+
+saveRDS(fit.cont, here(gdata,paste0(data_nm, &quot;_fit_cont_obj.Rds&quot;)))</code></pre>
+<pre class="r"><code>fit.cont = readRDS(here(gdata,paste0(data_nm, &quot;_fit_cont_obj.Rds&quot;)))
+limma_dt &lt;- decideTests(fit.cont)
+summary(limma_dt)</code></pre>
+<pre><code>        c1  c2  c3  c4  c5  c6  c7  c8  c9
+Down   171 154 200 166 221 182 176 186 170
+NotSig   2  18   4  13   3  19  10  21  44
+Up     107 108  76 101  56  79  94  73  66</code></pre>
+<pre class="r"><code>top_markers &lt;- lapply(cluster_names, function(cl) {
+  tt &lt;- topTable(fit.cont,
+                 coef = cl,
+                 number = Inf,
+                 adjust.method = &quot;BH&quot;,
+                 sort.by = &quot;P&quot;)
+  tt &lt;- tt[order(tt$adj.P.Val, -abs(tt$logFC)), ]  
+  tt$contrast &lt;- cl
+  tt$gene &lt;- rownames(tt)
+  head(tt, 10)  
+})
+
+
+# Combine into one data.frame
+top_markers_df &lt;- bind_rows(top_markers) %&gt;%
+  select(contrast, gene, logFC, adj.P.Val)
+
+
+p1&lt;- DotPlot(seu, features = unique(top_markers_df$gene)) +
+     scale_colour_gradient(low = &quot;white&quot;, high = &quot;red&quot;) +
+    coord_flip()+
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))+
+    labs(title = &quot;Top 10 marker genes (limma)&quot;, x=&quot;&quot;, y=&quot;&quot;)
+
+p1</code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/looad_limma_res-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-looad_limma_res-1">
+Past versions of looad_limma_res-1.png
+</button>
+</p>
+<div id="fig-looad_limma_res-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/looad_limma_res-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="comparison-of-marker-gene-detection-methods"
+class="section level1">
+<h1>Comparison of marker gene detection methods</h1>
+<div id="cumulative-rank-plot" class="section level2">
+<h2>Cumulative rank plot</h2>
+<p>We compared the performance of different marker detection methods —
+jazzPanda (linear modelling), limma, and Seurat’s Wilcoxon Rank Sum test
+— by evaluating the cumulative average spatial correlation between
+ranked marker genes and their corresponding target clusters at the
+spatial vector level.</p>
+<pre class="r"><code>plot_lst=list()
+cor1 &lt;- cor(sv_lst$gene_mt[1:1600, ],
+            sv_lst$cluster_mt[1:1600, paste0(&quot;c&quot;, 1:9)], method = &quot;spearman&quot;)
+
+cor2 &lt;- cor(sv_lst$gene_mt[1600:3200, ],
+            sv_lst$cluster_mt[1600:3200, paste0(&quot;c&quot;, 1:9)], method = &quot;spearman&quot;)
+
+cor_M &lt;-(cor1 + cor2) / 2
+
+Idents(seu)=cluster_info$cluster[match(colnames(seu), 
+                                       cluster_info$cells)]
+for (cl in cluster_names){
+    ct_nm = anno_df[anno_df$cluster==cl, &quot;anno_name&quot;]
+    
+    fm_cl=FindMarkers(seu, ident.1 = cl, only.pos = TRUE,
+            logfc.threshold = 0.1)
+    fm_cl = fm_cl[fm_cl$p_val_adj&lt;0.05, ]
+    fm_cl = fm_cl[order(fm_cl$avg_log2FC, decreasing = TRUE),]
+    to_plot_fm =row.names(fm_cl)
+    if (length(to_plot_fm)&gt;0){
+       FM_pt = data.frame(&quot;name&quot;=to_plot_fm,&quot;rk&quot;= 1:length(to_plot_fm),
+                       &quot;y&quot;= get_cmr_ma(to_plot_fm,cor_M = cor_M, cl = cl),
+                       &quot;type&quot;=&quot;Wilcoxon Rank Sum Test&quot;)
+    }else{
+        FM_pt &lt;- data.frame(name = character(0), rk = integer(0), 
+                               y= numeric(0), type = character(0))
+    }
+
+    limma_cl&lt;-topTable(fit.cont,coef=cl,p.value = 0.05, n=Inf, sort.by = &quot;p&quot;)
+    limma_cl = limma_cl[limma_cl$logFC&gt;0, ]
+    to_plot_lm = row.names(limma_cl)
+    if (length(to_plot_lm)&gt;0){
+       limma_pt = data.frame(&quot;name&quot;=to_plot_lm,&quot;rk&quot;= 1:length(to_plot_lm),
+                      &quot;y&quot;= get_cmr_ma(to_plot_lm,cor_M = cor_M, cl = cl),
+                      &quot;type&quot;=&quot;limma&quot;)
+    }else{
+        limma_pt &lt;- data.frame(name = character(0), rk = integer(0), 
+                               y= numeric(0), type = character(0))
+    }
+    
+  
+    lasso_sig = jazzPanda_res[jazzPanda_res$top_cluster==cl,]
+    if (nrow(lasso_sig) &gt; 0) {
+        lasso_sig &lt;- lasso_sig[order(lasso_sig$glm_coef, decreasing = TRUE), ]
+        lasso_pt = data.frame(&quot;name&quot;=lasso_sig$gene,&quot;rk&quot;= 1:nrow(lasso_sig),
+                          &quot;y&quot;= get_cmr_ma(lasso_sig$gene,cor_M = cor_M, cl = cl),
+                          &quot;type&quot;=&quot;jazzPanda-glm&quot;)
+    
+    } else {
+      lasso_pt &lt;- data.frame(name = character(0), rk = integer(0), 
+                               y= numeric(0), type = character(0))
+    }
+
+    data_lst = rbind(limma_pt, FM_pt,lasso_pt)
+
+    data_lst$type &lt;- factor(
+        data_lst$type,
+        levels = c(&quot;jazzPanda-glm&quot;, &quot;limma&quot;, &quot;Wilcoxon Rank Sum Test&quot;)
+    )
+    data_lst$rk = as.numeric(data_lst$rk)
+    p &lt;-ggplot(data_lst, aes(x = rk, y = y, color = type)) +
+        geom_step(size = 0.8) +  # type = &quot;s&quot;
+        scale_color_manual(values = c(&quot;jazzPanda-glm&quot; = &quot;red&quot;,
+                                      &quot;limma&quot; = &quot;black&quot;,
+                                      &quot;Wilcoxon Rank Sum Test&quot; = &quot;blue&quot;)) +
+        labs(title = ct_nm, x = &quot;Rank of marker genes&quot;,
+             y = &quot;Cumulative average correlation&quot;,
+             color = NULL) +
+        scale_x_continuous(limits = c(0, 50))+
+        theme_classic(base_size = 12) +
+        theme(plot.title = element_text(hjust = 0.5),
+            axis.line = element_blank(),  
+            panel.border = element_rect(color = &quot;black&quot;, 
+                                        fill = NA, linewidth = 1),
+            legend.position = &quot;inside&quot;,
+            legend.position.inside = c(0.98, 0.02),
+            legend.justification = c(&quot;right&quot;, &quot;bottom&quot;),
+            legend.background = element_rect(color = &quot;black&quot;, 
+                                             fill = &quot;white&quot;, linewidth = 0.5),
+            legend.box.background = element_rect(color = &quot;black&quot;,
+                                                 linewidth = 0.5)
+        )
+    plot_lst[[cl]] &lt;- p
+}
+
+
+combined_plot &lt;- wrap_plots(plot_lst, ncol = 3)
+
+combined_plot </code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/cmr-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cmr-1">
+Past versions of cmr-1.png
+</button>
+</p>
+<div id="fig-cmr-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/cmr-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="upset-plot" class="section level2">
+<h2>Upset plot</h2>
+<p>We further visualized the overlap between marker genes detected by
+the four methods using UpSet plots for each cluster. There is some
+overlap among methods; however, limma and the Wilcoxon rank sum test
+identify substantially more marker genes, many of which are not
+spatially relevant to the clusters. Marker genes for Tumor and T-cell
+clusters show greater consistency and overlap across methods.</p>
+<pre class="r"><code>plot_lst=list()
+for (cl in cluster_names){
+    ct_nm = anno_df[anno_df$cluster==cl, &quot;anno_name&quot;]
+    findM_sig &lt;- FM_result[FM_result$cluster==cl &amp; FM_result$p_val_adj&lt;0.05,&quot;gene&quot;]
+    limma_sig &lt;- row.names(limma_dt[limma_dt[,cl]==1,])
+    lasso_cl &lt;- jazzPanda_res[jazzPanda_res$top_cluster==cl, &quot;gene&quot;]
+    
+    df_mt &lt;- as.data.frame(matrix(FALSE,nrow=nrow(jazzPanda_res),ncol=3))
+    row.names(df_mt) &lt;- jazzPanda_res$gene
+    colnames(df_mt) &lt;- c(&quot;jazzPanda-glm&quot;,
+                      &quot;Wilcoxon Rank Sum Test&quot;,&quot;limma&quot;)
+    df_mt[findM_sig,&quot;Wilcoxon Rank Sum Test&quot;] &lt;- TRUE
+    df_mt[limma_sig,&quot;limma&quot;] &lt;- TRUE
+    df_mt[lasso_cl,&quot;jazzPanda-glm&quot;] &lt;- TRUE
+    
+    df_mt$gene_name &lt;- row.names(df_mt)
+    
+    p = plot(upset(df_mt,
+               intersect=c(&quot;Wilcoxon Rank Sum Test&quot;, &quot;limma&quot;,
+                           &quot;jazzPanda-glm&quot;),
+               wrap=TRUE, keep_empty_groups= FALSE, name=&quot;&quot;,
+               #themes=theme_grey(),
+               stripes=&#39;white&#39;,
+               sort_intersections_by =&quot;cardinality&quot;, sort_sets= FALSE,min_degree=1,
+               set_sizes =( 
+                   upset_set_size()
+                   + theme(axis.title= element_blank(),
+                           axis.ticks.y = element_blank(),
+                           axis.text.y = element_blank())),
+               sort_intersections= &quot;descending&quot;, warn_when_converting=FALSE,
+               warn_when_dropping_groups=TRUE,encode_sets=TRUE,
+
+               width_ratio=0.3, height_ratio=1/4)+
+              ggtitle(ct_nm)+
+                 theme(plot.title = element_text( size=15))
+
+    )
+        plot_lst[[cl]] &lt;- p 
+}
+
+combined_plot &lt;- wrap_plots(plot_lst, ncol = 3)
+
+combined_plot </code></pre>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/upset-mg-comparison-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-1">
+Past versions of upset-mg-comparison-1.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/xenium-human-breast-cancer-analysis.Rmd/upset-mg-comparison-1.png" target="_blank">3dea452</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2025-10-10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/xenium-human-breast-cancer-analysis.Rmd/upset-mg-comparison-2.png" width="1152" style="display: block; margin: auto;" /><img src="figure/xenium-human-breast-cancer-analysis.Rmd/upset-mg-comparison-3.png" width="1152" style="display: block; margin: auto;" /><img src="figure/xenium-human-breast-cancer-analysis.Rmd/upset-mg-comparison-4.png" width="1152" style="display: block; margin: auto;" /><img src="figure/xenium-human-breast-cancer-analysis.Rmd/upset-mg-comparison-5.png" width="1152" style="display: block; margin: auto;" /><img src="figure/xenium-human-breast-cancer-analysis.Rmd/upset-mg-comparison-6.png" width="1152" style="display: block; margin: auto;" /><img src="figure/xenium-human-breast-cancer-analysis.Rmd/upset-mg-comparison-7.png" width="1152" style="display: block; margin: auto;" /><img src="figure/xenium-human-breast-cancer-analysis.Rmd/upset-mg-comparison-8.png" width="1152" style="display: block; margin: auto;" /><img src="figure/xenium-human-breast-cancer-analysis.Rmd/upset-mg-comparison-9.png" width="1152" style="display: block; margin: auto;" /><img src="figure/xenium-human-breast-cancer-analysis.Rmd/upset-mg-comparison-10.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.5.1 (2025-06-13)
+Platform: x86_64-pc-linux-gnu
+Running under: Red Hat Enterprise Linux 9.3 (Plow)
+
+Matrix products: default
+BLAS:   /stornext/System/data/software/rhel/9/base/tools/R/4.5.1/lib64/R/lib/libRblas.so 
+LAPACK: /stornext/System/data/software/rhel/9/base/tools/R/4.5.1/lib64/R/lib/libRlapack.so;  LAPACK version 3.12.1
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Australia/Melbourne
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+ [1] dotenv_1.0.3                here_1.0.1                 
+ [3] speckle_1.8.0               edgeR_4.6.3                
+ [5] limma_3.64.1                RColorBrewer_1.1-3         
+ [7] patchwork_1.3.1             gridExtra_2.3              
+ [9] corrplot_0.95               ComplexUpset_1.3.3         
+[11] caret_7.0-1                 lattice_0.22-7             
+[13] glmnet_4.1-10               Matrix_1.7-3               
+[15] dplyr_1.1.4                 data.table_1.17.8          
+[17] ggplot2_3.5.2               Seurat_5.3.0               
+[19] SeuratObject_5.1.0          sp_2.2-0                   
+[21] SpatialExperiment_1.18.1    SingleCellExperiment_1.30.1
+[23] SummarizedExperiment_1.38.1 Biobase_2.68.0             
+[25] GenomicRanges_1.60.0        GenomeInfoDb_1.44.2        
+[27] IRanges_2.42.0              S4Vectors_0.46.0           
+[29] BiocGenerics_0.54.0         generics_0.1.4             
+[31] MatrixGenerics_1.20.0       matrixStats_1.5.0          
+[33] jazzPanda_0.2.4             spatstat_3.4-0             
+[35] spatstat.linnet_3.3-1       spatstat.model_3.4-0       
+[37] rpart_4.1.24                spatstat.explore_3.5-2     
+[39] nlme_3.1-168                spatstat.random_3.4-1      
+[41] spatstat.geom_3.5-0         spatstat.univar_3.1-4      
+[43] spatstat.data_3.1-8        
+
+loaded via a namespace (and not attached):
+  [1] RcppAnnoy_0.0.22        splines_4.5.1           later_1.4.2            
+  [4] R.oo_1.27.1             tibble_3.3.0            polyclip_1.10-7        
+  [7] hardhat_1.4.2           pROC_1.19.0.1           fastDummies_1.7.5      
+ [10] lifecycle_1.0.4         rprojroot_2.1.0         globals_0.18.0         
+ [13] MASS_7.3-65             magrittr_2.0.3          plotly_4.11.0          
+ [16] sass_0.4.10             rmarkdown_2.29          jquerylib_0.1.4        
+ [19] yaml_2.3.10             httpuv_1.6.16           sctransform_0.4.2      
+ [22] spam_2.11-1             spatstat.sparse_3.1-0   reticulate_1.43.0      
+ [25] cowplot_1.2.0           pbapply_1.7-4           lubridate_1.9.4        
+ [28] abind_1.4-8             Rtsne_0.17              presto_1.0.0           
+ [31] R.utils_2.13.0          purrr_1.1.0             BumpyMatrix_1.16.0     
+ [34] nnet_7.3-20             ipred_0.9-15            git2r_0.36.2           
+ [37] lava_1.8.1              GenomeInfoDbData_1.2.14 ggrepel_0.9.6          
+ [40] irlba_2.3.5.1           listenv_0.9.1           spatstat.utils_3.1-5   
+ [43] goftest_1.2-3           RSpectra_0.16-2         fitdistrplus_1.2-4     
+ [46] parallelly_1.45.1       codetools_0.2-20        DelayedArray_0.34.1    
+ [49] tidyselect_1.2.1        shape_1.4.6.1           UCSC.utils_1.4.0       
+ [52] farver_2.1.2            jsonlite_2.0.0          progressr_0.15.1       
+ [55] ggridges_0.5.6          survival_3.8-3          iterators_1.0.14       
+ [58] foreach_1.5.2           tools_4.5.1             ica_1.0-3              
+ [61] Rcpp_1.1.0              glue_1.8.0              prodlim_2025.04.28     
+ [64] SparseArray_1.8.1       xfun_0.52               mgcv_1.9-3             
+ [67] withr_3.0.2             fastmap_1.2.0           digest_0.6.37          
+ [70] timechange_0.3.0        R6_2.6.1                mime_0.13              
+ [73] colorspace_2.1-1        scattermore_1.2         tensor_1.5.1           
+ [76] R.methodsS3_1.8.2       hexbin_1.28.5           tidyr_1.3.1            
+ [79] recipes_1.3.1           class_7.3-23            httr_1.4.7             
+ [82] htmlwidgets_1.6.4       S4Arrays_1.8.1          whisker_0.4.1          
+ [85] uwot_0.2.3              ModelMetrics_1.2.2.2    pkgconfig_2.0.3        
+ [88] gtable_0.3.6            timeDate_4041.110       workflowr_1.7.1        
+ [91] lmtest_0.9-40           XVector_0.48.0          htmltools_0.5.8.1      
+ [94] dotCall64_1.2           scales_1.4.0            png_0.1-8              
+ [97] gower_1.0.2             knitr_1.50              rstudioapi_0.17.1      
+[100] reshape2_1.4.4          rjson_0.2.23            cachem_1.1.0           
+[103] zoo_1.8-14              stringr_1.5.1           KernSmooth_2.23-26     
+[106] parallel_4.5.1          miniUI_0.1.2            pillar_1.11.0          
+[109] grid_4.5.1              vctrs_0.6.5             RANN_2.6.2             
+[112] promises_1.3.3          xtable_1.8-4            cluster_2.1.8.1        
+[115] evaluate_1.0.4          magick_2.8.7            locfit_1.5-9.12        
+[118] cli_3.6.5               compiler_4.5.1          rlang_1.1.6            
+[121] crayon_1.5.3            future.apply_1.20.0     labeling_0.4.3         
+[124] plyr_1.8.9              fs_1.6.6                stringi_1.8.7          
+[127] viridisLite_0.4.2       deldir_2.0-4            BiocParallel_1.42.1    
+[130] lazyeval_0.2.2          RcppHNSW_0.6.0          bit64_4.6.0-1          
+[133] future_1.67.0           statmod_1.5.0           shiny_1.11.1           
+[136] ROCR_1.0-11             igraph_2.1.4            bslib_0.9.0            
+[139] bit_4.6.0              </code></pre>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.5.1 (2025-06-13)
+Platform: x86_64-pc-linux-gnu
+Running under: Red Hat Enterprise Linux 9.3 (Plow)
+
+Matrix products: default
+BLAS:   /stornext/System/data/software/rhel/9/base/tools/R/4.5.1/lib64/R/lib/libRblas.so 
+LAPACK: /stornext/System/data/software/rhel/9/base/tools/R/4.5.1/lib64/R/lib/libRlapack.so;  LAPACK version 3.12.1
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Australia/Melbourne
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+ [1] dotenv_1.0.3                here_1.0.1                 
+ [3] speckle_1.8.0               edgeR_4.6.3                
+ [5] limma_3.64.1                RColorBrewer_1.1-3         
+ [7] patchwork_1.3.1             gridExtra_2.3              
+ [9] corrplot_0.95               ComplexUpset_1.3.3         
+[11] caret_7.0-1                 lattice_0.22-7             
+[13] glmnet_4.1-10               Matrix_1.7-3               
+[15] dplyr_1.1.4                 data.table_1.17.8          
+[17] ggplot2_3.5.2               Seurat_5.3.0               
+[19] SeuratObject_5.1.0          sp_2.2-0                   
+[21] SpatialExperiment_1.18.1    SingleCellExperiment_1.30.1
+[23] SummarizedExperiment_1.38.1 Biobase_2.68.0             
+[25] GenomicRanges_1.60.0        GenomeInfoDb_1.44.2        
+[27] IRanges_2.42.0              S4Vectors_0.46.0           
+[29] BiocGenerics_0.54.0         generics_0.1.4             
+[31] MatrixGenerics_1.20.0       matrixStats_1.5.0          
+[33] jazzPanda_0.2.4             spatstat_3.4-0             
+[35] spatstat.linnet_3.3-1       spatstat.model_3.4-0       
+[37] rpart_4.1.24                spatstat.explore_3.5-2     
+[39] nlme_3.1-168                spatstat.random_3.4-1      
+[41] spatstat.geom_3.5-0         spatstat.univar_3.1-4      
+[43] spatstat.data_3.1-8        
+
+loaded via a namespace (and not attached):
+  [1] RcppAnnoy_0.0.22        splines_4.5.1           later_1.4.2            
+  [4] R.oo_1.27.1             tibble_3.3.0            polyclip_1.10-7        
+  [7] hardhat_1.4.2           pROC_1.19.0.1           fastDummies_1.7.5      
+ [10] lifecycle_1.0.4         rprojroot_2.1.0         globals_0.18.0         
+ [13] MASS_7.3-65             magrittr_2.0.3          plotly_4.11.0          
+ [16] sass_0.4.10             rmarkdown_2.29          jquerylib_0.1.4        
+ [19] yaml_2.3.10             httpuv_1.6.16           sctransform_0.4.2      
+ [22] spam_2.11-1             spatstat.sparse_3.1-0   reticulate_1.43.0      
+ [25] cowplot_1.2.0           pbapply_1.7-4           lubridate_1.9.4        
+ [28] abind_1.4-8             Rtsne_0.17              presto_1.0.0           
+ [31] R.utils_2.13.0          purrr_1.1.0             BumpyMatrix_1.16.0     
+ [34] nnet_7.3-20             ipred_0.9-15            git2r_0.36.2           
+ [37] lava_1.8.1              GenomeInfoDbData_1.2.14 ggrepel_0.9.6          
+ [40] irlba_2.3.5.1           listenv_0.9.1           spatstat.utils_3.1-5   
+ [43] goftest_1.2-3           RSpectra_0.16-2         fitdistrplus_1.2-4     
+ [46] parallelly_1.45.1       codetools_0.2-20        DelayedArray_0.34.1    
+ [49] tidyselect_1.2.1        shape_1.4.6.1           UCSC.utils_1.4.0       
+ [52] farver_2.1.2            jsonlite_2.0.0          progressr_0.15.1       
+ [55] ggridges_0.5.6          survival_3.8-3          iterators_1.0.14       
+ [58] foreach_1.5.2           tools_4.5.1             ica_1.0-3              
+ [61] Rcpp_1.1.0              glue_1.8.0              prodlim_2025.04.28     
+ [64] SparseArray_1.8.1       xfun_0.52               mgcv_1.9-3             
+ [67] withr_3.0.2             fastmap_1.2.0           digest_0.6.37          
+ [70] timechange_0.3.0        R6_2.6.1                mime_0.13              
+ [73] colorspace_2.1-1        scattermore_1.2         tensor_1.5.1           
+ [76] R.methodsS3_1.8.2       hexbin_1.28.5           tidyr_1.3.1            
+ [79] recipes_1.3.1           class_7.3-23            httr_1.4.7             
+ [82] htmlwidgets_1.6.4       S4Arrays_1.8.1          whisker_0.4.1          
+ [85] uwot_0.2.3              ModelMetrics_1.2.2.2    pkgconfig_2.0.3        
+ [88] gtable_0.3.6            timeDate_4041.110       workflowr_1.7.1        
+ [91] lmtest_0.9-40           XVector_0.48.0          htmltools_0.5.8.1      
+ [94] dotCall64_1.2           scales_1.4.0            png_0.1-8              
+ [97] gower_1.0.2             knitr_1.50              rstudioapi_0.17.1      
+[100] reshape2_1.4.4          rjson_0.2.23            cachem_1.1.0           
+[103] zoo_1.8-14              stringr_1.5.1           KernSmooth_2.23-26     
+[106] parallel_4.5.1          miniUI_0.1.2            pillar_1.11.0          
+[109] grid_4.5.1              vctrs_0.6.5             RANN_2.6.2             
+[112] promises_1.3.3          xtable_1.8-4            cluster_2.1.8.1        
+[115] evaluate_1.0.4          magick_2.8.7            locfit_1.5-9.12        
+[118] cli_3.6.5               compiler_4.5.1          rlang_1.1.6            
+[121] crayon_1.5.3            future.apply_1.20.0     labeling_0.4.3         
+[124] plyr_1.8.9              fs_1.6.6                stringi_1.8.7          
+[127] viridisLite_0.4.2       deldir_2.0-4            BiocParallel_1.42.1    
+[130] lazyeval_0.2.2          RcppHNSW_0.6.0          bit64_4.6.0-1          
+[133] future_1.67.0           statmod_1.5.0           shiny_1.11.1           
+[136] ROCR_1.0-11             igraph_2.1.4            bslib_0.9.0            
+[139] bit_4.6.0              </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
