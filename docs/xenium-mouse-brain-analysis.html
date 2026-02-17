@@ -382,7 +382,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -393,8 +393,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -403,13 +403,13 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2026-02-17
+<strong>Last updated:</strong> 2026-02-18
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -433,21 +433,18 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of
-the R Markdown file created these results, you’ll want to first commit
-it to the Git repo. If you’re still working on the analysis, you can
-ignore this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
@@ -538,15 +535,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsghpersonalmelodyphipsonlabjazzPandaworkflowrtreeae17c0e531b852fdb283a825d1720a4c48f6e915targetblankae17c0ea">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsghpersonalmelodyphipsonlabjazzPandaworkflowrtreeb68a25dca5d7cde9ee87094399c7ac7ad961d40etargetblankb68a25da">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/tree/ae17c0e531b852fdb283a825d1720a4c48f6e915" target="_blank">ae17c0e</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/tree/b68a25dca5d7cde9ee87094399c7ac7ad961d40e" target="_blank">b68a25d</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsghpersonalmelodyphipsonlabjazzPandaworkflowrtreeae17c0e531b852fdb283a825d1720a4c48f6e915targetblankae17c0ea"
+id="strongRepositoryversionstrongahrefhttpsghpersonalmelodyphipsonlabjazzPandaworkflowrtreeb68a25dca5d7cde9ee87094399c7ac7ad961d40etargetblankb68a25da"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -556,7 +553,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/tree/ae17c0e531b852fdb283a825d1720a4c48f6e915" target="_blank">ae17c0e</a>.
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/tree/b68a25dca5d7cde9ee87094399c7ac7ad961d40e" target="_blank">b68a25d</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -578,24 +575,24 @@ Ignored files:
 
 Untracked files:
     Untracked:  analysis/figure/
+    Untracked:  analysis/slurm_out/workflowr_analysis.err
+    Untracked:  analysis/slurm_out/workflowr_analysis.out
+    Untracked:  analysis/slurm_out/workflowr_cosmx_hhliver.err
+    Untracked:  analysis/slurm_out/workflowr_cosmx_hhliver.out
 
 Unstaged changes:
-    Modified:   analysis/merscope-human-breast-cancer.Rmd
-    Modified:   analysis/slurm_out/workflowr_cosmx_healthy_liver.err
-    Modified:   analysis/slurm_out/workflowr_cosmx_healthy_liver.out
-    Modified:   analysis/slurm_out/workflowr_cosmx_liver_cancer.err
-    Modified:   analysis/slurm_out/workflowr_cosmx_liver_cancer.out
-    Modified:   analysis/slurm_out/workflowr_merscope_human_breast_cancer.err
-    Modified:   analysis/slurm_out/workflowr_merscope_human_breast_cancer.out
+    Modified:   analysis/run_workflow_cosmx_healthy_liver.sh
+    Modified:   analysis/run_workflow_cosmx_liver_cancer.sh
+    Modified:   analysis/run_workflow_merscope_human_breast_cancer.sh
+    Modified:   analysis/run_workflow_xenium_human_breast_cancer.sh
+    Modified:   analysis/run_workflow_xenium_human_lung_cancer.sh
+    Modified:   analysis/run_workflow_xenium_mouse_brain.sh
     Modified:   analysis/slurm_out/workflowr_xenium_human_breast_cancer.err
     Modified:   analysis/slurm_out/workflowr_xenium_human_breast_cancer.out
     Modified:   analysis/slurm_out/workflowr_xenium_human_lung_cancer.err
     Modified:   analysis/slurm_out/workflowr_xenium_human_lung_cancer.out
     Modified:   analysis/slurm_out/workflowr_xenium_mouse_brain.err
     Modified:   analysis/slurm_out/workflowr_xenium_mouse_brain.out
-    Modified:   analysis/xenium-human-breast-cancer-analysis.Rmd
-    Modified:   analysis/xenium-mouse-brain-analysis.Rmd
-    Modified:   code/utils.R
 
 </code></pre>
 <p>
@@ -641,6 +638,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/analysis/xenium-mouse-brain-analysis.Rmd" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+<td>
+update links
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/xenium-mouse-brain-analysis.html" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+<td>
+update links
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1227,6 +1258,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/clusters-vis-xy-whole-1.png" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/clusters-vis-xy-whole-1.png" target="_blank">ae17c0e</a>
 </td>
 <td>
@@ -1307,6 +1349,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/clusters-vis-xy-percluster-1.png" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/clusters-vis-xy-percluster-1.png" target="_blank">ae17c0e</a>
@@ -1423,6 +1476,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top10_glm-1.png" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top10_glm-1.png" target="_blank">ae17c0e</a>
 </td>
 <td>
@@ -1497,6 +1561,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/cc-corr-1.png" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/cc-corr-1.png" target="_blank">ae17c0e</a>
 </td>
 <td>
@@ -1535,6 +1610,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/cc-corr-2.png" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/cc-corr-2.png" target="_blank">ae17c0e</a>
 </td>
 <td>
@@ -1571,6 +1657,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/cc-corr-3.png" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/cc-corr-3.png" target="_blank">ae17c0e</a>
@@ -1734,6 +1831,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-1.png" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-1.png" target="_blank">ae17c0e</a>
 </td>
 <td>
@@ -1770,6 +1878,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-2.png" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-2.png" target="_blank">ae17c0e</a>
@@ -1810,6 +1929,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-3.png" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-3.png" target="_blank">ae17c0e</a>
 </td>
 <td>
@@ -1846,6 +1976,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-4.png" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-4.png" target="_blank">ae17c0e</a>
@@ -1886,6 +2027,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-5.png" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-5.png" target="_blank">ae17c0e</a>
 </td>
 <td>
@@ -1922,6 +2074,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-6.png" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-6.png" target="_blank">ae17c0e</a>
@@ -1962,6 +2125,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-7.png" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-7.png" target="_blank">ae17c0e</a>
 </td>
 <td>
@@ -2000,6 +2174,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-8.png" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-8.png" target="_blank">ae17c0e</a>
 </td>
 <td>
@@ -2036,6 +2221,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-9.png" target="_blank">5b18370</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-02-17
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-9.png" target="_blank">ae17c0e</a>
