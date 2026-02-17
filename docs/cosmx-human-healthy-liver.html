@@ -382,7 +382,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -393,8 +393,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -403,13 +403,13 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2026-01-21
+<strong>Last updated:</strong> 2026-02-17
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -433,21 +433,18 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of
-the R Markdown file created these results, you’ll want to first commit
-it to the Git repo. If you’re still working on the analysis, you can
-ignore this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
@@ -538,15 +535,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsghpersonalmelodyphipsonlabjazzPandaworkflowrtree3dea452c78d5948194281937875b5fd327947949targetblank3dea452a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsghpersonalmelodyphipsonlabjazzPandaworkflowrtreeae17c0e531b852fdb283a825d1720a4c48f6e915targetblankae17c0ea">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/tree/3dea452c78d5948194281937875b5fd327947949" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/tree/ae17c0e531b852fdb283a825d1720a4c48f6e915" target="_blank">ae17c0e</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsghpersonalmelodyphipsonlabjazzPandaworkflowrtree3dea452c78d5948194281937875b5fd327947949targetblank3dea452a"
+id="strongRepositoryversionstrongahrefhttpsghpersonalmelodyphipsonlabjazzPandaworkflowrtreeae17c0e531b852fdb283a825d1720a4c48f6e915targetblankae17c0ea"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -556,7 +553,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/tree/3dea452c78d5948194281937875b5fd327947949" target="_blank">3dea452</a>.
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/tree/ae17c0e531b852fdb283a825d1720a4c48f6e915" target="_blank">ae17c0e</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -576,21 +573,8 @@ Ignored files:
     Ignored:    .env
     Ignored:    .ipynb_checkpoints/
 
-Untracked files:
-    Untracked:  .env.example
-
 Unstaged changes:
-    Modified:   .gitignore
-    Modified:   analysis/cosmx-human-healthy-liver.Rmd
-    Modified:   analysis/cosmx-human-liver-cancer.Rmd
-    Modified:   analysis/index.Rmd
     Modified:   analysis/merscope-human-breast-cancer.Rmd
-    Modified:   analysis/run_workflow_cosmx_healthy_liver.sh
-    Modified:   analysis/run_workflow_cosmx_liver_cancer.sh
-    Modified:   analysis/run_workflow_merscope_human_breast_cancer.sh
-    Modified:   analysis/run_workflow_xenium_human_breast_cancer.sh
-    Modified:   analysis/run_workflow_xenium_human_lung_cancer.sh
-    Modified:   analysis/run_workflow_xenium_mouse_brain.sh
     Modified:   analysis/slurm_out/workflowr_cosmx_healthy_liver.err
     Modified:   analysis/slurm_out/workflowr_cosmx_healthy_liver.out
     Modified:   analysis/slurm_out/workflowr_cosmx_liver_cancer.err
@@ -604,7 +588,6 @@ Unstaged changes:
     Modified:   analysis/slurm_out/workflowr_xenium_mouse_brain.err
     Modified:   analysis/slurm_out/workflowr_xenium_mouse_brain.out
     Modified:   analysis/xenium-human-breast-cancer-analysis.Rmd
-    Modified:   analysis/xenium-human-lung-cancer-analysis.Rmd
     Modified:   analysis/xenium-mouse-brain-analysis.Rmd
     Modified:   code/utils.R
 
@@ -657,16 +640,16 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/analysis/cosmx-human-healthy-liver.Rmd" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/analysis/cosmx-human-healthy-liver.Rmd" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 <td>
-Add script
+add scripts
 </td>
 </tr>
 <tr>
@@ -674,16 +657,16 @@ Add script
 html
 </td>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/cosmx-human-healthy-liver.html" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/cosmx-human-healthy-liver.html" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 <td>
-Add script
+add scripts
 </td>
 </tr>
 </tbody>
@@ -861,43 +844,6 @@ p&lt;-ggplot(nc_tb, aes(x = name, y = value_count)) +
 
 print(p)</code></pre>
 <p><img src="figure/cosmx-human-healthy-liver.Rmd/negprobes-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-negprobes-1">
-Past versions of negprobes-1.png
-</button>
-</p>
-<div id="fig-negprobes-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/negprobes-1.png" target="_blank">3dea452</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2025-10-10
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 <p>The corresponding spatial heatmap shows a largely uniform
 distribution of detections across the tissue section, confirming the
 absence of structured artefacts such as region-specific hybridization
@@ -915,43 +861,6 @@ bias or edge effects.</p>
           strip.text = element_text(size=9))
 print(p)</code></pre>
 <p><img src="figure/cosmx-human-healthy-liver.Rmd/negprobes_coords-vishex-1.png" width="576" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-negprobes_coords-vishex-1">
-Past versions of negprobes_coords-vishex-1.png
-</button>
-</p>
-<div id="fig-negprobes_coords-vishex-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/negprobes_coords-vishex-1.png" target="_blank">3dea452</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2025-10-10
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 <div id="falsecode-probes" class="section level3">
 <h3>Falsecode probes</h3>
@@ -993,43 +902,6 @@ p&lt;-ggplot(fc_tb, aes(x = name, y = value_count)) +
           plot.background=element_blank())
 print(p)</code></pre>
 <p><img src="figure/cosmx-human-healthy-liver.Rmd/falsecode-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-falsecode-1">
-Past versions of falsecode-1.png
-</button>
-</p>
-<div id="fig-falsecode-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/falsecode-1.png" target="_blank">3dea452</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2025-10-10
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 <pre class="r"><code>ggplot(falsecode_coords,
        aes(x=x, y=y))+
     geom_hex(bins=auto_hex_bin(nrow(falsecode_coords)))+
@@ -1041,43 +913,6 @@ Melody
           plot.title = element_text(size=rel(1.3))
           )</code></pre>
 <p><img src="figure/cosmx-human-healthy-liver.Rmd/falsecode-xy-1.png" width="576" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-falsecode-xy-1">
-Past versions of falsecode-xy-1.png
-</button>
-</p>
-<div id="fig-falsecode-xy-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/falsecode-xy-1.png" target="_blank">3dea452</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2025-10-10
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1195,43 +1030,6 @@ p4&lt;-ggplot(data = avg_exp, aes(x = avg, color=sample)) +
 layout_design &lt;- (p1|p2)/(p3|p4)
 print(layout_design)</code></pre>
 <p><img src="figure/cosmx-human-healthy-liver.Rmd/ave-expression-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-ave-expression-1">
-Past versions of ave-expression-1.png
-</button>
-</p>
-<div id="fig-ave-expression-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/ave-expression-1.png" target="_blank">3dea452</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2025-10-10
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 <p>The distribution of total detections per cell is skewed toward low
 counts with a long tail. The proportion of zero counts per cell is
 centered around 0.8–0.9 and the number of detected genes per cell shows
@@ -1309,43 +1107,6 @@ endothelial, and immune compartments visible.</p>
               legend.position = &quot;bottom&quot;,
               strip.text = element_blank())</code></pre>
 <p><img src="figure/cosmx-human-healthy-liver.Rmd/cluster-xy-whole-1.png" width="576" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cluster-xy-whole-1">
-Past versions of cluster-xy-whole-1.png
-</button>
-</p>
-<div id="fig-cluster-xy-whole-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/cluster-xy-whole-1.png" target="_blank">3dea452</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2025-10-10
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 <p>Cluster-specific views showing that most clusters are spatially
 separable. Hepatocyte subclusters form zonated domains, endothelial
 subsets localize to distinct vascular regions (central vs. periportal),
@@ -1364,43 +1125,6 @@ segregation consistent with known liver organization.</p>
               strip.text = element_text(size=12))
 print(p)</code></pre>
 <p><img src="figure/cosmx-human-healthy-liver.Rmd/cluster-xy-1.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cluster-xy-1">
-Past versions of cluster-xy-1.png
-</button>
-</p>
-<div id="fig-cluster-xy-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/cluster-xy-1.png" target="_blank">3dea452</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2025-10-10
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 <p>We plot the number of cells assigned to each annotated cluster in the
 healthy liver sample. Hepatocytes make up the majority of cells, with
 subclusters Hep.3–5 being particularly abundant, reflecting the
@@ -1432,43 +1156,6 @@ p&lt;-ggplot(sum_df, aes(x = cellType, y = n, fill=n)) +
 
 print(p)</code></pre>
 <p><img src="figure/cosmx-human-healthy-liver.Rmd/ct-prop-1.png" width="768" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-ct-prop-1">
-Past versions of ct-prop-1.png
-</button>
-</p>
-<div id="fig-ct-prop-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/ct-prop-1.png" target="_blank">3dea452</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2025-10-10
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 <div id="detect-marker-genes" class="section level1">
 <h1>Detect marker genes</h1>
@@ -1581,43 +1268,6 @@ corrplot(
   cex.main    = 1.2
 )</code></pre>
 <p><img src="figure/cosmx-human-healthy-liver.Rmd/cc-corr-1.png" width="768" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cc-corr-1">
-Past versions of cc-corr-1.png
-</button>
-</p>
-<div id="fig-cc-corr-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/cc-corr-1.png" target="_blank">3dea452</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2025-10-10
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 <p>We can plot the top 10 spatial marker genes per cluster identified by
 the linear modelling approach. The resulting markers are biologically
 consistent with known healthy liver cell identities. Hepatocyte
@@ -1644,43 +1294,6 @@ p1&lt;-DotPlot(seu, features = top_mg_glm$gene) +
 
 p1</code></pre>
 <p><img src="figure/cosmx-human-healthy-liver.Rmd/top10_glm-1.png" width="1248" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top10_glm-1">
-Past versions of top10_glm-1.png
-</button>
-</p>
-<div id="fig-top10_glm-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top10_glm-1.png" target="_blank">3dea452</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2025-10-10
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 <div id="top3-marker-genes-by-jazzpanda_glm" class="section level4">
 <h4>Top3 marker genes by jazzPanda_glm</h4>
@@ -1763,13 +1376,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-1.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-1.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -1801,13 +1414,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-2.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-2.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -1839,13 +1452,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-3.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-3.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -1877,13 +1490,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-4.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-4.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -1915,13 +1528,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-5.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-5.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -1953,13 +1566,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-6.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-6.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -1991,13 +1604,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-7.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-7.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2029,13 +1642,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-8.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-8.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2067,13 +1680,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-9.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-9.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2105,13 +1718,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-10.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-10.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2143,13 +1756,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-11.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-glm-11.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2244,13 +1857,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/vvplot_glm-1.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/vvplot_glm-1.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2548,13 +2161,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top10_corr-1.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top10_corr-1.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2645,13 +2258,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-1.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-1.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2683,13 +2296,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-2.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-2.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2721,13 +2334,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-3.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-3.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2759,13 +2372,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-4.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-4.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2797,13 +2410,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-5.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-5.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2835,13 +2448,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-6.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-6.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2873,13 +2486,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-7.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-7.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2911,13 +2524,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-8.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-8.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2949,13 +2562,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-9.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-9.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -2987,13 +2600,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-10.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-10.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -3025,13 +2638,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-11.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-11.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -3063,13 +2676,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-12.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/top3-gene-vis-xy-corr-12.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -3169,13 +2782,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/vvplot-corr-1.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/vvplot-corr-1.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -3532,13 +3145,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/looad_limma_res-1.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/looad_limma_res-1.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -3637,13 +3250,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/load_FM_res-1.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/load_FM_res-1.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -3802,13 +3415,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/cmr-1.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/cmr-1.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
@@ -3897,20 +3510,589 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/3dea452c78d5948194281937875b5fd327947949/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-1.png" target="_blank">3dea452</a>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-1.png" target="_blank">ae17c0e</a>
 </td>
 <td>
 Melody
 </td>
 <td>
-2025-10-10
+2026-01-22
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-2.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-3.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-4.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-5.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-6.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-7.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-8.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-9.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-10.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-11.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-12.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-13.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-14.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-15.png" width="1152" style="display: block; margin: auto;" /><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-16.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-2.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-2">
+Past versions of upset-mg-comparison-2.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-2.png" target="_blank">ae17c0e</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-01-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-3.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-3">
+Past versions of upset-mg-comparison-3.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-3.png" target="_blank">ae17c0e</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-01-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-4.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-4">
+Past versions of upset-mg-comparison-4.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-4.png" target="_blank">ae17c0e</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-01-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-5.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-5">
+Past versions of upset-mg-comparison-5.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-5.png" target="_blank">ae17c0e</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-01-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-6.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-6">
+Past versions of upset-mg-comparison-6.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-6.png" target="_blank">ae17c0e</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-01-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-7.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-7">
+Past versions of upset-mg-comparison-7.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-7" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-7.png" target="_blank">ae17c0e</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-01-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-8.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-8">
+Past versions of upset-mg-comparison-8.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-8" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-8.png" target="_blank">ae17c0e</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-01-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-9.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-9">
+Past versions of upset-mg-comparison-9.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-9" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-9.png" target="_blank">ae17c0e</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-01-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-10.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-10">
+Past versions of upset-mg-comparison-10.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-10" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-10.png" target="_blank">ae17c0e</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-01-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-11.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-11">
+Past versions of upset-mg-comparison-11.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-11" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-11.png" target="_blank">ae17c0e</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-01-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-12.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-12">
+Past versions of upset-mg-comparison-12.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-12" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-12.png" target="_blank">ae17c0e</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-01-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-13.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-13">
+Past versions of upset-mg-comparison-13.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-13" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-13.png" target="_blank">ae17c0e</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-01-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-14.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-14">
+Past versions of upset-mg-comparison-14.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-14" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-14.png" target="_blank">ae17c0e</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-01-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-15.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-15">
+Past versions of upset-mg-comparison-15.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-15" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-15.png" target="_blank">ae17c0e</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-01-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-16.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-16">
+Past versions of upset-mg-comparison-16.png
+</button>
+</p>
+<div id="fig-upset-mg-comparison-16" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/cosmx-human-healthy-liver.Rmd/upset-mg-comparison-16.png" target="_blank">ae17c0e</a>
+</td>
+<td>
+Melody
+</td>
+<td>
+2026-01-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Together, these comparisons highlight that jazzPanda captures
 spatially enriched marker genes that complement traditional DE-based
 methods, providing a more nuanced view of cell-type–specific spatial
@@ -3925,12 +4107,12 @@ BLAS:   /stornext/System/data/software/rhel/9/base/tools/R/4.5.1/lib64/R/lib/lib
 LAPACK: /stornext/System/data/software/rhel/9/base/tools/R/4.5.1/lib64/R/lib/libRlapack.so;  LAPACK version 3.12.1
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [1] LC_CTYPE=en_AU.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_AU.UTF-8        LC_COLLATE=en_AU.UTF-8    
+ [5] LC_MONETARY=en_AU.UTF-8    LC_MESSAGES=en_AU.UTF-8   
+ [7] LC_PAPER=en_AU.UTF-8       LC_NAME=C                 
  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+[11] LC_MEASUREMENT=en_AU.UTF-8 LC_IDENTIFICATION=C       
 
 time zone: Australia/Melbourne
 tzcode source: system (glibc)
@@ -3991,20 +4173,19 @@ loaded via a namespace (and not attached):
  [88] workflowr_1.7.1         lmtest_0.9-40           XVector_0.48.0         
  [91] htmltools_0.5.8.1       dotCall64_1.2           scales_1.4.0           
  [94] png_0.1-8               gower_1.0.2             spatstat.univar_3.1-4  
- [97] knitr_1.50              rstudioapi_0.17.1       reshape2_1.4.4         
-[100] rjson_0.2.23            nlme_3.1-168            cachem_1.1.0           
-[103] zoo_1.8-14              stringr_1.5.1           KernSmooth_2.23-26     
-[106] parallel_4.5.1          miniUI_0.1.2            pillar_1.11.0          
-[109] grid_4.5.1              vctrs_0.6.5             RANN_2.6.2             
-[112] promises_1.3.3          cluster_2.1.8.1         evaluate_1.0.4         
-[115] magick_2.8.7            cli_3.6.5               compiler_4.5.1         
-[118] rlang_1.1.6             crayon_1.5.3            future.apply_1.20.0    
-[121] labeling_0.4.3          plyr_1.8.9              fs_1.6.6               
-[124] stringi_1.8.7           viridisLite_0.4.2       deldir_2.0-4           
-[127] BiocParallel_1.42.1     lazyeval_0.2.2          spatstat.geom_3.5-0    
-[130] RcppHNSW_0.6.0          future_1.67.0           statmod_1.5.0          
-[133] shiny_1.11.1            ROCR_1.0-11             igraph_2.1.4           
-[136] bslib_0.9.0            </code></pre>
+ [97] knitr_1.50              reshape2_1.4.4          rjson_0.2.23           
+[100] nlme_3.1-168            cachem_1.1.0            zoo_1.8-14             
+[103] stringr_1.5.1           KernSmooth_2.23-26      parallel_4.5.1         
+[106] miniUI_0.1.2            pillar_1.11.0           grid_4.5.1             
+[109] vctrs_0.6.5             RANN_2.6.2              promises_1.3.3         
+[112] cluster_2.1.8.1         evaluate_1.0.4          magick_2.8.7           
+[115] cli_3.6.5               compiler_4.5.1          rlang_1.1.6            
+[118] crayon_1.5.3            future.apply_1.20.0     labeling_0.4.3         
+[121] plyr_1.8.9              fs_1.6.6                stringi_1.8.7          
+[124] viridisLite_0.4.2       deldir_2.0-4            BiocParallel_1.42.1    
+[127] lazyeval_0.2.2          spatstat.geom_3.5-0     RcppHNSW_0.6.0         
+[130] future_1.67.0           statmod_1.5.0           shiny_1.11.1           
+[133] ROCR_1.0-11             igraph_2.1.4            bslib_0.9.0            </code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -4023,12 +4204,12 @@ BLAS:   /stornext/System/data/software/rhel/9/base/tools/R/4.5.1/lib64/R/lib/lib
 LAPACK: /stornext/System/data/software/rhel/9/base/tools/R/4.5.1/lib64/R/lib/libRlapack.so;  LAPACK version 3.12.1
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [1] LC_CTYPE=en_AU.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_AU.UTF-8        LC_COLLATE=en_AU.UTF-8    
+ [5] LC_MONETARY=en_AU.UTF-8    LC_MESSAGES=en_AU.UTF-8   
+ [7] LC_PAPER=en_AU.UTF-8       LC_NAME=C                 
  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+[11] LC_MEASUREMENT=en_AU.UTF-8 LC_IDENTIFICATION=C       
 
 time zone: Australia/Melbourne
 tzcode source: system (glibc)
@@ -4089,20 +4270,19 @@ loaded via a namespace (and not attached):
  [88] workflowr_1.7.1         lmtest_0.9-40           XVector_0.48.0         
  [91] htmltools_0.5.8.1       dotCall64_1.2           scales_1.4.0           
  [94] png_0.1-8               gower_1.0.2             spatstat.univar_3.1-4  
- [97] knitr_1.50              rstudioapi_0.17.1       reshape2_1.4.4         
-[100] rjson_0.2.23            nlme_3.1-168            cachem_1.1.0           
-[103] zoo_1.8-14              stringr_1.5.1           KernSmooth_2.23-26     
-[106] parallel_4.5.1          miniUI_0.1.2            pillar_1.11.0          
-[109] grid_4.5.1              vctrs_0.6.5             RANN_2.6.2             
-[112] promises_1.3.3          cluster_2.1.8.1         evaluate_1.0.4         
-[115] magick_2.8.7            cli_3.6.5               compiler_4.5.1         
-[118] rlang_1.1.6             crayon_1.5.3            future.apply_1.20.0    
-[121] labeling_0.4.3          plyr_1.8.9              fs_1.6.6               
-[124] stringi_1.8.7           viridisLite_0.4.2       deldir_2.0-4           
-[127] BiocParallel_1.42.1     lazyeval_0.2.2          spatstat.geom_3.5-0    
-[130] RcppHNSW_0.6.0          future_1.67.0           statmod_1.5.0          
-[133] shiny_1.11.1            ROCR_1.0-11             igraph_2.1.4           
-[136] bslib_0.9.0            </code></pre>
+ [97] knitr_1.50              reshape2_1.4.4          rjson_0.2.23           
+[100] nlme_3.1-168            cachem_1.1.0            zoo_1.8-14             
+[103] stringr_1.5.1           KernSmooth_2.23-26      parallel_4.5.1         
+[106] miniUI_0.1.2            pillar_1.11.0           grid_4.5.1             
+[109] vctrs_0.6.5             RANN_2.6.2              promises_1.3.3         
+[112] cluster_2.1.8.1         evaluate_1.0.4          magick_2.8.7           
+[115] cli_3.6.5               compiler_4.5.1          rlang_1.1.6            
+[118] crayon_1.5.3            future.apply_1.20.0     labeling_0.4.3         
+[121] plyr_1.8.9              fs_1.6.6                stringi_1.8.7          
+[124] viridisLite_0.4.2       deldir_2.0-4            BiocParallel_1.42.1    
+[127] lazyeval_0.2.2          spatstat.geom_3.5-0     RcppHNSW_0.6.0         
+[130] future_1.67.0           statmod_1.5.0           shiny_1.11.1           
+[133] ROCR_1.0-11             igraph_2.1.4            bslib_0.9.0            </code></pre>
 </div>
 </div>
 </div>

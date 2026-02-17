@@ -40,8 +40,7 @@ rdata <- list(
     
     # ---------------- MERSCOPE human breast ----------------
     # Human breast cancer patient sample (MERSCOPE platform, external directory)
-    mhb = file.path("/stornext/Bioinf/data/lab_phipson/givanna/merscope_data",
-                    "HumanBreastCancerPatient1/"),
+    mhb = file.path(raw_dir, "Merscope_human_breast_sample/"),
     
     # ---------------- CosMx human liver ----------------
     # Healthy and diseased liver samples (CosMx platform)
@@ -78,11 +77,24 @@ defined_theme <- theme(strip.text = element_text(size = rel(2)),
 
 #############################################################################
 # Function to automatically determine hex bin size based on data density
-auto_hex_bin <- function(n, target_points_per_bin = 5, min_bins=10) {
+# Function to automatically determine hex bin size based on data density
+auto_hex_bin <- function(n, target_points_per_bin = 0.5, min_bins = 15, 
+                         max_bins = 200) {
+    if (n < 50) {
+        return(min_bins)
+    }
     k <- n / target_points_per_bin
     bins <- round(sqrt(k))
-    return(max(min_bins, bins)) 
+    
+    # For highly expressed genes, allow more bins to resolve spatial structure
+    # Scale up target more aggressively past a threshold
+    if (n > 5000) {
+        bins <- round(sqrt(n / 3))
+    }
+    
+    return(min(max_bins, max(min_bins, bins)))
 }
+
 
 #############################################################################
 # Function to calculate the cumulative average correlation 
@@ -166,13 +178,12 @@ plot_umap_seu <- function(cluster_info, seu, file_prefix,
 plot_top3_genes <- function(vis_df, fig_ratio = 1) {
     inters = unique(as.character(vis_df$feature_name))
     genes_plt <- ggplot(data = vis_df, aes(x = x, y = y)) +
-        geom_hex(bins = auto_hex_bin(mean(table(vis_df$feature_name)))) +
+        geom_hex(bins = auto_hex_bin(max(table(vis_df$feature_name)))) +
         facet_wrap(~text_label, nrow=1) +
-        scale_fill_gradient(low = "white", high = "maroon4") +
-        guides(fill = guide_colorbar(
-            barheight = unit(0.3, "npc"),
-            barwidth  = unit(0.02, "npc")
-        )) +
+        scale_fill_gradient(low="grey90", high="maroon4") + 
+        # scale_fill_viridis_c(option = "turbo")+
+        guides(fill = guide_colorbar(barheight = unit(0.2, "npc"), 
+                                     barwidth  = unit(0.02, "npc")))+
         defined_theme +
         theme(
             legend.position = "right",

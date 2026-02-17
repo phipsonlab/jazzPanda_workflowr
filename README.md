@@ -20,9 +20,8 @@ All analyses are written as R Markdown documents and compiled into a website for
 
 ## Related Resources
 
-- **Preprint:** [link to preprint](https://doi.org/XXXX)  
-- **Processed data:** [Zenodo]()
-- **jazzPanda R package:** [https://github.com/phipsonlab/jazzPanda](https://github.com/phipsonlab/jazzPanda)  
+- **jazzPanda R package**: [Repository](https://bioconductor.org/packages/jazzPanda)  
+- **Preprint**: [bioRxiv link](https://www.biorxiv.org/content/10.64898/2026.02.13.705867v1)  
+- **Raw/Processed data**: [Download from Zenodo](https://zenodo.org/records/18149456)  
 - **Reproducible analysis scripts (paper):** [https://github.com/phipsonlab/jazzPanda_paper](https://github.com/phipsonlab/jazzPanda_paper)  
-
 ---

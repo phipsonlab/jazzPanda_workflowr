@@ -80,8 +80,8 @@ data_nm  <- "merscope_hbreast"
 se = readRDS(here(gdata,paste0(data_nm, "_se.Rds")))
 
 cat("Loading transcripts\n")
-transcript_df<-fread(file.path(rdata$mhb,"detected_transcripts.csv"))
-
+transcript_df<-fread(file.path(rdata$mhb,
+                            "merscope_hbc_detected_transcripts.csv"))
 transcript_df$x <- transcript_df$global_x
 transcript_df$y <- transcript_df$global_y
 transcript_df$gene = make.names(transcript_df$gene)

@@ -1,11 +1,11 @@
-/var/spool/slurmd/job24996513/slurm_script: line 22: msg: command not found
-/var/spool/slurmd/job24996513/slurm_script: line 23: msg: command not found
-/var/spool/slurmd/job24996513/slurm_script: line 24: msg: command not found
-/var/spool/slurmd/job24996513/slurm_script: line 25: msg: command not found
-/var/spool/slurmd/job24996513/slurm_script: line 26: msg: command not found
-/var/spool/slurmd/job24996513/slurm_script: line 27: msg: command not found
-/var/spool/slurmd/job24996513/slurm_script: line 28: msg: command not found
-/var/spool/slurmd/job24996513/slurm_script: line 29: msg: command not found
+/var/spool/slurmd/job25631885/slurm_script: line 22: msg: command not found
+/var/spool/slurmd/job25631885/slurm_script: line 23: msg: command not found
+/var/spool/slurmd/job25631885/slurm_script: line 24: msg: command not found
+/var/spool/slurmd/job25631885/slurm_script: line 25: msg: command not found
+/var/spool/slurmd/job25631885/slurm_script: line 26: msg: command not found
+/var/spool/slurmd/job25631885/slurm_script: line 27: msg: command not found
+/var/spool/slurmd/job25631885/slurm_script: line 28: msg: command not found
+/var/spool/slurmd/job25631885/slurm_script: line 29: msg: command not found
 Current working directory: /vast/projects/xenium_5k/jazzPanda_workflowr/analysis
 Building 1 file(s):
 Building cosmx-human-healthy-liver.Rmd
