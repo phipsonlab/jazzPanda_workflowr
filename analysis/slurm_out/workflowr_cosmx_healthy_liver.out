@@ -11,3 +11,16 @@ Loading R/4.5.1
     ninja/1.11.1 bzip2/1.0.8 hdf5/1.12.3 pcre2/10.42 openjdk/21.0.2 cairo/1.19.0
 Loading gdal/3.9.0
   Loading requirement: proj/9.4.0 netcdf/4.9.2 mariadb-connector-c/3.3.10
+Summary from wflow_build
+
+Settings:
+ combine: "or" clean_fig_files: TRUE delete_cache: TRUE
+
+The following were built externally each in their own fresh R session: 
+
+../docs/cosmx-human-healthy-liver.html
+
+Log files saved in /vast/scratch/users/jin.m/RtmpYMaVeL/workflowr
+------------------------------------------------------------------------
+Job Completed on Tue 17 Feb 2026 18:34:45 AEDT
+------------------------------------------------------------------------
