@@ -3,7 +3,7 @@
 This repository contains the **workflowr project** used to generate reproducible analyses for the *jazzPanda* paper.  
 All analyses are written as R Markdown documents and compiled into a website for easy navigation.
 
-👉 **View the analysis website here:** [https://phipsonlab.github.io/jazzPanda_workflowr/](https://phipsonlab.io/jazzPanda_workflowr)  
+👉 **View the analysis website here:** [https://phipsonlab.github.io/jazzPanda_workflowr/](https://phipsonlab.github.io/jazzPanda_workflowr/)  
 
 ---
 
