@@ -1,57 +1,88 @@
 ------------------------------------------------------------------------
-Job Started on Wed 18 Feb 2026 02:50:40 AEDT
-System: Linux lrg-n03.hpc.wehi.edu.au 5.14.0-362.24.1.el9_3.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Feb 15 07:18:13 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
-CPU: Model name:                         Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
-Total Memory: 1.5Ti
-Node: lrg-n03
-Job ID: 25668145
+Job Started on Wed 18 Feb 2026 13:35:20 AEDT
+System: Linux med-n23.hpc.wehi.edu.au 5.14.0-362.24.1.el9_3.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Feb 15 07:18:13 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+CPU: Model name:                         Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz
+Total Memory: 503Gi
+Node: med-n23
+Job ID: 25698621
 ------------------------------------------------------------------------
 Loading R/4.5.1
   Loading requirement: libpng/1.6.43 libjpeg-turbo/3.0.2 libtiff/4.6.0
     ninja/1.11.1 bzip2/1.0.8 hdf5/1.12.3 pcre2/10.42 openjdk/21.0.2 cairo/1.19.0
 Loading gdal/3.9.0
   Loading requirement: proj/9.4.0 netcdf/4.9.2 mariadb-connector-c/3.3.10
-Summary from wflow_publish
-
-**Step 1: Commit analysis files**
-
-No files to commit
-
-
-**Step 2: Build HTML files**
-
-Summary from wflow_build
-
-Settings:
- combine: "or" clean_fig_files: TRUE delete_cache: TRUE
-
-The following were built externally each in their own fresh R session: 
-
-../docs/cosmx-human-healthy-liver.html
-
-Log files saved in /vast/scratch/users/jin.m/RtmpXc69CR/workflowr
-
-**Step 3: Commit HTML files**
-
-Summary from wflow_git_commit
-
-The following was run: 
-
-  $ git add ../docs/cosmx-human-healthy-liver.html ../docs/figure/cosmx-human-healthy-liver.Rmd ../docs/site_libs ../docs/.nojekyll 
-  $ git commit -m "Build site." 
-
-The following file(s) were included in commit 38f0730:
-../docs/cosmx-human-healthy-liver.html
-../docs/figure/cosmx-human-healthy-liver.Rmd/ave-expression-1.png
-../docs/figure/cosmx-human-healthy-liver.Rmd/cc-corr-1.png
-../docs/figure/cosmx-human-healthy-liver.Rmd/cluster-xy-1.png
-../docs/figure/cosmx-human-healthy-liver.Rmd/cluster-xy-whole-1.png
-../docs/figure/cosmx-human-healthy-liver.Rmd/ct-prop-1.png
-../docs/figure/cosmx-human-healthy-liver.Rmd/falsecode-1.png
-../docs/figure/cosmx-human-healthy-liver.Rmd/falsecode-xy-1.png
-../docs/figure/cosmx-human-healthy-liver.Rmd/negprobes-1.png
-../docs/figure/cosmx-human-healthy-liver.Rmd/negprobes_coords-vishex-1.png
-../docs/figure/cosmx-human-healthy-liver.Rmd/top10_glm-1.png
+1/71                          
+2/71 [global options]         
+3/71                          
+4/71 [unnamed-chunk-1]        
+5/71                          
+6/71 [load-cm]                
+7/71                          
+8/71 [negprobes]              
+9/71                          
+10/71 [negprobes_coords-vishex]
+11/71                          
+12/71 [falsecode]              
+13/71                          
+14/71 [falsecode-xy]           
+15/71                          
+16/71 [sc_output]              
+17/71                          
+18/71 [sc_summary]             
+19/71                          
+20/71 [ave-expression]         
+21/71                          
+22/71 [define-cluster]         
+23/71                          
+24/71 [load processed data]    
+25/71                          
+26/71 [cluster-xy-whole]       
+27/71                          
+28/71 [cluster-xy]             
+29/71                          
+30/71 [ct-prop]                
+31/71                          
+32/71 [mg-glm]                 
+33/71                          
+34/71 [unnamed-chunk-2]        
+35/71                          
+36/71 [cc-corr]                
+37/71                          
+38/71 [top10_glm]              
+39/71                          
+40/71 [top3-gene-vis-xy-glm]   
+41/71                          
+42/71 [vvplot_glm]             
+43/71                          
+44/71 [output_markergenes_glm] 
+45/71                          
+46/71 [mg-perm]                
+47/71                          
+48/71 [unnamed-chunk-3]        
+49/71                          
+50/71 [top10_corr]             
+51/71                          
+52/71 [top3-gene-vis-xy-corr]  
+53/71                          
+54/71 [vvplot-corr]            
+55/71                          
+56/71 [output_markergenes]     
+57/71                          
+58/71 [limma]                  
+59/71                          
+60/71 [looad_limma_res]        
+61/71                          
+62/71 [FM]                     
+63/71                          
+64/71 [load_FM_res]            
+65/71                          
+66/71 [cmr]                    
+67/71                          
+68/71 [upset-mg-comparison]    
+69/71                          
+70/71 [unnamed-chunk-4]        
+71/71                          
+/stornext/System/data/software/rhel/9/base/tools/pandoc/3.2/bin/pandoc +RTS -K512m -RTS cosmx-human-healthy-liver.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output /vast/projects/xenium_5k/jazzPanda_workflowr/docs/cosmx-human-healthy-liver.html --lua-filter /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /vast/scratch/users/jin.m/Rtmp0HXq9R/rmarkdown-str1b73f04aa23b11.html --variable navbar=1 --variable theme=cosmo --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /vast/scratch/users/jin.m/Rtmp0HXq9R/rmarkdown-str1b73f087be3b0.html 
 ------------------------------------------------------------------------
-Job Completed on Wed 18 Feb 2026 03:58:16 AEDT
+Job Completed on Wed 18 Feb 2026 14:10:54 AEDT
 ------------------------------------------------------------------------

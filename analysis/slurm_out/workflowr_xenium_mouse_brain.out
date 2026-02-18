@@ -1,52 +1,84 @@
 ------------------------------------------------------------------------
-Job Started on Wed 18 Feb 2026 02:50:29 AEDT
-System: Linux lrg-n03.hpc.wehi.edu.au 5.14.0-362.24.1.el9_3.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Feb 15 07:18:13 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
-CPU: Model name:                         Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
-Total Memory: 1.5Ti
-Node: lrg-n03
-Job ID: 25668144
+Job Started on Wed 18 Feb 2026 13:35:33 AEDT
+System: Linux il-n04.hpc.wehi.edu.au 5.14.0-362.24.1.el9_3.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Feb 15 07:18:13 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+CPU: Model name:                         Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz
+Total Memory: 503Gi
+Node: il-n04
+Job ID: 25698684
 ------------------------------------------------------------------------
 Loading R/4.5.1
   Loading requirement: libpng/1.6.43 libjpeg-turbo/3.0.2 libtiff/4.6.0
     ninja/1.11.1 bzip2/1.0.8 hdf5/1.12.3 pcre2/10.42 openjdk/21.0.2 cairo/1.19.0
 Loading gdal/3.9.0
   Loading requirement: proj/9.4.0 netcdf/4.9.2 mariadb-connector-c/3.3.10
-Summary from wflow_publish
-
-**Step 1: Commit analysis files**
-
-No files to commit
-
-
-**Step 2: Build HTML files**
-
-Summary from wflow_build
-
-Settings:
- combine: "or" clean_fig_files: TRUE delete_cache: TRUE
-
-The following were built externally each in their own fresh R session: 
-
-../docs/xenium-mouse-brain-analysis.html
-
-Log files saved in /vast/scratch/users/jin.m/RtmpkuZkCC/workflowr
-
-**Step 3: Commit HTML files**
-
-Summary from wflow_git_commit
-
-The following was run: 
-
-  $ git add ../docs/xenium-mouse-brain-analysis.html ../docs/figure/xenium-mouse-brain-analysis.Rmd ../docs/site_libs ../docs/.nojekyll 
-  $ git commit -m "Build site." 
-
-The following file(s) were included in commit d8bbba3:
-../docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-1.png
-../docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-2.png
-../docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-3.png
-../docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-4.png
-../docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-5.png
-../docs/xenium-mouse-brain-analysis.html
+1/67                               
+2/67 [global-options]              
+3/67                               
+4/67 [load-lib]                    
+5/67                               
+6/67 [load-raw]                    
+7/67                               
+8/67 [load-cm]                     
+9/67                               
+10/67 [sc_output]                   
+11/67                               
+12/67 [sc_summary]                  
+13/67                               
+14/67 [ave-expression]              
+15/67                               
+16/67 [nc_probe]                    
+17/67                               
+18/67 [neg_probe_xy]                
+19/67                               
+20/67 [nc_codeword]                 
+21/67                               
+22/67 [nc_codeword_xy]              
+23/67                               
+24/67 [banksy-workflow]             
+25/67                               
+26/67 [load processed data]         
+27/67                               
+28/67 [ct_prop]                     
+29/67                               
+30/67 [clusters-vis-xy-whole]       
+31/67                               
+32/67 [clusters-vis-xy-percluster]  
+33/67                               
+34/67 [jazzPanda-glm]               
+35/67                               
+36/67 [load generated jazzPanda]    
+37/67                               
+38/67 [top10_glm]                   
+39/67                               
+40/67 [cc-corr]                     
+41/67                               
+42/67 [output_markergenes_jazzPanda]
+43/67                               
+44/67 [top3-gene-vis-xy]            
+45/67                               
+46/67 [vvplot]                      
+47/67                               
+48/67 [output_markergenes_glm]      
+49/67                               
+50/67 [Nosig-genes]                 
+51/67                               
+52/67 [fm-mg]                       
+53/67                               
+54/67 [load_FM_res]                 
+55/67                               
+56/67 [limma-mg]                    
+57/67                               
+58/67 [looad_limma_res]             
+59/67                               
+60/67 [cmr plot]                    
+61/67                               
+62/67 [upset-mg-comparison]         
+63/67                               
+64/67 [unnamed-chunk-1]             
+65/67                               
+66/67 [unnamed-chunk-2]             
+67/67                               
+/stornext/System/data/software/rhel/9/base/tools/pandoc/3.2/bin/pandoc +RTS -K512m -RTS xenium-mouse-brain-analysis.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output /vast/projects/xenium_5k/jazzPanda_workflowr/docs/xenium-mouse-brain-analysis.html --lua-filter /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /vast/scratch/users/jin.m/RtmpXYPtZ0/rmarkdown-str251976596a6ca2.html --variable navbar=1 --variable theme=cosmo --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /vast/scratch/users/jin.m/RtmpXYPtZ0/rmarkdown-str2519765540bdee.html 
 ------------------------------------------------------------------------
-Job Completed on Wed 18 Feb 2026 03:11:04 AEDT
+Job Completed on Wed 18 Feb 2026 13:45:18 AEDT
 ------------------------------------------------------------------------

@@ -1,47 +1,76 @@
 ------------------------------------------------------------------------
-Job Started on Wed 18 Feb 2026 02:47:06 AEDT
-System: Linux lrg-n03.hpc.wehi.edu.au 5.14.0-362.24.1.el9_3.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Feb 15 07:18:13 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
-CPU: Model name:                         Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
-Total Memory: 1.5Ti
-Node: lrg-n03
-Job ID: 25668141
+Job Started on Wed 18 Feb 2026 13:35:44 AEDT
+System: Linux il-n11.hpc.wehi.edu.au 5.14.0-362.24.1.el9_3.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Feb 15 07:18:13 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+CPU: Model name:                         Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz
+Total Memory: 503Gi
+Node: il-n11
+Job ID: 25698733
 ------------------------------------------------------------------------
 Loading R/4.5.1
   Loading requirement: libpng/1.6.43 libjpeg-turbo/3.0.2 libtiff/4.6.0
     ninja/1.11.1 bzip2/1.0.8 hdf5/1.12.3 pcre2/10.42 openjdk/21.0.2 cairo/1.19.0
 Loading gdal/3.9.0
   Loading requirement: proj/9.4.0 netcdf/4.9.2 mariadb-connector-c/3.3.10
-Summary from wflow_publish
-
-**Step 1: Commit analysis files**
-
-No files to commit
-
-
-**Step 2: Build HTML files**
-
-Summary from wflow_build
-
-Settings:
- combine: "or" clean_fig_files: TRUE delete_cache: TRUE
-
-The following were built externally each in their own fresh R session: 
-
-../docs/xenium-human-breast-cancer-analysis.html
-
-Log files saved in /vast/scratch/users/jin.m/RtmpwxEx6k/workflowr
-
-**Step 3: Commit HTML files**
-
-Summary from wflow_git_commit
-
-The following was run: 
-
-  $ git add ../docs/xenium-human-breast-cancer-analysis.html ../docs/figure/xenium-human-breast-cancer-analysis.Rmd ../docs/site_libs ../docs/.nojekyll 
-  $ git commit -m "Build site." 
-
-The following file(s) were included in commit d1fdf4b:
-../docs/xenium-human-breast-cancer-analysis.html
+1/59                                
+2/59 [global options]               
+3/59                                
+4/59 [unnamed-chunk-1]              
+5/59                                
+6/59 [load rep1 data and clustering]
+7/59                                
+8/59 [sc_summary]                   
+9/59                                
+10/59 [sc_summary_vis]               
+11/59                                
+12/59 [ave-expression]               
+13/59                                
+14/59 [nc_probe]                     
+15/59                                
+16/59 [nc_porbe_xy]                  
+17/59                                
+18/59 [nc_codeword]                  
+19/59                                
+20/59 [nc_codeword_xy]               
+21/59                                
+22/59 [clustering_details]           
+23/59                                
+24/59 [load processed data]          
+25/59                                
+26/59 [unnamed-chunk-2]              
+27/59                                
+28/59 [xy-whole]                     
+29/59                                
+30/59 [xy-percluster]                
+31/59                                
+32/59 [jazzPanda]                    
+33/59                                
+34/59 [load generated jazzPanda]     
+35/59                                
+36/59 [top10_glm]                    
+37/59                                
+38/59 [cc-corr]                      
+39/59                                
+40/59 [top3-gene-vis-xy]             
+41/59                                
+42/59 [vvplot-glm]                   
+43/59                                
+44/59 [output_markergenes_glm]       
+45/59                                
+46/59 [WRS for markler genes]        
+47/59                                
+48/59 [load_FM_res]                  
+49/59                                
+50/59 [limma]                        
+51/59                                
+52/59 [looad_limma_res]              
+53/59                                
+54/59 [cmr]                          
+55/59                                
+56/59 [upset-mg-comparison]          
+57/59                                
+58/59 [unnamed-chunk-3]              
+59/59                                
+/stornext/System/data/software/rhel/9/base/tools/pandoc/3.2/bin/pandoc +RTS -K512m -RTS xenium-human-breast-cancer-analysis.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output /vast/projects/xenium_5k/jazzPanda_workflowr/docs/xenium-human-breast-cancer-analysis.html --lua-filter /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /vast/scratch/users/jin.m/Rtmp2qGYjm/rmarkdown-str231a3c1c4440d4.html --variable navbar=1 --variable theme=cosmo --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /vast/scratch/users/jin.m/Rtmp2qGYjm/rmarkdown-str231a3c6556e096.html 
 ------------------------------------------------------------------------
-Job Completed on Wed 18 Feb 2026 02:56:37 AEDT
+Job Completed on Wed 18 Feb 2026 13:39:46 AEDT
 ------------------------------------------------------------------------

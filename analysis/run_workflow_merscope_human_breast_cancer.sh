@@ -35,8 +35,20 @@ module load gdal/3.9.0
 module load ImageMagick/7.1.1
 module load gcc/14.2
 
-Rscript -e "workflowr::wflow_publish('merscope-human-breast-cancer.Rmd', message = 'Rebuild merscope hbreast cancer', delete_cache = TRUE)"
-
+Rscript -e "
+rmarkdown::render(
+  input = 'merscope-human-breast-cancer.Rmd',
+  output_dir = '../docs',
+  knit_root_dir = '.',
+  output_format = rmarkdown::html_document(
+    toc = TRUE,
+    toc_float = TRUE,
+    self_contained = FALSE,
+    lib_dir = '../docs/site_libs',
+    theme = 'cosmo'
+  )
+)
+"
 
 
 echo "------------------------------------------------------------------------"

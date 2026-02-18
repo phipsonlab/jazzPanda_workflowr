@@ -1,13 +1,13 @@
 ---
 title: "Xenium human breast cancer brain - two samples"
 author: "Melody Jin"
-date: "2025-09-29"
+date: "`r Sys.Date()`"
 output: workflowr::wflow_html
 ---
 
 ```{r global options, include = FALSE}
 options(width = 80, digits = 3) # output length
-knitr::opts_chunk$set(cache = FALSE,echo = TRUE,prompt = FALSE, 
+knitr::opts_chunk$set(dev = "ragg_png",cache = FALSE,echo = TRUE,prompt = FALSE, 
                       comment = NA,message = FALSE,warning = FALSE,
                       fig.align = "center", fig.keep= "all",fig.show ="hold")
 ```

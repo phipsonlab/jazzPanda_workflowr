@@ -11,7 +11,7 @@
 
 <meta name="author" content="Melody Jin" />
 
-<meta name="date" content="2025-09-29" />
+<meta name="date" content="2026-02-18" />
 
 <title>Xenium mouse brain - three replicates</title>
 
@@ -35,18 +35,8 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-
-<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
-<!-- Add a small amount of space between sections. -->
-<style type="text/css">
-div.section {
-  padding-top: 12px;
-}
-</style>
-
-
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -374,345 +364,11 @@ div.tocify {
 
 <h1 class="title toc-ignore">Xenium mouse brain - three replicates</h1>
 <h4 class="author">Melody Jin</h4>
-<h4 class="date">2025-09-29</h4>
+<h4 class="date">2026-02-18</h4>
 
 </div>
 
 
-<p>
-<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span>
-</button>
-</p>
-<div id="workflowr-report" class="collapse">
-<ul class="nav nav-tabs">
-<li class="active">
-<a data-toggle="tab" href="#summary">Summary</a>
-</li>
-<li>
-<a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
-</li>
-<li>
-<a data-toggle="tab" href="#versions">Past versions</a>
-</li>
-</ul>
-<div class="tab-content">
-<div id="summary" class="tab-pane fade in active">
-<p>
-<strong>Last updated:</strong> 2026-02-18
-</p>
-<p>
-<strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
-</p>
-<p>
-<strong>Knit directory:</strong>
-<code>jazzPanda_workflowr/analysis/</code> <span
-class="glyphicon glyphicon-question-sign" aria-hidden="true"
-title="This is the local directory in which the code in this file was executed.">
-</span>
-</p>
-<p>
-This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
-analysis was created with <a
-  href="https://github.com/workflowr/workflowr">workflowr</a> (version
-1.7.1). The <em>Checks</em> tab describes the reproducibility checks
-that were applied when the results were created. The <em>Past
-versions</em> tab lists the development history.
-</p>
-<hr>
-</div>
-<div id="checks" class="tab-pane fade">
-<div id="workflowr-checks" class="panel-group">
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
-</p>
-</div>
-<div id="strongRMarkdownfilestronguptodate"
-class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
-</p>
-</div>
-<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! The global environment was empty. Objects defined in the
-global environment can affect the analysis in your R Markdown file in
-unknown ways. For reproduciblity it’s best to always run the code in an
-empty environment.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed12345code">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Seed:</strong>
-<code>set.seed(12345)</code> </a>
-</p>
-</div>
-<div id="strongSeedstrongcodesetseed12345code"
-class="panel-collapse collapse">
-<div class="panel-body">
-<p>The command <code>set.seed(12345)</code> was run prior to running the
-code in the R Markdown file. Setting a seed ensures that any results
-that rely on randomness, e.g. subsampling or permutations, are
-reproducible.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Session information:</strong>
-recorded </a>
-</p>
-</div>
-<div id="strongSessioninformationstrongrecorded"
-class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! Recording the operating system, R version, and package
-versions is critical for reproducibility.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Cache:</strong> none </a>
-</p>
-</div>
-<div id="strongCachestrongnone" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Nice! There were no cached chunks for this analysis, so you can be
-confident that you successfully produced the results during this
-run.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
-</p>
-</div>
-<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! Using relative paths to the files within your workflowr
-project makes it easier to run your code on other machines.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsghpersonalmelodyphipsonlabjazzPandaworkflowrtreeb68a25dca5d7cde9ee87094399c7ac7ad961d40etargetblankb68a25da">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/tree/b68a25dca5d7cde9ee87094399c7ac7ad961d40e" target="_blank">b68a25d</a>
-</a>
-</p>
-</div>
-<div
-id="strongRepositoryversionstrongahrefhttpsghpersonalmelodyphipsonlabjazzPandaworkflowrtreeb68a25dca5d7cde9ee87094399c7ac7ad961d40etargetblankb68a25da"
-class="panel-collapse collapse">
-<div class="panel-body">
-<p>
-Great! You are using Git for version control. Tracking code development
-and connecting the code version to the results is critical for
-reproducibility.
-</p>
-<p>
-The results in this page were generated with repository version
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/tree/b68a25dca5d7cde9ee87094399c7ac7ad961d40e" target="_blank">b68a25d</a>.
-See the <em>Past versions</em> tab to see a history of the changes made
-to the R Markdown and HTML files.
-</p>
-<p>
-Note that you need to be careful to ensure that all relevant files for
-the analysis have been committed to Git prior to generating the results
-(you can use <code>wflow_publish</code> or
-<code>wflow_git_commit</code>). workflowr only checks the R Markdown
-file, but you know if there are other scripts or data files that it
-depends on. Below is the status of the Git repository when the results
-were generated:
-</p>
-<pre><code>
-Ignored files:
-    Ignored:    .Rhistory
-    Ignored:    .Rproj.user/
-    Ignored:    .env
-    Ignored:    .ipynb_checkpoints/
-
-Untracked files:
-    Untracked:  analysis/figure/
-    Untracked:  analysis/slurm_out/workflowr_analysis.err
-    Untracked:  analysis/slurm_out/workflowr_analysis.out
-    Untracked:  analysis/slurm_out/workflowr_cosmx_hhliver.err
-    Untracked:  analysis/slurm_out/workflowr_cosmx_hhliver.out
-
-Unstaged changes:
-    Modified:   analysis/run_workflow_cosmx_healthy_liver.sh
-    Modified:   analysis/run_workflow_cosmx_liver_cancer.sh
-    Modified:   analysis/run_workflow_merscope_human_breast_cancer.sh
-    Modified:   analysis/run_workflow_xenium_human_breast_cancer.sh
-    Modified:   analysis/run_workflow_xenium_human_lung_cancer.sh
-    Modified:   analysis/run_workflow_xenium_mouse_brain.sh
-    Modified:   analysis/slurm_out/workflowr_xenium_human_breast_cancer.err
-    Modified:   analysis/slurm_out/workflowr_xenium_human_breast_cancer.out
-    Modified:   analysis/slurm_out/workflowr_xenium_human_lung_cancer.err
-    Modified:   analysis/slurm_out/workflowr_xenium_human_lung_cancer.out
-    Modified:   analysis/slurm_out/workflowr_xenium_mouse_brain.err
-    Modified:   analysis/slurm_out/workflowr_xenium_mouse_brain.out
-
-</code></pre>
-<p>
-Note that any generated files, e.g. HTML, png, CSS, etc., are not
-included in this status report because it is ok for generated content to
-have uncommitted changes.
-</p>
-</div>
-</div>
-</div>
-</div>
-<hr>
-</div>
-<div id="versions" class="tab-pane fade">
-<p>
-These are the previous versions of the repository in which changes were
-made to the R Markdown
-(<code>analysis/xenium-mouse-brain-analysis.Rmd</code>) and HTML
-(<code>docs/xenium-mouse-brain-analysis.html</code>) files. If you’ve
-configured a remote Git repository (see <code>?wflow_git_remote</code>),
-click on the hyperlinks in the table below to view the files as they
-were in that past version.
-</p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/analysis/xenium-mouse-brain-analysis.Rmd" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-<td>
-update links
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/xenium-mouse-brain-analysis.html" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-<td>
-update links
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/analysis/xenium-mouse-brain-analysis.Rmd" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-<td>
-add scripts
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/xenium-mouse-brain-analysis.html" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-<td>
-add scripts
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr>
-</div>
-</div>
-</div>
 <pre class="r"><code>library(spatstat)
 library(jazzPanda)
 library(SpatialExperiment)
@@ -915,7 +571,7 @@ layout_design &lt;- layout_design +
                  patchwork::plot_layout(widths = c(1, 1,1), heights = c(1, 1 ,1)) 
 
 layout_design</code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/sc_summary-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/sc_summary-1.png" width="576" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>cm_new1=cm1
 cm_new1[cm_new1==0] = NA
 cm_new1 = as.data.frame(cm_new1)
@@ -956,7 +612,7 @@ ggplot(data = avg_exp, aes(x = avg, color=sample)) +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5),
         strip.text = element_text(size=12))</code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/ave-expression-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/ave-expression-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The three replicates show highly similar distributions. The median
 total detections per cell range from 250–253, and the median number of
 detected genes is around 80. The median proportion of zero counts is
@@ -1006,7 +662,7 @@ ggplot(probe_tb, aes(x = feature_name, y = value_count)) +
           panel.background=element_blank(),
           panel.grid.minor=element_blank(),
           plot.background=element_blank())</code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/nc_probe-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/nc_probe-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>p1&lt;-ggplot(probe_coords, aes(x = x, y = y)) +
             geom_hex(bins = auto_hex_bin(min(table(probe_coords$sample)), 
                                          target_points_per_bin = 1)) +
@@ -1027,7 +683,7 @@ ggplot(probe_tb, aes(x = feature_name, y = value_count)) +
                 strip.background = element_blank())
 
 p1</code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/neg_probe_xy-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/neg_probe_xy-1.png" width="864" style="display: block; margin: auto;" /></p>
 </div>
 <div id="negative-control-codewords" class="section level2">
 <h2>Negative control codewords</h2>
@@ -1067,7 +723,7 @@ ggplot(codeword_tb, aes(x = feature_name, y = value_count)) +
           panel.background=element_blank(),
           panel.grid.minor=element_blank(),
           plot.background=element_blank())</code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/nc_codeword-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/nc_codeword-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>p2&lt;- ggplot(codeword_coords, aes(x = x, y = y)) +
             geom_hex(bins = auto_hex_bin(min(table(probe_coords$sample)), 
                                          target_points_per_bin = 1)) +
@@ -1087,7 +743,7 @@ ggplot(codeword_tb, aes(x = feature_name, y = value_count)) +
                 strip.background = element_blank())
 
 p2</code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/nc_codeword_xy-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/nc_codeword_xy-1.png" width="864" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="banksy-clustering" class="section level1">
@@ -1214,7 +870,7 @@ ggplot(sum_df, aes(x = cluster, y = n, fill=sample)) +
          legend.text = element_text(size=12),
          strip.text = element_text(size = rel(1))
          )</code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/ct_prop-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/ct_prop-1.png" width="960" style="display: block; margin: auto;" /></p>
 <div id="cluster-visualisation" class="section level2">
 <h2>Cluster visualisation</h2>
 <p>Whole-sample view of every mouse brain replicate, colored by cluster.
@@ -1233,55 +889,7 @@ clearly visible.</p>
                               strip.background = element_blank(),
                               strip.text = element_text(size = rel(1.2)))
 p1</code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/clusters-vis-xy-whole-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-clusters-vis-xy-whole-1">
-Past versions of clusters-vis-xy-whole-1.png
-</button>
-</p>
-<div id="fig-clusters-vis-xy-whole-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/clusters-vis-xy-whole-1.png" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/clusters-vis-xy-whole-1.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/clusters-vis-xy-whole-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>Cluster-specific views showing that most clusters are spatially
 separable.</p>
 <pre class="r"><code>p1&lt;- ggplot(data = cluster_info[cluster_info$sample==&quot;replicate1&quot;, ],
@@ -1326,55 +934,7 @@ p3&lt;- ggplot(data = cluster_info[cluster_info$sample==&quot;replicate3&quot;, 
 
 layout_design &lt;- p1 / p2 / p3
 layout_design</code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/clusters-vis-xy-percluster-1.png" width="1440" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-clusters-vis-xy-percluster-1">
-Past versions of clusters-vis-xy-percluster-1.png
-</button>
-</p>
-<div id="fig-clusters-vis-xy-percluster-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/clusters-vis-xy-percluster-1.png" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/clusters-vis-xy-percluster-1.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/clusters-vis-xy-percluster-1.png" width="1440" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="detect-marker-genes" class="section level1">
@@ -1451,55 +1011,7 @@ p1&lt;-DotPlot(seu, features = top_mg_glm$gene) +
     labs(title = &quot;Top 10 marker genes (jazzPanda-glm)&quot;, x=&quot;&quot;, y=&quot;&quot;)
 
 p1</code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/top10_glm-1.png" width="768" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top10_glm-1">
-Past versions of top10_glm-1.png
-</button>
-</p>
-<div id="fig-top10_glm-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top10_glm-1.png" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top10_glm-1.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/top10_glm-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div id="cluster-to-cluster-correlation" class="section level3">
 <h3>Cluster to cluster correlation</h3>
 <p>We computed pairwise Spearman correlations between spatial cluster
@@ -1536,153 +1048,7 @@ partially overlapping spatial patterns.</p>
             cex.main = 1.2)
 
 }</code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/cc-corr-1.png" width="576" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cc-corr-1">
-Past versions of cc-corr-1.png
-</button>
-</p>
-<div id="fig-cc-corr-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/cc-corr-1.png" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/cc-corr-1.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/cc-corr-2.png" width="576" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cc-corr-2">
-Past versions of cc-corr-2.png
-</button>
-</p>
-<div id="fig-cc-corr-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/cc-corr-2.png" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/cc-corr-2.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/cc-corr-3.png" width="576" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cc-corr-3">
-Past versions of cc-corr-3.png
-</button>
-</p>
-<div id="fig-cc-corr-3" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/cc-corr-3.png" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/cc-corr-3.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/cc-corr-1.png" width="576" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/cc-corr-2.png" width="576" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/cc-corr-3.png" width="576" style="display: block; margin: auto;" /></p>
 <pre class="r"><code># Combine into a new dataframe for LaTeX output
 output_data &lt;- do.call(rbind, lapply(cluster_names, function(cl) {
   subset &lt;- jazzPanda_res[jazzPanda_res$top_cluster == cl, ]
@@ -1806,447 +1172,7 @@ for (cl in cluster_names){
 
     }
   }</code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-1">
-Past versions of top3-gene-vis-xy-1.png
-</button>
-</p>
-<div id="fig-top3-gene-vis-xy-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-1.png" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-1.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-2.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-2">
-Past versions of top3-gene-vis-xy-2.png
-</button>
-</p>
-<div id="fig-top3-gene-vis-xy-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-2.png" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-2.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-3.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-3">
-Past versions of top3-gene-vis-xy-3.png
-</button>
-</p>
-<div id="fig-top3-gene-vis-xy-3" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-3.png" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-3.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-4.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-4">
-Past versions of top3-gene-vis-xy-4.png
-</button>
-</p>
-<div id="fig-top3-gene-vis-xy-4" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-4.png" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-4.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-5.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-5">
-Past versions of top3-gene-vis-xy-5.png
-</button>
-</p>
-<div id="fig-top3-gene-vis-xy-5" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-5.png" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-5.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-6.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-6">
-Past versions of top3-gene-vis-xy-6.png
-</button>
-</p>
-<div id="fig-top3-gene-vis-xy-6" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-6.png" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-6.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-7.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-7">
-Past versions of top3-gene-vis-xy-7.png
-</button>
-</p>
-<div id="fig-top3-gene-vis-xy-7" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-7.png" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-7.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-8.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-8">
-Past versions of top3-gene-vis-xy-8.png
-</button>
-</p>
-<div id="fig-top3-gene-vis-xy-8" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-8.png" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-8.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-9.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-top3-gene-vis-xy-9">
-Past versions of top3-gene-vis-xy-9.png
-</button>
-</p>
-<div id="fig-top3-gene-vis-xy-9" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/5b183701b021b0098a5bae0112964e534b4443b6/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-9.png" target="_blank">5b18370</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-02-17
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/top3-gene-vis-xy-9.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/top3-gene-vis-xy-1.png" width="960" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/top3-gene-vis-xy-2.png" width="960" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/top3-gene-vis-xy-3.png" width="960" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/top3-gene-vis-xy-4.png" width="960" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/top3-gene-vis-xy-5.png" width="960" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/top3-gene-vis-xy-6.png" width="960" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/top3-gene-vis-xy-7.png" width="960" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/top3-gene-vis-xy-8.png" width="960" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/top3-gene-vis-xy-9.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="cluster-vector-versus-marker-gene-vector"
 class="section level3">
@@ -2306,44 +1232,7 @@ for (cl in cluster_names){
 combined_plot &lt;- wrap_plots(plot_lst, ncol = 3)
 
 combined_plot </code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/vvplot-1.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-vvplot-1">
-Past versions of vvplot-1.png
-</button>
-</p>
-<div id="fig-vvplot-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/vvplot-1.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/vvplot-1.png" width="1152" style="display: block; margin: auto;" /></p>
 </div>
 <div id="marker-gene-summary-per-cluster" class="section level3">
 <h3>Marker gene summary per cluster</h3>
@@ -2523,44 +1412,7 @@ genes_plt&lt;- ggplot(data = all_trans,
                        legend.key.height = unit(2, &quot;cm&quot;))
         
 genes_plt</code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/Nosig-genes-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-Nosig-genes-1">
-Past versions of Nosig-genes-1.png
-</button>
-</p>
-<div id="fig-Nosig-genes-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/Nosig-genes-1.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/Nosig-genes-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="wilcoxon-rank-sum-test" class="section level2">
@@ -2601,44 +1453,7 @@ p1&lt;-DotPlot(seu, features = unique(top_mg$gene)) +
     labs(title = &quot;Top 10 marker genes (WRS)&quot;, x=&quot;&quot;, y=&quot;&quot;)
 
 p1</code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/load_FM_res-1.png" width="768" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-load_FM_res-1">
-Past versions of load_FM_res-1.png
-</button>
-</p>
-<div id="fig-load_FM_res-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/load_FM_res-1.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/load_FM_res-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="limma" class="section level2">
 <h2>limma</h2>
@@ -2708,44 +1523,7 @@ p1&lt;- DotPlot(seu, features = unique(top_markers_df$gene)) +
     labs(title = &quot;Top 10 marker genes (limma)&quot;, x=&quot;&quot;, y=&quot;&quot;)
 
 p1</code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/looad_limma_res-1.png" width="768" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-looad_limma_res-1">
-Past versions of looad_limma_res-1.png
-</button>
-</p>
-<div id="fig-looad_limma_res-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/looad_limma_res-1.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/looad_limma_res-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="comparison-of-marker-gene-detection-methods"
@@ -2838,44 +1616,7 @@ for (cl in cluster_names){
 
 combined_plot &lt;- wrap_plots(plot_lst, ncol = 3)
 combined_plot </code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/cmr%20plot-1.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-cmr-plot-1">
-Past versions of "cmr plot-1.png"
-</button>
-</p>
-<div id="fig-no-spaces-cmr-plot-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/cmr plot-1.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/cmr%20plot-1.png" width="1152" style="display: block; margin: auto;" /></p>
 </div>
 <div id="upset-plot" class="section level2">
 <h2>Upset plot</h2>
@@ -2930,386 +1671,7 @@ for (cl in cluster_names){
 combined_plot &lt;- wrap_plots(plot_lst, ncol = 3)
 
 combined_plot </code></pre>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-1.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-1">
-Past versions of upset-mg-comparison-1.png
-</button>
-</p>
-<div id="fig-upset-mg-comparison-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-1.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-2.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-2">
-Past versions of upset-mg-comparison-2.png
-</button>
-</p>
-<div id="fig-upset-mg-comparison-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-2.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-3.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-3">
-Past versions of upset-mg-comparison-3.png
-</button>
-</p>
-<div id="fig-upset-mg-comparison-3" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-3.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-4.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-4">
-Past versions of upset-mg-comparison-4.png
-</button>
-</p>
-<div id="fig-upset-mg-comparison-4" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-4.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-5.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-5">
-Past versions of upset-mg-comparison-5.png
-</button>
-</p>
-<div id="fig-upset-mg-comparison-5" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-5.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-6.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-6">
-Past versions of upset-mg-comparison-6.png
-</button>
-</p>
-<div id="fig-upset-mg-comparison-6" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-6.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-7.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-7">
-Past versions of upset-mg-comparison-7.png
-</button>
-</p>
-<div id="fig-upset-mg-comparison-7" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-7.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-8.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-8">
-Past versions of upset-mg-comparison-8.png
-</button>
-</p>
-<div id="fig-upset-mg-comparison-8" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-8.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-9.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-9">
-Past versions of upset-mg-comparison-9.png
-</button>
-</p>
-<div id="fig-upset-mg-comparison-9" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-9.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-10.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-upset-mg-comparison-10">
-Past versions of upset-mg-comparison-10.png
-</button>
-</p>
-<div id="fig-upset-mg-comparison-10" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://gh_personal_melody/phipsonlab/jazzPanda_workflowr/blob/ae17c0e531b852fdb283a825d1720a4c48f6e915/docs/figure/xenium-mouse-brain-analysis.Rmd/upset-mg-comparison-10.png" target="_blank">ae17c0e</a>
-</td>
-<td>
-Melody
-</td>
-<td>
-2026-01-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="xenium-mouse-brain-analysis_files/figure-html/upset-mg-comparison-1.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/upset-mg-comparison-2.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/upset-mg-comparison-3.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/upset-mg-comparison-4.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/upset-mg-comparison-5.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/upset-mg-comparison-6.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/upset-mg-comparison-7.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/upset-mg-comparison-8.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/upset-mg-comparison-9.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-mouse-brain-analysis_files/figure-html/upset-mg-comparison-10.png" width="1152" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="annotate-cell-type-with-top-marker-genes"
@@ -3509,16 +1871,16 @@ other attached packages:
 [49] spatstat.univar_3.1-4       spatstat.data_3.1-8        
 
 loaded via a namespace (and not attached):
-  [1] fs_1.6.6                spatstat.sparse_3.1-0   lubridate_1.9.4        
-  [4] httr_1.4.7              tools_4.5.1             sctransform_0.4.2      
-  [7] R6_2.6.1                lazyeval_0.2.2          uwot_0.2.3             
- [10] mgcv_1.9-3              withr_3.0.2             progressr_0.15.1       
- [13] cli_3.6.5               fastDummies_1.7.5       labeling_0.4.3         
+  [1] spatstat.sparse_3.1-0   lubridate_1.9.4         httr_1.4.7             
+  [4] tools_4.5.1             sctransform_0.4.2       R6_2.6.1               
+  [7] lazyeval_0.2.2          uwot_0.2.3              mgcv_1.9-3             
+ [10] withr_3.0.2             progressr_0.15.1        cli_3.6.5              
+ [13] textshaping_1.0.1       fastDummies_1.7.5       labeling_0.4.3         
  [16] sass_0.4.10             ggridges_0.5.6          pbapply_1.7-4          
- [19] dbscan_1.2.2            R.utils_2.13.0          aricode_1.0.3          
- [22] parallelly_1.45.1       shape_1.4.6.1           ica_1.0-3              
- [25] abind_1.4-8             R.methodsS3_1.8.2       lifecycle_1.0.4        
- [28] whisker_0.4.1           yaml_2.3.10             recipes_1.3.1          
+ [19] systemfonts_1.3.1       dbscan_1.2.2            R.utils_2.13.0         
+ [22] aricode_1.0.3           parallelly_1.45.1       shape_1.4.6.1          
+ [25] ica_1.0-3               abind_1.4-8             R.methodsS3_1.8.2      
+ [28] lifecycle_1.0.4         yaml_2.3.10             recipes_1.3.1          
  [31] SparseArray_1.8.1       Rtsne_0.17              promises_1.3.3         
  [34] crayon_1.5.3            miniUI_0.1.2            cowplot_1.2.0          
  [37] magick_2.8.7            pillar_1.11.0           knitr_1.50             
@@ -3534,160 +1896,31 @@ loaded via a namespace (and not attached):
  [67] BumpyMatrix_1.16.0      rprojroot_2.1.0         bslib_0.9.0            
  [70] irlba_2.3.5.1           KernSmooth_2.23-26      colorspace_2.1-1       
  [73] nnet_7.3-20             tidyselect_1.2.1        bit_4.6.0              
- [76] compiler_4.5.1          git2r_0.36.2            DelayedArray_0.34.1    
- [79] plotly_4.11.0           scales_1.4.0            hexbin_1.28.5          
- [82] lmtest_0.9-40           stringr_1.5.1           digest_0.6.37          
- [85] goftest_1.2-3           presto_1.0.0            spatstat.utils_3.1-5   
- [88] rmarkdown_2.29          XVector_0.48.0          htmltools_0.5.8.1      
- [91] pkgconfig_2.0.3         fastmap_1.2.0           rlang_1.1.6            
- [94] htmlwidgets_1.6.4       UCSC.utils_1.4.0        shiny_1.11.1           
- [97] farver_2.1.2            jquerylib_0.1.4         zoo_1.8-14             
-[100] jsonlite_2.0.0          BiocParallel_1.42.1     mclust_6.1.1           
-[103] ModelMetrics_1.2.2.2    R.oo_1.27.1             magrittr_2.0.3         
-[106] GenomeInfoDbData_1.2.14 dotCall64_1.2           viridis_0.6.5          
-[109] reticulate_1.43.0       leidenAlg_1.1.5         stringi_1.8.7          
-[112] pROC_1.19.0.1           MASS_7.3-65             plyr_1.8.9             
-[115] parallel_4.5.1          listenv_0.9.1           ggrepel_0.9.6          
-[118] deldir_2.0-4            graphlayouts_1.2.2      sccore_1.0.6           
-[121] splines_4.5.1           tensor_1.5.1            locfit_1.5-9.12        
-[124] igraph_2.1.4            RcppHNSW_0.6.0          reshape2_1.4.4         
-[127] evaluate_1.0.4          foreach_1.5.2           tweenr_2.0.3           
-[130] httpuv_1.6.16           RANN_2.6.2              tidyr_1.3.1            
-[133] purrr_1.1.0             polyclip_1.10-7         future_1.67.0          
-[136] scattermore_1.2         ggforce_0.5.0           RSpectra_0.16-2        
-[139] later_1.4.2             viridisLite_0.4.2       class_7.3-23           
+ [76] compiler_4.5.1          DelayedArray_0.34.1     plotly_4.11.0          
+ [79] scales_1.4.0            hexbin_1.28.5           lmtest_0.9-40          
+ [82] stringr_1.5.1           digest_0.6.37           goftest_1.2-3          
+ [85] presto_1.0.0            spatstat.utils_3.1-5    rmarkdown_2.29         
+ [88] XVector_0.48.0          htmltools_0.5.8.1       pkgconfig_2.0.3        
+ [91] fastmap_1.2.0           rlang_1.1.6             htmlwidgets_1.6.4      
+ [94] UCSC.utils_1.4.0        shiny_1.11.1            farver_2.1.2           
+ [97] jquerylib_0.1.4         zoo_1.8-14              jsonlite_2.0.0         
+[100] BiocParallel_1.42.1     mclust_6.1.1            ModelMetrics_1.2.2.2   
+[103] R.oo_1.27.1             magrittr_2.0.3          GenomeInfoDbData_1.2.14
+[106] dotCall64_1.2           viridis_0.6.5           reticulate_1.43.0      
+[109] leidenAlg_1.1.5         stringi_1.8.7           pROC_1.19.0.1          
+[112] MASS_7.3-65             plyr_1.8.9              parallel_4.5.1         
+[115] listenv_0.9.1           ggrepel_0.9.6           deldir_2.0-4           
+[118] graphlayouts_1.2.2      sccore_1.0.6            splines_4.5.1          
+[121] tensor_1.5.1            locfit_1.5-9.12         igraph_2.1.4           
+[124] RcppHNSW_0.6.0          reshape2_1.4.4          evaluate_1.0.4         
+[127] foreach_1.5.2           tweenr_2.0.3            httpuv_1.6.16          
+[130] RANN_2.6.2              tidyr_1.3.1             purrr_1.1.0            
+[133] polyclip_1.10-7         future_1.67.0           scattermore_1.2        
+[136] ggforce_0.5.0           RSpectra_0.16-2         later_1.4.2            
+[139] viridisLite_0.4.2       class_7.3-23            ragg_1.5.0             
 [142] tibble_3.3.0            memoise_2.0.1           cluster_2.1.8.1        
-[145] workflowr_1.7.1         timechange_0.3.0        globals_0.18.0         </code></pre>
-<br>
-<p>
-<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
-<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-Session information
-</button>
-</p>
-<div id="workflowr-sessioninfo" class="collapse">
-<pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.5.1 (2025-06-13)
-Platform: x86_64-pc-linux-gnu
-Running under: Red Hat Enterprise Linux 9.3 (Plow)
-
-Matrix products: default
-BLAS:   /stornext/System/data/software/rhel/9/base/tools/R/4.5.1/lib64/R/lib/libRblas.so 
-LAPACK: /stornext/System/data/software/rhel/9/base/tools/R/4.5.1/lib64/R/lib/libRlapack.so;  LAPACK version 3.12.1
-
-locale:
- [1] LC_CTYPE=en_AU.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_AU.UTF-8        LC_COLLATE=en_AU.UTF-8    
- [5] LC_MONETARY=en_AU.UTF-8    LC_MESSAGES=en_AU.UTF-8   
- [7] LC_PAPER=en_AU.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_AU.UTF-8 LC_IDENTIFICATION=C       
-
-time zone: Australia/Melbourne
-tzcode source: system (glibc)
-
-attached base packages:
-[1] grid      stats4    stats     graphics  grDevices utils     datasets 
-[8] methods   base     
-
-other attached packages:
- [1] harmony_1.2.3               Rcpp_1.1.0                 
- [3] Banksy_1.4.0                dotenv_1.0.3               
- [5] here_1.0.1                  xtable_1.8-4               
- [7] clustree_0.5.1              ggraph_2.2.1               
- [9] speckle_1.8.0               edgeR_4.6.3                
-[11] limma_3.64.1                ggvenn_0.1.10              
-[13] RColorBrewer_1.1-3          patchwork_1.3.1            
-[15] gridExtra_2.3               corrplot_0.95              
-[17] ComplexUpset_1.3.3          caret_7.0-1                
-[19] lattice_0.22-7              glmnet_4.1-10              
-[21] Matrix_1.7-3                dplyr_1.1.4                
-[23] data.table_1.17.8           ggplot2_3.5.2              
-[25] Seurat_5.3.0                SeuratObject_5.1.0         
-[27] sp_2.2-0                    SpatialExperiment_1.18.1   
-[29] SingleCellExperiment_1.30.1 SummarizedExperiment_1.38.1
-[31] Biobase_2.68.0              GenomicRanges_1.60.0       
-[33] GenomeInfoDb_1.44.2         IRanges_2.42.0             
-[35] S4Vectors_0.46.0            BiocGenerics_0.54.0        
-[37] generics_0.1.4              MatrixGenerics_1.20.0      
-[39] matrixStats_1.5.0           jazzPanda_0.2.4            
-[41] spatstat_3.4-0              spatstat.linnet_3.3-1      
-[43] spatstat.model_3.4-0        rpart_4.1.24               
-[45] spatstat.explore_3.5-2      nlme_3.1-168               
-[47] spatstat.random_3.4-1       spatstat.geom_3.5-0        
-[49] spatstat.univar_3.1-4       spatstat.data_3.1-8        
-
-loaded via a namespace (and not attached):
-  [1] fs_1.6.6                spatstat.sparse_3.1-0   lubridate_1.9.4        
-  [4] httr_1.4.7              tools_4.5.1             sctransform_0.4.2      
-  [7] R6_2.6.1                lazyeval_0.2.2          uwot_0.2.3             
- [10] mgcv_1.9-3              withr_3.0.2             progressr_0.15.1       
- [13] cli_3.6.5               fastDummies_1.7.5       labeling_0.4.3         
- [16] sass_0.4.10             ggridges_0.5.6          pbapply_1.7-4          
- [19] dbscan_1.2.2            R.utils_2.13.0          aricode_1.0.3          
- [22] parallelly_1.45.1       shape_1.4.6.1           ica_1.0-3              
- [25] abind_1.4-8             R.methodsS3_1.8.2       lifecycle_1.0.4        
- [28] whisker_0.4.1           yaml_2.3.10             recipes_1.3.1          
- [31] SparseArray_1.8.1       Rtsne_0.17              promises_1.3.3         
- [34] crayon_1.5.3            miniUI_0.1.2            cowplot_1.2.0          
- [37] magick_2.8.7            pillar_1.11.0           knitr_1.50             
- [40] rjson_0.2.23            future.apply_1.20.0     codetools_0.2-20       
- [43] glue_1.8.0              vctrs_0.6.5             png_0.1-8              
- [46] spam_2.11-1             gtable_0.3.6            cachem_1.1.0           
- [49] gower_1.0.2             xfun_0.52               S4Arrays_1.8.1         
- [52] mime_0.13               prodlim_2025.04.28      tidygraph_1.3.1        
- [55] survival_3.8-3          timeDate_4041.110       RcppHungarian_0.3      
- [58] iterators_1.0.14        hardhat_1.4.2           lava_1.8.1             
- [61] statmod_1.5.0           fitdistrplus_1.2-4      ROCR_1.0-11            
- [64] ipred_0.9-15            bit64_4.6.0-1           RcppAnnoy_0.0.22       
- [67] BumpyMatrix_1.16.0      rprojroot_2.1.0         bslib_0.9.0            
- [70] irlba_2.3.5.1           KernSmooth_2.23-26      colorspace_2.1-1       
- [73] nnet_7.3-20             tidyselect_1.2.1        bit_4.6.0              
- [76] compiler_4.5.1          git2r_0.36.2            DelayedArray_0.34.1    
- [79] plotly_4.11.0           scales_1.4.0            hexbin_1.28.5          
- [82] lmtest_0.9-40           stringr_1.5.1           digest_0.6.37          
- [85] goftest_1.2-3           presto_1.0.0            spatstat.utils_3.1-5   
- [88] rmarkdown_2.29          XVector_0.48.0          htmltools_0.5.8.1      
- [91] pkgconfig_2.0.3         fastmap_1.2.0           rlang_1.1.6            
- [94] htmlwidgets_1.6.4       UCSC.utils_1.4.0        shiny_1.11.1           
- [97] farver_2.1.2            jquerylib_0.1.4         zoo_1.8-14             
-[100] jsonlite_2.0.0          BiocParallel_1.42.1     mclust_6.1.1           
-[103] ModelMetrics_1.2.2.2    R.oo_1.27.1             magrittr_2.0.3         
-[106] GenomeInfoDbData_1.2.14 dotCall64_1.2           viridis_0.6.5          
-[109] reticulate_1.43.0       leidenAlg_1.1.5         stringi_1.8.7          
-[112] pROC_1.19.0.1           MASS_7.3-65             plyr_1.8.9             
-[115] parallel_4.5.1          listenv_0.9.1           ggrepel_0.9.6          
-[118] deldir_2.0-4            graphlayouts_1.2.2      sccore_1.0.6           
-[121] splines_4.5.1           tensor_1.5.1            locfit_1.5-9.12        
-[124] igraph_2.1.4            RcppHNSW_0.6.0          reshape2_1.4.4         
-[127] evaluate_1.0.4          foreach_1.5.2           tweenr_2.0.3           
-[130] httpuv_1.6.16           RANN_2.6.2              tidyr_1.3.1            
-[133] purrr_1.1.0             polyclip_1.10-7         future_1.67.0          
-[136] scattermore_1.2         ggforce_0.5.0           RSpectra_0.16-2        
-[139] later_1.4.2             viridisLite_0.4.2       class_7.3-23           
-[142] tibble_3.3.0            memoise_2.0.1           cluster_2.1.8.1        
-[145] workflowr_1.7.1         timechange_0.3.0        globals_0.18.0         </code></pre>
+[145] timechange_0.3.0        globals_0.18.0         </code></pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
-<!-- Adjust MathJax settings so that all math formulae are shown using
-TeX fonts only; see
-https://docs.mathjax.org/en/latest/web/configuration.html. This will make
-the presentation more consistent at the cost of the webpage sometimes
-taking slightly longer to load. Note that this only works because the
-footer is added to webpages before the MathJax javascript. -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    "HTML-CSS": { availableFonts: ["TeX"] }
-  });
-</script>
-
 
 
 

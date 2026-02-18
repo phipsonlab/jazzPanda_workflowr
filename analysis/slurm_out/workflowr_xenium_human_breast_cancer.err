@@ -1,12 +1,15 @@
-/var/spool/slurmd/job25668141/slurm_script: line 22: msg: command not found
-/var/spool/slurmd/job25668141/slurm_script: line 23: msg: command not found
-/var/spool/slurmd/job25668141/slurm_script: line 24: msg: command not found
-/var/spool/slurmd/job25668141/slurm_script: line 25: msg: command not found
-/var/spool/slurmd/job25668141/slurm_script: line 26: msg: command not found
-/var/spool/slurmd/job25668141/slurm_script: line 27: msg: command not found
-/var/spool/slurmd/job25668141/slurm_script: line 28: msg: command not found
-/var/spool/slurmd/job25668141/slurm_script: line 29: msg: command not found
-Current working directory: /vast/projects/xenium_5k/jazzPanda_workflowr/analysis
-Building 1 file(s):
-Building xenium-human-breast-cancer-analysis.Rmd
-log directory created: /vast/scratch/users/jin.m/RtmpwxEx6k/workflowr
+/var/spool/slurmd/job25698733/slurm_script: line 22: msg: command not found
+/var/spool/slurmd/job25698733/slurm_script: line 23: msg: command not found
+/var/spool/slurmd/job25698733/slurm_script: line 24: msg: command not found
+/var/spool/slurmd/job25698733/slurm_script: line 25: msg: command not found
+/var/spool/slurmd/job25698733/slurm_script: line 26: msg: command not found
+/var/spool/slurmd/job25698733/slurm_script: line 27: msg: command not found
+/var/spool/slurmd/job25698733/slurm_script: line 28: msg: command not found
+/var/spool/slurmd/job25698733/slurm_script: line 29: msg: command not found
+
+
+processing file: xenium-human-breast-cancer-analysis.Rmd
+output file: xenium-human-breast-cancer-analysis.knit.md
+
+
+Output created: /vast/projects/xenium_5k/jazzPanda_workflowr/docs/xenium-human-breast-cancer-analysis.html
