@@ -1,10 +1,10 @@
 ------------------------------------------------------------------------
-Job Started on Wed 18 Feb 2026 13:35:44 AEDT
-System: Linux il-n11.hpc.wehi.edu.au 5.14.0-362.24.1.el9_3.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Feb 15 07:18:13 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+Job Started on Wed 18 Feb 2026 14:48:34 AEDT
+System: Linux il-n17.hpc.wehi.edu.au 5.14.0-362.24.1.el9_3.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Feb 15 07:18:13 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
 CPU: Model name:                         Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz
 Total Memory: 503Gi
-Node: il-n11
-Job ID: 25698733
+Node: il-n17
+Job ID: 25710846
 ------------------------------------------------------------------------
 Loading R/4.5.1
   Loading requirement: libpng/1.6.43 libjpeg-turbo/3.0.2 libtiff/4.6.0
@@ -70,7 +70,7 @@ Loading gdal/3.9.0
 57/59                                
 58/59 [unnamed-chunk-3]              
 59/59                                
-/stornext/System/data/software/rhel/9/base/tools/pandoc/3.2/bin/pandoc +RTS -K512m -RTS xenium-human-breast-cancer-analysis.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output /vast/projects/xenium_5k/jazzPanda_workflowr/docs/xenium-human-breast-cancer-analysis.html --lua-filter /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /vast/scratch/users/jin.m/Rtmp2qGYjm/rmarkdown-str231a3c1c4440d4.html --variable navbar=1 --variable theme=cosmo --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /vast/scratch/users/jin.m/Rtmp2qGYjm/rmarkdown-str231a3c6556e096.html 
+/stornext/System/data/software/rhel/9/base/tools/pandoc/3.2/bin/pandoc +RTS -K512m -RTS xenium-human-breast-cancer-analysis.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output /vast/projects/xenium_5k/jazzPanda_workflowr/docs/xenium-human-breast-cancer-analysis.html --lua-filter /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /vast/scratch/users/jin.m/Rtmpm7N7cQ/rmarkdown-str30c0385689e33b.html --variable navbar=1 --variable theme=cosmo --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /vast/scratch/users/jin.m/Rtmpm7N7cQ/rmarkdown-str30c03830068686.html 
 ------------------------------------------------------------------------
-Job Completed on Wed 18 Feb 2026 13:39:46 AEDT
+Job Completed on Wed 18 Feb 2026 14:52:27 AEDT
 ------------------------------------------------------------------------

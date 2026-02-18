@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Melody" />
+<meta name="author" content="Melody Jin" />
 
 <meta name="date" content="2026-02-18" />
 
@@ -363,7 +363,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Cosmx human liver cancer sample</h1>
-<h4 class="author">Melody</h4>
+<h4 class="author">Melody Jin</h4>
 <h4 class="date">2026-02-18</h4>
 
 </div>
@@ -1966,7 +1966,7 @@ for (cl in cluster_names){
     df_mt[perm_cl,&quot;jazzPanda-correlation&quot;] &lt;- TRUE
     
     df_mt$gene_name &lt;- row.names(df_mt)
-    p = plot(upset(df_mt,
+    p = upset(df_mt,
                intersect=c(&quot;Wilcoxon Rank Sum Test&quot;, &quot;limma&quot;,
                            &quot;jazzPanda-correlation&quot;,&quot;jazzPanda-glm&quot;),
                wrap=TRUE, keep_empty_groups= FALSE, name=&quot;&quot;,
@@ -1985,14 +1985,14 @@ for (cl in cluster_names){
                  ggtitle(cl)+
                  theme(plot.title = element_text( size=15))
 
-    )
+    
     plot_lst[[cl]] &lt;- p 
 }
 
 combined_plot &lt;- wrap_plots(plot_lst, ncol =3)
 
 combined_plot </code></pre>
-<p><img src="cosmx-human-liver-cancer_files/figure-html/upset-mg-comparison-1.png" width="1152" style="display: block; margin: auto;" /><img src="cosmx-human-liver-cancer_files/figure-html/upset-mg-comparison-2.png" width="1152" style="display: block; margin: auto;" /><img src="cosmx-human-liver-cancer_files/figure-html/upset-mg-comparison-3.png" width="1152" style="display: block; margin: auto;" /><img src="cosmx-human-liver-cancer_files/figure-html/upset-mg-comparison-4.png" width="1152" style="display: block; margin: auto;" /><img src="cosmx-human-liver-cancer_files/figure-html/upset-mg-comparison-5.png" width="1152" style="display: block; margin: auto;" /><img src="cosmx-human-liver-cancer_files/figure-html/upset-mg-comparison-6.png" width="1152" style="display: block; margin: auto;" /><img src="cosmx-human-liver-cancer_files/figure-html/upset-mg-comparison-7.png" width="1152" style="display: block; margin: auto;" /><img src="cosmx-human-liver-cancer_files/figure-html/upset-mg-comparison-8.png" width="1152" style="display: block; margin: auto;" /><img src="cosmx-human-liver-cancer_files/figure-html/upset-mg-comparison-9.png" width="1152" style="display: block; margin: auto;" /><img src="cosmx-human-liver-cancer_files/figure-html/upset-mg-comparison-10.png" width="1152" style="display: block; margin: auto;" /><img src="cosmx-human-liver-cancer_files/figure-html/upset-mg-comparison-11.png" width="1152" style="display: block; margin: auto;" /><img src="cosmx-human-liver-cancer_files/figure-html/upset-mg-comparison-12.png" width="1152" style="display: block; margin: auto;" /><img src="cosmx-human-liver-cancer_files/figure-html/upset-mg-comparison-13.png" width="1152" style="display: block; margin: auto;" /><img src="cosmx-human-liver-cancer_files/figure-html/upset-mg-comparison-14.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="cosmx-human-liver-cancer_files/figure-html/upset-mg-comparison-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 4.5.1 (2025-06-13)
 Platform: x86_64-pc-linux-gnu

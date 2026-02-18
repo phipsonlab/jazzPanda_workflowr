@@ -1,10 +1,10 @@
 ------------------------------------------------------------------------
-Job Started on Wed 18 Feb 2026 12:46:22 AEDT
-System: Linux med-n33.hpc.wehi.edu.au 5.14.0-362.24.1.el9_3.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Feb 15 07:18:13 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+Job Started on Wed 18 Feb 2026 14:48:54 AEDT
+System: Linux med-n13.hpc.wehi.edu.au 5.14.0-362.24.1.el9_3.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Feb 15 07:18:13 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
 CPU: Model name:                         Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz
 Total Memory: 503Gi
-Node: med-n33
-Job ID: 25689480
+Node: med-n13
+Job ID: 25710881
 ------------------------------------------------------------------------
 Loading R/4.5.1
   Loading requirement: libpng/1.6.43 libjpeg-turbo/3.0.2 libtiff/4.6.0
@@ -82,7 +82,7 @@ Loading gdal/3.9.0
 69/71                          
 70/71 [unnamed-chunk-4]        
 71/71                          
-/stornext/System/data/software/rhel/9/base/tools/pandoc/3.2/bin/pandoc +RTS -K512m -RTS cosmx-human-liver-cancer.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output /vast/projects/xenium_5k/jazzPanda_workflowr/docs/cosmx-human-liver-cancer.html --lua-filter /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /vast/scratch/users/jin.m/RtmpwwSLgB/rmarkdown-str1668d63b38ef66.html --variable navbar=1 --variable theme=cosmo --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /vast/scratch/users/jin.m/RtmpwwSLgB/rmarkdown-str1668d653ef7635.html 
+/stornext/System/data/software/rhel/9/base/tools/pandoc/3.2/bin/pandoc +RTS -K512m -RTS cosmx-human-liver-cancer.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output /vast/projects/xenium_5k/jazzPanda_workflowr/docs/cosmx-human-liver-cancer.html --lua-filter /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmarkdown/lua/latex-div.lua --variable bs3=TRUE --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /stornext/Home/data/allstaff/j/jin.m/R/x86_64-pc-linux-gnu-library/4.5/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --include-before-body /vast/scratch/users/jin.m/RtmpCEmDow/rmarkdown-strde2c57fa02770.html --variable navbar=1 --variable theme=cosmo --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /vast/scratch/users/jin.m/RtmpCEmDow/rmarkdown-strde2c54a41d513.html 
 ------------------------------------------------------------------------
-Job Completed on Wed 18 Feb 2026 13:26:38 AEDT
+Job Completed on Wed 18 Feb 2026 15:29:58 AEDT
 ------------------------------------------------------------------------

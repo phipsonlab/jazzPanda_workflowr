@@ -1259,7 +1259,7 @@ for (cl in cluster_names){
     df_mt[perm_cl,"jazzPanda-correlation"] <- TRUE
     
     df_mt$gene_name <- row.names(df_mt)
-    p = plot(upset(df_mt,
+    p = upset(df_mt,
                intersect=c("Wilcoxon Rank Sum Test", "limma",
                            "jazzPanda-correlation","jazzPanda-glm"),
                wrap=TRUE, keep_empty_groups= FALSE, name="",
@@ -1278,7 +1278,6 @@ for (cl in cluster_names){
                  ggtitle(cl)+
                  theme(plot.title = element_text( size=15))
 
-    )
         plot_lst[[cl]] <- p 
 }
 

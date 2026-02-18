@@ -1115,7 +1115,7 @@ for (cl in cluster_names){
     
     df_mt$gene_name <- row.names(df_mt)
     
-    p = plot(upset(df_mt,
+    p = upset(df_mt,
                intersect=c("Wilcoxon Rank Sum Test", "limma",
                            "jazzPanda-glm"),
                wrap=TRUE, keep_empty_groups= FALSE, name="",
@@ -1133,8 +1133,6 @@ for (cl in cluster_names){
                width_ratio=0.3, height_ratio=1/4)+
               ggtitle(paste0("Cluster: ", cl))+
                  theme(plot.title = element_text( size=15))
-
-    )
          
     plot_lst[[cl]] <- p 
 }

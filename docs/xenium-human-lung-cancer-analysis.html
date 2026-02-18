@@ -1851,7 +1851,7 @@ for (cl in cluster_names){
     
     df_mt$gene_name &lt;- row.names(df_mt)
     
-    p = plot(upset(df_mt,
+    p = upset(df_mt,
                intersect=c(&quot;Wilcoxon Rank Sum Test&quot;, &quot;limma&quot;,
                            &quot;jazzPanda-correlation&quot;,&quot;jazzPanda-glm&quot;),
                wrap=TRUE, keep_empty_groups= FALSE, name=&quot;&quot;,
@@ -1868,14 +1868,14 @@ for (cl in cluster_names){
             ggtitle(paste0(&quot;Cluster &quot;, cl))+
                  theme(plot.title = element_text( size=15))
 
-    )
+    
     plot_lst[[cl]] &lt;- p 
 }
 
 combined_plot &lt;- wrap_plots(plot_lst, ncol =3)
 
 combined_plot </code></pre>
-<p><img src="xenium-human-lung-cancer-analysis_files/figure-html/upset-mg-comparison-1.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-human-lung-cancer-analysis_files/figure-html/upset-mg-comparison-2.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-human-lung-cancer-analysis_files/figure-html/upset-mg-comparison-3.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-human-lung-cancer-analysis_files/figure-html/upset-mg-comparison-4.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-human-lung-cancer-analysis_files/figure-html/upset-mg-comparison-5.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-human-lung-cancer-analysis_files/figure-html/upset-mg-comparison-6.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-human-lung-cancer-analysis_files/figure-html/upset-mg-comparison-7.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-human-lung-cancer-analysis_files/figure-html/upset-mg-comparison-8.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-human-lung-cancer-analysis_files/figure-html/upset-mg-comparison-9.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-human-lung-cancer-analysis_files/figure-html/upset-mg-comparison-10.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-human-lung-cancer-analysis_files/figure-html/upset-mg-comparison-11.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-human-lung-cancer-analysis_files/figure-html/upset-mg-comparison-12.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-human-lung-cancer-analysis_files/figure-html/upset-mg-comparison-13.png" width="1152" style="display: block; margin: auto;" /><img src="xenium-human-lung-cancer-analysis_files/figure-html/upset-mg-comparison-14.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="xenium-human-lung-cancer-analysis_files/figure-html/upset-mg-comparison-1.png" width="1152" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="annotate-cell-type-with-top-marker-genes"
