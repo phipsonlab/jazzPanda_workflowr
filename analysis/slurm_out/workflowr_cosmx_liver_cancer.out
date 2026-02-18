@@ -1,16 +1,25 @@
 ------------------------------------------------------------------------
-Job Started on Tue 17 Feb 2026 23:41:44 AEDT
-System: Linux med-n02.hpc.wehi.edu.au 5.14.0-362.24.1.el9_3.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Feb 15 07:18:13 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
-CPU: Model name:                         Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz
-Total Memory: 503Gi
-Node: med-n02
-Job ID: 25668079
+Job Started on Wed 18 Feb 2026 02:50:47 AEDT
+System: Linux lrg-n03.hpc.wehi.edu.au 5.14.0-362.24.1.el9_3.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Feb 15 07:18:13 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+CPU: Model name:                         Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
+Total Memory: 1.5Ti
+Node: lrg-n03
+Job ID: 25668146
 ------------------------------------------------------------------------
 Loading R/4.5.1
   Loading requirement: libpng/1.6.43 libjpeg-turbo/3.0.2 libtiff/4.6.0
     ninja/1.11.1 bzip2/1.0.8 hdf5/1.12.3 pcre2/10.42 openjdk/21.0.2 cairo/1.19.0
 Loading gdal/3.9.0
   Loading requirement: proj/9.4.0 netcdf/4.9.2 mariadb-connector-c/3.3.10
+Summary from wflow_publish
+
+**Step 1: Commit analysis files**
+
+No files to commit
+
+
+**Step 2: Build HTML files**
+
 Summary from wflow_build
 
 Settings:
@@ -20,7 +29,50 @@ The following were built externally each in their own fresh R session:
 
 ../docs/cosmx-human-liver-cancer.html
 
-Log files saved in /vast/scratch/users/jin.m/Rtmpxg56q6/workflowr
+Log files saved in /vast/scratch/users/jin.m/Rtmp3Vk7H1/workflowr
+
+**Step 3: Commit HTML files**
+
+Summary from wflow_git_commit
+
+The following was run: 
+
+  $ git add ../docs/cosmx-human-liver-cancer.html ../docs/figure/cosmx-human-liver-cancer.Rmd ../docs/site_libs ../docs/.nojekyll 
+  $ git commit -m "Build site." 
+
+The following file(s) were included in commit 89f6098:
+../docs/cosmx-human-liver-cancer.html
+../docs/figure/cosmx-human-liver-cancer.Rmd/ave-expression-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/cc-corr-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/cluster-xy-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/cluster-xy-whole-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/ct-prop-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/falsecode-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/falsecode-xy-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/load_FM_res-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/looad_limma_res-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/negprobes-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/negprobes_coords-vishex-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top10_corr-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top10_glm-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-2.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-3.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-4.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-5.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-6.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-7.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-corr-8.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-2.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-3.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-4.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-5.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-6.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-7.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/top3-gene-vis-xy-glm-8.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/vvplot-corr-1.png
+../docs/figure/cosmx-human-liver-cancer.Rmd/vvplot-glm-1.png
 ------------------------------------------------------------------------
-Job Completed on Wed 18 Feb 2026 00:22:14 AEDT
+Job Completed on Wed 18 Feb 2026 04:03:36 AEDT
 ------------------------------------------------------------------------

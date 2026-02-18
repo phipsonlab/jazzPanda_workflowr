@@ -1,10 +1,10 @@
 ------------------------------------------------------------------------
-Job Started on Wed 18 Feb 2026 02:47:06 AEDT
+Job Started on Wed 18 Feb 2026 02:50:40 AEDT
 System: Linux lrg-n03.hpc.wehi.edu.au 5.14.0-362.24.1.el9_3.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Feb 15 07:18:13 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
 CPU: Model name:                         Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
 Total Memory: 1.5Ti
 Node: lrg-n03
-Job ID: 25668141
+Job ID: 25668145
 ------------------------------------------------------------------------
 Loading R/4.5.1
   Loading requirement: libpng/1.6.43 libjpeg-turbo/3.0.2 libtiff/4.6.0
@@ -27,9 +27,9 @@ Settings:
 
 The following were built externally each in their own fresh R session: 
 
-../docs/xenium-human-breast-cancer-analysis.html
+../docs/cosmx-human-healthy-liver.html
 
-Log files saved in /vast/scratch/users/jin.m/RtmpwxEx6k/workflowr
+Log files saved in /vast/scratch/users/jin.m/RtmpXc69CR/workflowr
 
 **Step 3: Commit HTML files**
 
@@ -37,11 +37,21 @@ Summary from wflow_git_commit
 
 The following was run: 
 
-  $ git add ../docs/xenium-human-breast-cancer-analysis.html ../docs/figure/xenium-human-breast-cancer-analysis.Rmd ../docs/site_libs ../docs/.nojekyll 
+  $ git add ../docs/cosmx-human-healthy-liver.html ../docs/figure/cosmx-human-healthy-liver.Rmd ../docs/site_libs ../docs/.nojekyll 
   $ git commit -m "Build site." 
 
-The following file(s) were included in commit d1fdf4b:
-../docs/xenium-human-breast-cancer-analysis.html
+The following file(s) were included in commit 38f0730:
+../docs/cosmx-human-healthy-liver.html
+../docs/figure/cosmx-human-healthy-liver.Rmd/ave-expression-1.png
+../docs/figure/cosmx-human-healthy-liver.Rmd/cc-corr-1.png
+../docs/figure/cosmx-human-healthy-liver.Rmd/cluster-xy-1.png
+../docs/figure/cosmx-human-healthy-liver.Rmd/cluster-xy-whole-1.png
+../docs/figure/cosmx-human-healthy-liver.Rmd/ct-prop-1.png
+../docs/figure/cosmx-human-healthy-liver.Rmd/falsecode-1.png
+../docs/figure/cosmx-human-healthy-liver.Rmd/falsecode-xy-1.png
+../docs/figure/cosmx-human-healthy-liver.Rmd/negprobes-1.png
+../docs/figure/cosmx-human-healthy-liver.Rmd/negprobes_coords-vishex-1.png
+../docs/figure/cosmx-human-healthy-liver.Rmd/top10_glm-1.png
 ------------------------------------------------------------------------
-Job Completed on Wed 18 Feb 2026 02:56:37 AEDT
+Job Completed on Wed 18 Feb 2026 03:58:16 AEDT
 ------------------------------------------------------------------------

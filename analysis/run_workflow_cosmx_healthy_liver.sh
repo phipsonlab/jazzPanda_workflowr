@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --partition=regular
-#SBATCH --job-name=run_wf
-#SBATCH --output=slurm_out/workflowr_cosmx_healthy_liver.out
-#SBATCH --error=slurm_out/workflowr_cosmx_healthy_liver.err
-#SBATCH --time=06:00:00
+#SBATCH --job-name=workflowr_cosmx_hhliver
+#SBATCH --output=slurm_out/workflowr_cosmx_hhliver.out
+#SBATCH --error=slurm_out/workflowr_cosmx_hhliver.err
+#SBATCH --time=12:00:00
 #SBATCH --mem=400G
 #SBATCH --cpus-per-task=12
 
@@ -35,7 +35,8 @@ module load gdal/3.9.0
 module load ImageMagick/7.1.1
 module load gcc/14.2
 
-Rscript -e "workflowr::wflow_build('cosmx-human-healthy-liver.Rmd',delete_cache = TRUE, clean_fig_files = TRUE)"
+Rscript -e "workflowr::wflow_publish('cosmx-human-healthy-liver.Rmd', message = 'Rebuild analysis scripts', delete_cache = TRUE)"
+
 
 
 echo "------------------------------------------------------------------------"

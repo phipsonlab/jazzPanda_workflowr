@@ -35,7 +35,7 @@ module load gdal/3.9.0
 module load ImageMagick/7.1.1
 module load gcc/14.2
 
-Rscript -e "workflowr::wflow_build('cosmx-human-liver-cancer.Rmd',delete_cache = TRUE, clean_fig_files = TRUE)"
+Rscript -e "workflowr::wflow_publish('cosmx-human-liver-cancer.Rmd', message = 'Rebuild cosmx liver cancer', delete_cache = TRUE)"
 
 
 echo "------------------------------------------------------------------------"

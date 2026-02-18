@@ -1,0 +1,13 @@
+/var/spool/slurmd/job25668122/slurm_script: line 22: msg: command not found
+/var/spool/slurmd/job25668122/slurm_script: line 23: msg: command not found
+/var/spool/slurmd/job25668122/slurm_script: line 24: msg: command not found
+/var/spool/slurmd/job25668122/slurm_script: line 25: msg: command not found
+/var/spool/slurmd/job25668122/slurm_script: line 26: msg: command not found
+/var/spool/slurmd/job25668122/slurm_script: line 27: msg: command not found
+/var/spool/slurmd/job25668122/slurm_script: line 28: msg: command not found
+/var/spool/slurmd/job25668122/slurm_script: line 29: msg: command not found
+Current working directory: /vast/projects/xenium_5k/jazzPanda_workflowr/analysis
+Building 7 file(s):
+Building cosmx-human-healthy-liver.Rmd
+log directory created: /vast/scratch/users/jin.m/RtmpUSo86h/workflowr
+[2026-02-18T02:47:55.300] error: *** JOB 25668122 ON lrg-n03 CANCELLED AT 2026-02-18T02:47:55 DUE to SIGNAL Terminated ***

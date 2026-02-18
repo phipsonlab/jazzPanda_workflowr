@@ -35,7 +35,7 @@ module load gdal/3.9.0
 module load ImageMagick/7.1.1
 module load gcc/14.2
 
-Rscript -e "workflowr::wflow_build('xenium-human-breast-cancer-analysis.Rmd',delete_cache = TRUE, clean_fig_files = TRUE)"
+Rscript -e "workflowr::wflow_publish('xenium-human-breast-cancer-analysis.Rmd', message = 'Rebuild xenium hbreast cancer', delete_cache = TRUE)"
 
 echo "------------------------------------------------------------------------"
 echo "Job Completed on $(date)"

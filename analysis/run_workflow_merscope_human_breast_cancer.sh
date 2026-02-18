@@ -35,7 +35,8 @@ module load gdal/3.9.0
 module load ImageMagick/7.1.1
 module load gcc/14.2
 
-Rscript -e "workflowr::wflow_build('merscope-human-breast-cancer.Rmd',delete_cache = TRUE, clean_fig_files = TRUE)"
+Rscript -e "workflowr::wflow_publish('merscope-human-breast-cancer.Rmd', message = 'Rebuild merscope hbreast cancer', delete_cache = TRUE)"
+
 
 
 echo "------------------------------------------------------------------------"
